@@ -318,7 +318,7 @@ Nach dem Compilieren sollten folgende Dateien installiert sein:
 	Der dynamisch ladbare Treiber für eine Braille-Anzeige, wobei 
        <em/driver/ der 2 Zeichen lange <ref id="drivers" name="#TODO driver identification code"> ist.
       <tag/brltty-spk.lst/
-	 Eine Liste von Sprachsynthesizer-Treiber, welche als dynamisch ladbare Objekte übersetzt wurden und
+	 Eine Liste von Sprachsynthesizer-Treibern, welche als dynamisch ladbare Objekte übersetzt wurden und
 	 somit zur Laufzeit ausgewählt und verwendet werden können.
 	 Jede Zeile besteht aus einem 2 Zeichen langen Identifikations-Code für einen Treiber,
 	 ein Tabulator-Zeichen und eine Beschreibung des Sprachsynthesizers, den der Treiber unterstützt.
@@ -370,16 +370,16 @@ Nach dem Compilieren sollten folgende Dateien installiert sein:
       <tag/*.tti/
         Include files for text tables.
       <tag/*.hlp/
-        Driver-specific help pages.
-        Their names look more or less like <tt/brltty-/<em/driver/<tt/.hlp/,
-        where <em/driver/ is the two-letter <ref id="drivers" name="driver identification code">.
+	 Treiber-spezifische Handbuchseiten.
+	 Die Dateinamen folgen mehr oder weniger dem Schema <tt/brltty-/<em/driver/<tt/.hlp/,
+         wobei <em/driver/ der 2 Zeichen lange <ref id="drivers" name="driver identification code"> ist.
     </descrip>
   <tag>/var/lib/BrlAPI/</>
     Local sockets for connecting to the Application Programming Interface.
   <tag>/include/</>
-    C header files for the Application Programming Interface.
-    Their names look like <tt/brlapi-/<em/function/<tt/.h/.
-    The main header is <tt/brlapi.h/.
+    C Header-Dateien für die Programmierschnittstelle (API).
+    Die Dateinamen folgen dem Schema <tt/brlapi-/<em/function/<tt/.h/.
+    #TODO The main header is <tt/brlapi.h/.
   <tag>/include/brltty/</>
     C header files for accessing braille hardware.
     Their names look like <tt/brldefs-/<em/driver/<tt/.h/
@@ -441,22 +441,16 @@ Um BRLTTY zu deinstallieren, gehen Sie wie folgt vor:
 </tscreen>
 Das ist alles was Sie zu tun haben. Für all jene, die wirklich wissen wollen, was hier passiert, gibt es hier die Details:
 
-<sect2>Build Options<label id="build"><p>
-The first step in building BRLTTY is to configure it
-for your system and/or for your personal needs.
-This is done by running the <tt/configure/ script in BRLTTY's top-level directory.
-We've tried to make the defaults fit the most common case, so,
-assuming that you're not attempting to do anything out of the ordinary,
-you may not need to do anything more complicated than
-invoke this script without specifying any options at all.
+<sect2>Übersetzungs-Optionen<label id="build"><p>
+Der erste Schritt zur Übersetzung von BRLTTY ist, das Programm für Ihr System und/oder nach Ihren persönlichen Preferenzen
+zu konfigurieren.
+Das geschieht durch das Aufrufen des Kommandos <tt/configure/ im Hauptverzeichnis von BRLTTY.
+Wir haben versucht, die Standardeisntellung so zu wählen, daß sie für die meisten Fälle pasend sein sollten.
+Sollten Sie also nicht besonders aussergewöhnliches versuchen wollen, müssen Sie nichts weiter tun, als dieses Kommando ohne weitere Optionen aufzurufen.
 <tscreen>./configure</tscreen>
-If, however, you have some special requirements,
-or even if you're just adventurous,
-you should find out what your choices are.
+Haben Sie jedoch besondere Anforderungen, oder sind einfach nur experimentierfreudig, können Sie so die verfügbaren Optionen anzeigen:
 <tscreen>./configure --help</tscreen>
-You should also check out the <tt/README/ file in the subdirectory
-containing the driver for your braille display
-for any additional display-specific instructions.
+Sie sollten auch die <tt/README/-Datei im Verzeichnis des Treibers für Ihre Braille-Anzeige beachten, um Informationen über eventuelle zusätzliche Build-Optionen zu erhalten.
 
 <sect3>System Defaults<label id="build-defaults"><p>
 <descrip>
