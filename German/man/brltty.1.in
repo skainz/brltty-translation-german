@@ -830,7 +830,7 @@ is specified then autodetection is performed
 using only those drivers which are known to be reliable for this purpose.
 .RE
 .SH "SEE ALSO"
-For full documentation, see
-.BR brltty 's
-on-line manual at
-.RB "[" "http://mielke.cc/brltty/doc/Manual-HTML/Manual.html" "]."
+Die komplette Dokumentation von
+.BR brltty 
+finden Sie online unter 
+.RB "[" "http://mielke.cc/brltty/documentation.html" "]."

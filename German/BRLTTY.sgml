@@ -379,13 +379,13 @@ Nach dem Compilieren sollten folgende Dateien installiert sein:
   <tag>/include/</>
     C Header-Dateien für die Programmierschnittstelle (API).
     Die Dateinamen folgen dem Schema <tt/brlapi-/<em/function/<tt/.h/.
-    #TODO The main header is <tt/brlapi.h/.
+    Die Haupt-Headerdatei ist <tt/brlapi.h/.
   <tag>/include/brltty/</>
-    C header files for accessing braille hardware.
-    Their names look like <tt/brldefs-/<em/driver/<tt/.h/
-    (where <em/driver/ is the two-letter <ref id="drivers" name="driver identification code">).
-    The headers <tt/brldefs.h/ and <tt/api.h/ are provided
-    for backward compatibility and shouldn't be used.
+    C Header-Dateien für den Zugriff auf die Braille-Hardware.
+    Die Dateinamen folgen dem Schema <tt/brldefs-/<em/driver/<tt/.h/
+    (wobei <em/driver/ der 2 Zeichen lange <ref id="drivers" name="#TODOdriver identification code">).
+    Die Dateien <tt/brldefs.h/ und <tt/api.h/ sind nur mehr der Abwertskompatibilität wegen
+    vorhanden und sollten nicht mehr verwendet werden.					      
   <tag>/man/</>
     Handbuchseiten.
     <descrip>
@@ -431,7 +431,7 @@ dass alle von uns gewählten Standardeinstellung für Sie passen.
       <newline>
       make install
     </tscreen>
-    Das sollten Sie als <bf/root/ machen.
+    Diese Kommandos sollten Sie als <bf/root/ ausführen.
 </enum>
 Um BRLTTY zu deinstallieren, gehen Sie wie folgt vor:
 <tscreen>
