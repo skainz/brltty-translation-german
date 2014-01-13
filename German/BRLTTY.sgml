@@ -4232,45 +4232,51 @@ Die folgenden Attribut-Tabellen sind verfügbar:
     ("Weiß auf Schwarz") vs. invertiertem ("Schwarz auf Weiß") Text.
 
   <tag/invleft_right/
-    The lefthand column represents the foreground colours:
+     Die linke Spalte beschreibt die Vordergrundfarben:
     <descrip>
-      <tag/Dot 1/Blue
-      <tag/Dot 2/Green
-      <tag/Dot 3/Red
-      <tag/Dot 7/Bright
+      <tag/Punkt 1/Blau
+      <tag/Punkt 2/Grün
+      <tag/Punkt 3/Rot
+      <tag/Punkt 7/Hell
     </descrip>
-    The righthand column represents the background colours:
+    Die rechte Spalte beschreibt die Hintergrundfarben:
     <descrip>
-      <tag/Dot 4/Blue
-      <tag/Dot 5/Green
-      <tag/Dot 6/Red
-      <tag/Dot 8/Blink
+      <tag/Punkt 4/Blau
+      <tag/Punkt 5/Gruen
+      <tag/Punkt 6/Rot
+      <tag/Punkt 8/Blinken
     </descrip>
+    Ein gesetztes Hintergrund-Bit setzt den entsprechenden Punkt in der rechten Spalte,
+    ein nicht gesetztes Vordergrund-Bit setzt den entsprechenden Punkt in der linken Spalte.
+    Diese etwas unintuitive Logik macht es allerding leichter, häufig vorkommende Attributkombinationen 
+    zu erkennen.
+    #TODO
     A background bit being on triggers its corresponding dot,
     whereas a foreground bit being off triggers its corresponding dot.
     This unintuitive logic actually makes it easier
     to read the most commonly used attribute combinations.
   <tag/upper_lower/
-    The upper square represents the foreground colours:
+     Das obere Quadrat beschreibt die Vordergrundfarben:
     <descrip>
-      <tag/Dot 1/Red
-      <tag/Dot 4/Green
-      <tag/Dot 2/Blue
-      <tag/Dot 5/Bright
+      <tag/Punkt 1/Rot
+      <tag/Punkt 4/Grün
+      <tag/Punkt 2/Blau
+      <tag/Punkt 5/Hell
     </descrip>
-    The lower square represents the background colours:
+    Das untere Quadrat bereciht die Hintergrundfarben:
     <descrip>
-      <tag/Dot 3/Red
-      <tag/Dot 6/Green
-      <tag/Dot 7/Blue
-      <tag/Dot 8/Blink
+      <tag/Punkt 3/Rot
+      <tag/Punkt 6/Grün
+      <tag/Punkt 7/Blau
+      <tag/Punkt 8/Blinken
     </descrip>
-    A dot is raised when its corresponding attribute bit is on.
+    Ein Punkt ist gesetzt wenn das entsprechende Attribut-Bit aktiv ist.
 </descrip>
-See the <ref id="options-attributes-table" name="-a"> command line option,
-the <ref id="configure-attributes-table" name="attributes-table"> configuration file directive,
-and the <ref id="build-attributes-table" name="--with-attributes-table"> build option
-for details regarding how to use an alternate attributes table.
+
+Beachten Sie auch den Kommandozeilenparamter <ref id="options-attributes-table" name="-a">, 
+die <ref id="configure-attributes-table" name="attributes-table">-Direktive in der Konfigurationsdatei
+und die Build-Option <ref id="build-attributes-table" name="--with-attributes-table"> für weitere Informationen, wie Sie alternative 
+Attribut-Tabellen verwenden können.
 
 <sect2>Attributes Table Format<p>
 An attributes table consists of a sequence of directives, one per line,
