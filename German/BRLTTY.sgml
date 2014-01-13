@@ -11,7 +11,7 @@
 
 <titlepag>
   <title>BRLTTY Bedienungsanleitung
-    <subtitle>Zugriff auf die Konsole für blinde Personen mittels Braille-Anzeigegeräten
+    <subtitle>Zugriff auf die Konsole für blinde Personen mittels Braillezeile
   <author>
     <name>Nikhil Nair <tt><htmlurl url="mailto:nn201@cus.cam.ac.uk" name="&lt;nn201@cus.cam.ac.uk&gt;"></tt>
   <and>
@@ -112,14 +112,13 @@ besuchen Sie die Webseite:
 
 <sect>Einleitung<p>
 BRLTTY ermöglicht einem Braille-Benutzer Zugriff zur Text-Konsole eines Linux/Unix Systems.
-Es läuft als Hintergrundprozess(Dämon) und steuert ein Braille-Anzeigegerät. 
+Es läuft als Hintergrundprozess(Dämon) und steuert ein Braillezeile. 
 BRLTTY kann bereits sehr früh wärend des Systemstarts aktiv sein und ermöglicht somit 
 unabhängiges durchführen von Administrationsaufgaben wie Single-User-Modus, 
-Wiederherstellung von Dateisystemen und Analyse von Boot-Problemen.
-#TODO It even greatly eases such routine tasks as logging in.
+Wiederherstellung von Dateisystemen, Analyse von Boot-Problemen und das Anmelden am System.
 
 BRLTTY stellt einen rechteckigen Ausschnitt des Bildschirms (im weiteren als `Fenster' bezeichnet)
-als Braille-Text auf der Braille-Anzeige dar. Steuertasten auf der Braille-Anzeige ermöglichen das
+als Text auf der Braillezeile dar. Steuertasten auf der Braillezeile ermöglichen das
 Verschieben des dargestellten Bildschirm-Ausschnitts, das Ein-/Ausschalten verschiedener Anzeigeoptionen und
 das Aktivieren von Spezialfunktionen.
 
@@ -127,7 +126,7 @@ das Aktivieren von Spezialfunktionen.
 BRLTTY stellt die folgenden Funtionen zur Verfügung:
 <itemize>
   <item>
-    #TODOVollständige Umsetzung der üblichen Bildschirm-Betrachtungs-Funktionen. Full implementation of the usual screen review facilities.
+    Vollständige Umsetzung der üblichen Bildschirm-Betrachtungs-Funktionen.
   <item>
     Auwahl zwischen <tt/block/-, <tt/unterstrichenem/-, or <tt/keinem/ Cursor.
   <item>
@@ -139,7 +138,7 @@ BRLTTY stellt die folgenden Funtionen zur Verfügung:
     Anhalten des Bildschirms für bequemes Lesen.
   <item>
     Intelligente Cursor-Steuerung, die einfaches Auffinden des Cursors in Texteditoren, 
-    Web-Browsern, etc. ermöglicht, ohne die Hände von der  Braille-Anzeige nehmen zu müssen.
+    Web-Browsern, etc. ermöglicht, ohne die Hände von der  Braillezeile nehmen zu müssen.
   <item>
     Eine Kopieren-und-Einfügen Funktion (zeilen- oder blockweise), welche vor allem nützlich ist, um beispielsweise 
     lange Dateinamen oder komplizierte Kommandos einzugeben oder um Inhalte zwischen virtuellen Terminals zu kopieren.
@@ -158,7 +157,7 @@ BRLTTY stellt die folgenden Funtionen zur Verfügung:
   <item>
     Einfache Sprachunterstützung.
   <item>
-    Modulares Design, um relativ einfach neue Braille-Anzeigen 
+    Modulares Design, um relativ einfach neue Braillezeilen 
     oder Sprachsynthesegeräte hinzufügen zu können.
   <item>
     Eine Programmierschnittstelle (API).
@@ -225,7 +224,7 @@ auf diese Art zu verwenden. Dadurch ist es möglich, daß
   <item>
     BRLTTY sehr früh während des Systemstarts aktiv wird.
   <item>
-    die Braille-Anzeige beim Login-Prompt voll funktionsfähig ist.
+    die Braillezeile beim Login-Prompt voll funktionsfähig ist.
     <item>
       Braille-Benutzer Administrationsaufgaben während des Systemstarts 
       durchführen können.
@@ -244,9 +243,9 @@ Es kann mit Anwendungen, die auf  <tt/curses/ basieren, interagieren,
 aber nicht mit Programmen, die spezielle VGA-Funktionen oder eine 
 grafische Konsole (z.B. das X Window System) benötigen.
 
-Sie müssen natürlich ein Braille-Anzeigegerät besitzen 
+Sie müssen natürlich eine Braillezeile besitzen 
 (siehe <ref id="displays" name="#TODO Supported Braille Displays"> für eine komplette 
-Liste). Wir hoffen, in Zukunft noch mehr Braille-Displays unterstützen zu können. 
+Liste). Wir hoffen, in Zukunft noch mehr Braillezeilen unterstützen zu können. 
 Falls Sie also irgenwelche technischen Informationen zu Geräten besitzen, für die 
 Sie gerne Unterstützung in BRLTTY hätten, kontaktieren Sie uns bitte 
 (siehe Abschnitt <ref id="contact" name="Kontaktinformationen">).
@@ -257,10 +256,7 @@ Die Entwicklungswerkzeuge, die bei einer üblichen Unix-Distribution enthalten si
 Falls Sie Probleme haben, kontaktieren Sie uns bitte und wir werden den Quelltext für Sie übersetzen.
 
 
-
-
-
-<sect>#TODOThe Build Procedure<p>
+<sect>#TODODer Build-Prozess<p>
 
 BRLTTY kann von der BRLTTY-Webseite 
 (siehe Abschnitt <ref id="contact" name="#TODOContact Information"> für die Adresse) heruntergeladen werden.
@@ -302,9 +298,9 @@ Nach dem Compilieren sollten folgende Dateien installiert sein:
 	 Eine Liste von Treibern, die als dynamisch ladbare Objekte übersetzt wurden. Diese können
 	 zur Laufzeit ausgewählt und verwendet werden.
 	 Jede Zeile besteht aus einem 2 Zeichen langen Identifikations-Code für einen Treiber,
-	 ein Tabulator-Zeichen und eine Beschreibung der Braille-Anzeige, die der Treiber unterstützt.
+	 ein Tabulator-Zeichen und eine Beschreibung der Braillezeile, die der Treiber unterstützt.
       <tag>libbrlttyb<em/driver/.so.1</tag>
-	Der dynamisch ladbare Treiber für eine Braille-Anzeige, wobei 
+	Der dynamisch ladbare Treiber für eine Braillezeile, wobei 
        <em/driver/ der 2 Zeichen lange <ref id="drivers" name="#TODO driver identification code"> ist.
       <tag/brltty-spk.lst/
 	 Eine Liste von Sprachsynthesizer-Treibern, welche als dynamisch ladbare Objekte übersetzt wurden und
@@ -336,7 +332,7 @@ Nach dem Compilieren sollten folgende Dateien installiert sein:
         wobei <em/driver/ der 2 Zeichen lange <ref id="drivers" name="#TODOdriver identification code"> ist.
       <tag/*.atb/
         Attribut-Tabellen
-        (siehe Abschnitt <ref id="table-attributes" name="Attributes Tables"> für Details).
+        (siehe Abschnitt <ref id="table-attributes" name="Attribut-Tabellen"> für Details).
         Die Dateinamen folgen dem Schema <em/name/<tt/.atb/.
       <tag/*.ati/
         Include-Dateien für Attribut-Tabellen
@@ -439,7 +435,7 @@ Sollten Sie also nicht besonders aussergewöhnliches versuchen wollen, müssen Sie
 <tscreen>./configure</tscreen>
 Haben Sie jedoch besondere Anforderungen, oder sind einfach nur experimentierfreudig, können Sie so die verfügbaren Optionen anzeigen:
 <tscreen>./configure --help</tscreen>
-Sie sollten auch die <tt/README/-Datei im Verzeichnis des Treibers für Ihre Braille-Anzeige beachten, um Informationen über eventuelle zusätzliche Build-Optionen zu erhalten.
+Sie sollten auch die <tt/README/-Datei im Verzeichnis des Treibers für Ihre Braillezeile beachten, um Informationen über eventuelle zusätzliche Build-Optionen zu erhalten.
 
 <sect3>#TODOSystem Defaults<label id="build-defaults"><p>
 <descrip>
@@ -470,7 +466,7 @@ Sie sollten auch die <tt/README/-Datei im Verzeichnis des Treibers für Ihre Brai
     Beachten Sie auch die <ref id="configure-braille-driver" name="#TODObraille-driver">  Option in der Konfigurationsdatei
       sowei die Option <ref id="options-braille-driver" name="-b"> für die Treiberauswahl zur Laufzeit.
   <tag><tt/--with-braille-parameters=/[<em/driver/<tt/:/]<em/name/<tt/=/<em/value/<tt/,/...<label id="build-braille-parameters"></tag>
-    Setzt die Standardparameter für die Braille Anzeigetreiber. Wird ein Parameter mehrmals angegeben, dann wird der letzte (=rechteste) Wert verwendet.
+    Setzt die Standardparameter für die Braillezeilen-Treiber. Wird ein Parameter mehrmals angegeben, dann wird der letzte (=rechteste) Wert verwendet.
      Wird ein Parameter zusätzlich mit einem Treiber angegeben (siehe Abschnitt <ref id="drivers" name="#TODODriver Identification Codes">), dann gilt 
      dieser Parameter nur für den jeweiligen Treiber.
     Die Liste der möglichen Parameter für jeden Treiber finden Sie in der Dokumentation des jeweiligen Treibers.						Beachten Sie auch die Option <ref id="configure-braille-parameters" name="braille-parameters"> in der Konfigurationsdatei sowie
@@ -507,7 +503,7 @@ Sie sollten auch die <tt/README/-Datei im Verzeichnis des Treibers für Ihre Brai
     </descrip>
   <tag><tt/--with-text-table=/<em/file/<label id="build-text-table"></tag>
     Specify the built-in (fallback) text table
-    (see section <ref id="table-text" name="Text Tables"> for details).
+    (see section <ref id="table-text" name="Text-Tabellen"> for details).
     The specified table is linked into the BRLTTY binary, and is used
     either if locale-based autoselection fails
     or if the requested table can't be loaded.
@@ -1715,7 +1711,7 @@ The following is written to standard output:
 
 <sect2>ttbtest<label id="utility-ttbtest"><p>
 This utility tests a text table
-(see section <ref id="table-text" name="Text Tables">).
+(see section <ref id="table-text" name="Text-Tabellen">).
 <tscreen>ttbtest -<em/option/ ... <em/input-table/ <em/output-table/</tscreen>
 <descrip>
   <tag><em/input-table/</tag>
@@ -1778,7 +1774,7 @@ is rewritten to standard output as contracted braille.
     If this option isn't supplied then <tt/en-us-g2/ is assumed.
   <tag><tt/-t/<em/file/|<tt/auto/ <tt/--text-table=/<em/file/|<tt/auto/</tag>
     Specify the text table
-    (see section <ref id="table-text" name="Text Tables"> for details).
+    (see section <ref id="table-text" name="Text-Tabellen"> for details).
     If a relative path is supplied, then it's anchored at <tt>/etc/brltty</>
     (see the <ref id="build-data-directory" name="--with-data-directory">
     and the <ref id="build-execute-root" name="--with-execute-root">
@@ -2569,7 +2565,7 @@ The following directives are recognized:
     <ref id="options-speech-parameters" name="-S"> command line option.
   <tag><tt/text-table/ <em/file/|<tt/auto/<label id="configure-text-table"></tag>
     Specify the text table
-    (see section <ref id="table-text" name="Text Tables"> for details).
+    (see section <ref id="table-text" name="Text-Tabellen"> for details).
     If a relative path is supplied, then it's anchored at <tt>/etc/brltty</>
     (see the <ref id="build-data-directory" name="--with-data-directory">
     and the <ref id="build-execute-root" name="--with-execute-root">
@@ -2714,7 +2710,7 @@ The <tt/brltty/ command accepts the following options:
     <ref id="build-speech-support" name="--disable-speech-support"> build option was specified.
   <tag><tt/-t/<em/file/ <tt/--text-table=/<em/file/<label id="options-text-table"></tag>
     Specify the text table
-    (see section <ref id="table-text" name="Text Tables"> for details).
+    (see section <ref id="table-text" name="Text-Tabellen"> for details).
     If a relative path is supplied, then it's anchored at <tt>/etc/brltty</>
     (see the <ref id="build-data-directory" name="--with-data-directory">
     and the <ref id="build-execute-root" name="--with-execute-root">
@@ -3836,7 +3832,7 @@ Notes:
     The initial setting is braille display driver dependent.
   <tag>Text Table<label id="preference-text-table"></tag>
     Select the text table.
-    See section <ref id="table-text" name="Text Tables"> for details.
+    See section <ref id="table-text" name="Text Tabellen"> for details.
     See the <ref id="options-text-table" name="-t"> command line option for the initial setting.
     This preference isn't saved.
   <tag>Attributes Table<label id="preference-attributes-table"></tag>
@@ -4059,9 +4055,9 @@ either for a few seconds
 (see the <ref id="options-message-timeout" name="-M"> command line option)
 or until any key on the display is pressed.
 
-<sect>Tables<label id="tables"><p>
+<sect>Tabellen<label id="tables"><p>
 
-<sect1>Text Tables<label id="table-text"><p>
+<sect1>Text-Tabellen<label id="table-text"><p>
 Files with names of the form <tt/*.ttb/ are text tables,
 and with names of the form <tt/*.tti/ are text subtables.
 They are used by BRLTTY to translate the characters on the screen
@@ -4206,38 +4202,35 @@ The following directives are provided:
     </descrip>
 </descrip>
 
-<sect1>Attributes Tables<label id="table-attributes"><p>
-Files with names of the form *.atb are attributes tables,
-and with names of the form *.ati are attributes subtables.
-They are used when BRLTTY
-is displaying screen attributes rather than screen content
-(see the <ref id="command-DISPMD" name="DISPMD"> command).
-Each of the eight braille dots represents
-one of the eight <tt/VGA/ attribute bits.
-
-The following attributes tables are provided:
+<sect1>Attribut-Tabellen<label id="table-attributes"><p>
+Dateien mit Namen der Form *.atb stellen Attribut-Tabllen dar,
+*.ati Dateien sind Attribut-Untertabellen.
+Diese werden verwendet, wenn BRLTTY die Attribute anstatt des Textes anzeigt
+(siehe Kommando <ref id="command-DISPMD" name="DISPMD"> ).
+Jeder der 8 Braillepunkte repräsentiert eines des 8
+<tt/VGA/-Attribut-Bits.
+Die folgenden Attribut-Tabellen sind verfügbar:
 <descrip>
   <tag/left_right/
-    The lefthand column represents the foreground colours:
+     Die linke Spalte beschreibt die Vordergrundfarben:
     <descrip>
-      <tag/Dot 1/Blue
-      <tag/Dot 2/Green
-      <tag/Dot 3/Red
-      <tag/Dot 7/Bright
+      <tag/Punkt 1/Blau
+      <tag/Punkt 2/Grün
+      <tag/Punkt 3/Rot
+      <tag/Punkt 7/Hell
     </descrip>
-    The righthand column represents the background colours:
+    Die rechte Spalte beschreibt die Hintergrundfarben:
     <descrip>
-      <tag/Dot 4/Blue
-      <tag/Dot 5/Green
-      <tag/Dot 6/Red
-      <tag/Dot 8/Blink
+      <tag/Punkt 4/Blau
+      <tag/Punkt 5/Grün
+      <tag/Punkt 6/Rot
+      <tag/Punkt 8/Blinken
     </descrip>
-    A dot is raised when its corresponding attribute bit is on.
-    This is the default attributes table
-    because it's the most intuitive.
-    One of its problems, though, is that it's difficult to discern
-    the difference between normal (white on black)
-    and reverse (black on white) video.
+    Ein Punkt ist gesetzt wenn das entsprechende Attribut-Bit aktiv ist.
+    Diese Tabelle ist ist die Standardtabelle, da sie am intuitivsten ist.
+    Ein Problem ist allerdings die Unterscheidung zwischen normalen 
+    ("Weiß auf Schwarz") vs. invertiertem ("Schwarz auf Weiß") Text.
+
   <tag/invleft_right/
     The lefthand column represents the foreground colours:
     <descrip>
