@@ -4278,17 +4278,14 @@ die <ref id="configure-attributes-table" name="attributes-table">-Direktive in d
 und die Build-Option <ref id="build-attributes-table" name="--with-attributes-table"> für weitere Informationen, wie Sie alternative 
 Attribut-Tabellen verwenden können.
 
-<sect2>Attributes Table Format<p>
-An attributes table consists of a sequence of directives, one per line,
-which define how combinations of <tt/VGA/ attributes
-are to be represented in braille. 
-<tt/UTF-8/ character encoding must be used.
-White-space (blanks, tabs) at the beginning of a line,
-as well as before and/or after any operand of any directive,
-is ignored.
-Lines containing only white-space are ignored.
-If the first non-white-space character of a line is "&num;"
-then that line is a comment and is ignored.
+<sect2>Format der Attribut-Table<p>
+Eine Attribut-Tabelle besteht aus einer Reihe von Definitionen, jeweils eine pro Zeile, welche definieren, wie Kombinationen von
+<tt/VGA/-Attributen in Braille repräsentiert werden.
+
+Die Zeichenkodierung muss in <tt/UTF-8/ erfolgen.
+Leerzeichen (Spaces, Tabulator) am Zeilenbeginn sowie vor und/oder nach einem Schlüsselwort werden ignoriert.
+Zeilen die nur Leerzeichen enthalten,w erden ignoriert.
+Wenn das erste Zeichen, das kein Leerzeichen ist, ein "&num;"-Zeichen ist, wird diese Zeile als Kommentar behadelt und ignoriert.
 
 <sect2>Attributes Table Directives<p>
 The following directives are provided:
