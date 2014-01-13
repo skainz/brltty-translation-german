@@ -441,54 +441,40 @@ Haben Sie jedoch besondere Anforderungen, oder sind einfach nur experimentierfre
 <tscreen>./configure --help</tscreen>
 Sie sollten auch die <tt/README/-Datei im Verzeichnis des Treibers für Ihre Braille-Anzeige beachten, um Informationen über eventuelle zusätzliche Build-Optionen zu erhalten.
 
-<sect3>System Defaults<label id="build-defaults"><p>
+<sect3>#TODOSystem Defaults<label id="build-defaults"><p>
 <descrip>
   <tag><tt/--with-braille-driver=/<em/driver/<label id="build-braille-driver"></tag>
-    Specify the braille display drivers
-    which are to be linked into the BRLTTY binary.
-    Those drivers which aren't listed via this option
-    are built as dynamically loadable shared objects
-    and can still be selected at run-time.
-    Each driver must be identified
-    either by its two-letter <ref id="drivers" name="driver identification code">
-    or by its proper name (full or abbreviated).
-    The driver identifiers must be
-    separated from one another by a single comma.
-    If a driver identifier is prefixed by a minus sign (<tt/-/),
-    then that driver is excluded from the build.
-    Any of the following words can also be used as the operand of this option:
+    Gibt an, welche Treiber statisch in die BRLTTY-Datei eingebettet werden sollen.
+    Alle Treiber, die nicht durch diese Option angegeben werden, werden als dynamisch 
+    nachladbare Objekte übersetzt und können zur Laufzeit ausgewählt werden.
+    Jeder Treiber muss entweder durch einen 2 Zeichen langen <ref id="drivers" name="#TODOdriver identification code">
+    oder durch seinen Namen (vollständig oder abgekürzt) angegeben werden.
+    Die einzelnen Treibernamen oder IDs müssen durch Komma getrennt werden.
+    Wird dem Treibernamen oder ID ein Minus-zeichen (<tt/-/) vorangstellt,
+    wird der entsprechende Treiber von der Übersetzung ausgenommen.
+    Jedes der folgende Schlüsselwörter können ebenso als Parameter für diese Option verwendet werden:
     <descrip>
       <tag/all/
-        Link all of the drivers into the binary.
-        Don't build any of them as dynamically loadable shared objects.
+	 Bettet alle Treiber in die BRLTTY-Datei ein und übersetzt keinen der Treiber als dynamisch ladbares Objekt.
         This word may also be specified as the final element of a driver list.
-        This is how to specify the default driver when all the drivers are to be linked in.
+        #TODO ?? This is how to specify the default driver when all the drivers are to be linked in.
       <tag/-all/
-        Only build those drivers which have been explicitly included via this option.
+        Übersetze ausschließlich die Treiber, welche explizit angegeben wurden.
       <tag/no/
-        Don't build any drivers at all.
-        This is equivalent to specifying <tt/--without-braille-driver/.
+	 Übersetzte gar keinen Treiber.
+	 Das entspricht der Option <tt/--without-braille-driver/.
       <tag/yes/
-        Build all of the drivers as dynamically loadable shared objects.
-        Don't link any of them into the binary.
-        This is equivalent to specifying <tt/--with-braille-driver/.
+	 Übersetzt alle Treiber als dynamisch nachladbare Objekte, bette jedoch keinen in die BRLTTY-Datei ein.
+	 Das entspricht der Option <tt/--with-braille-driver/.
     </descrip>
-    See the <ref id="configure-braille-driver" name="braille-driver"> configuration file directive
-    and the <ref id="options-braille-driver" name="-b"> command line option
-    for run-time selection.
+    Beachten Sie auch die <ref id="configure-braille-driver" name="#TODObraille-driver">  Option in der Konfigurationsdatei
+      sowei die Option <ref id="options-braille-driver" name="-b"> für die Treiberauswahl zur Laufzeit.
   <tag><tt/--with-braille-parameters=/[<em/driver/<tt/:/]<em/name/<tt/=/<em/value/<tt/,/...<label id="build-braille-parameters"></tag>
-    Specify the default parameter settings for the braille display drivers.
-    If the same parameter is specified more than once,
-    then its rightmost assignment is used.
-    If a parameter name is qualified by a driver
-    (see section <ref id="drivers" name="Driver Identification Codes">)
-    then that setting only applies to that driver;
-    if it isn't then it applies to all drivers.
-    For a description of the parameters accepted by a specific driver,
-    please see the documentation for that driver.
-    See the <ref id="configure-braille-parameters" name="braille-parameters"> configuration file directive
-    and the <ref id="options-braille-parameters" name="-B"> command line option
-    for run-time selection.
+    Setzt die Standardparameter für die Braille Anzeigetreiber. Wird ein Parameter mehrmals angegeben, dann wird der letzte (=rechteste) Wert verwendet.
+     Wird ein Parameter zusätzlich mit einem Treiber angegeben (siehe Abschnitt <ref id="drivers" name="#TODODriver Identification Codes">), dann gilt 
+     dieser Parameter nur für den jeweiligen Treiber.
+    Die Liste der möglichen Parameter für jeden Treiber finden Sie in der Dokumentation des jeweiligen Treibers.						beachten Sie auch die Option <ref id="configure-braille-parameters" name="braille-parameters"> in der Konfigurationsdatei sowie
+    die Option <ref id="options-braille-parameters" name="-B"> für die Angabe der Optionen zur Laufzeit.
   <tag><tt/--with-braille-device=/<em/device/<tt/,/...<label id="build-braille-device"></tag>
     Specify the default device to which the braille display is connected
     (see section <ref id="operand-braille-device" name="Braille Device Specification">).
