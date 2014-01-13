@@ -10,7 +10,7 @@
 <article>
 
 <titlepag>
-  <title>BRLTTY Bedienungsanleitung
+  <title>BRLTTY Benutzerhandbuch
     <subtitle>Zugriff auf die Konsole für blinde Personen mittels Braillezeile
   <author>
     <name>Nikhil Nair <tt><htmlurl url="mailto:nn201@cus.cam.ac.uk" name="&lt;nn201@cus.cam.ac.uk&gt;"></tt>
@@ -50,7 +50,7 @@ It should be in the file <tt/LICENSE-GPL/ in the top-level directory.
 If not, write to the Free Software Foundation Inc.,
 675 Mass Ave, Cambridge, MA 02139, USA.
 
-<sect1>Haftungsausschuss<p>
+<sect1>Haftungsausschluss<p>
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY - not even
 the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
@@ -244,7 +244,7 @@ aber nicht mit Programmen, die spezielle VGA-Funktionen oder eine
 grafische Konsole (z.B. das X Window System) benötigen.
 
 Sie müssen natürlich eine Braillezeile besitzen 
-(siehe <ref id="displays" name="#TODO Supported Braille Displays"> für eine komplette 
+(siehe <ref id="displays" name="Unterstützte Braillezeilen"> für eine komplette 
 Liste). Wir hoffen, in Zukunft noch mehr Braillezeilen unterstützen zu können. 
 Falls Sie also irgenwelche technischen Informationen zu Geräten besitzen, für die 
 Sie gerne Unterstützung in BRLTTY hätten, kontaktieren Sie uns bitte 
@@ -256,7 +256,7 @@ Die Entwicklungswerkzeuge, die bei einer üblichen Unix-Distribution enthalten si
 Falls Sie Probleme haben, kontaktieren Sie uns bitte und wir werden den Quelltext für Sie übersetzen.
 
 
-<sect>#TODODer Build-Prozess<p>
+<sect>Der Build-Prozess<p>
 
 BRLTTY kann von der BRLTTY-Webseite 
 (siehe Abschnitt <ref id="contact" name="#TODOContact Information"> für die Adresse) heruntergeladen werden.
@@ -463,15 +463,15 @@ Sie sollten auch die <tt/README/-Datei im Verzeichnis des Treibers für Ihre Brai
 	 Übersetzt alle Treiber als dynamisch nachladbare Objekte, bette jedoch keinen in die BRLTTY-Datei ein.
 	 Das entspricht der Option <tt/--with-braille-driver/.
     </descrip>
-    Beachten Sie auch die <ref id="configure-braille-driver" name="#TODObraille-driver">  Option in der Konfigurationsdatei
+    Beachten Sie auch die <ref id="configure-braille-driver" name="braille-driver">-Option in der Konfigurationsdatei
       sowei die Option <ref id="options-braille-driver" name="-b"> für die Treiberauswahl zur Laufzeit.
-  <tag><tt/--with-braille-parameters=/[<em/driver/<tt/:/]<em/name/<tt/=/<em/value/<tt/,/...<label id="build-braille-parameters"></tag>
+  <tag><tt/--with-braille-parameters=/[<em/Treiber/<tt/:/]<em/Name/<tt/=/<em/Wert/<tt/,/...<label id="build-braille-parameters"></tag>
     Setzt die Standardparameter für die Braillezeilen-Treiber. Wird ein Parameter mehrmals angegeben, dann wird der letzte (=rechteste) Wert verwendet.
      Wird ein Parameter zusätzlich mit einem Treiber angegeben (siehe Abschnitt <ref id="drivers" name="#TODODriver Identification Codes">), dann gilt 
      dieser Parameter nur für den jeweiligen Treiber.
     Die Liste der möglichen Parameter für jeden Treiber finden Sie in der Dokumentation des jeweiligen Treibers.						Beachten Sie auch die Option <ref id="configure-braille-parameters" name="braille-parameters"> in der Konfigurationsdatei sowie
     die Option <ref id="options-braille-parameters" name="-B"> für die Angabe der Optionen zur Laufzeit.
-  <tag><tt/--with-braille-device=/<em/device/<tt/,/...<label id="build-braille-device"></tag>
+  <tag><tt/--with-braille-device=/<em/Gerät/<tt/,/...<label id="build-braille-device"></tag>
 							     
     Specify the default device to which the braille display is connected
     (see section <ref id="operand-braille-device" name="Braille Device Specification">).
@@ -561,10 +561,9 @@ Sie sollten auch die <tt/README/-Datei im Verzeichnis des Treibers für Ihre Brai
 	 Das entspricht der Option <tt/--with-speech-driver/.
     </descrip>
 
-  Beachten Sie auch die <ref id="configure-speech-driver" name="speech-driver"> Option in der Konfigurationsdatei
-      sowei die Option <ref id="options-speech-driver" name="-s"> für die Auswahl des Sprachsynthese-Treibers zur Laufzeit.
+  Beachten Sie auch die <ref id="configure-speech-driver" name="speech-driver">-Option in der Konfigurationsdatei sowei den Kommandozeilenparameter <ref id="options-speech-driver" name="-s"> für die Auswahl des Sprachsynthese-Treibers zur Laufzeit.
   
-  <tag><tt/--with-speech-parameters=/[<em/driver/<tt/:/]<em/name/<tt/=/<em/value/<tt/,/...<label id="build-speech-parameters"></tag>
+  <tag><tt/--with-speech-parameters=/[<em/Treiber/<tt/:/]<em/Name/<tt/=/<em/Wert/<tt/,/...<label id="build-speech-parameters"></tag>
     Specify the default parameter settings for the speech synthesizer drivers.
     If the same parameter is specified more than once,
     then its rightmost assignment is used.
@@ -577,7 +576,7 @@ Sie sollten auch die <tt/README/-Datei im Verzeichnis des Treibers für Ihre Brai
     See the <ref id="configure-speech-parameters" name="speech-parameters"> configuration file directive
     and the <ref id="options-speech-parameters" name="-S"> command line option
     for run-time selection.
-  <tag><tt/--with-flite=/<em/directory/<label id="build-flite"></tag>
+  <tag><tt/--with-flite=/<em/Verzeichnis/<label id="build-flite"></tag>
     Specify the installed location of the FestivalLite text-to-speech package,
     and build the FestivalLite speech synthesizer driver
     (see <ref id="restrictions-flite" name="Build Restrictions">).
@@ -596,7 +595,7 @@ Sie sollten auch die <tt/README/-Datei im Verzeichnis des Treibers für Ihre Brai
         or <tt>/opt/flite</>.
         This is equivalent to specifying <tt/--with-flite/.
     </descrip>
-  <tag><tt/--with-flite-language=/<em/language/<label id="build-flite-language"></tag>
+  <tag><tt/--with-flite-language=/<em/Sprache/<label id="build-flite-language"></tag>
     Specify the language which the FestivalLite text to speech engine is to use.
     The default language is <tt/usenglish/.
   <tag><tt/--with-flite-lexicon=/<em/lexicon/<label id="build-flite-lexicon"></tag>
@@ -4229,7 +4228,7 @@ Die folgenden Attribut-Tabellen sind verfügbar:
     Ein Punkt ist gesetzt wenn das entsprechende Attribut-Bit aktiv ist.
     Diese Tabelle ist ist die Standardtabelle, da sie am intuitivsten ist.
     Ein Problem ist allerdings die Unterscheidung zwischen normalen 
-    ("Weiß auf Schwarz") vs. invertiertem ("Schwarz auf Weiß") Text.
+    ("Weiß auf Schwarz") gegenüber invertiertem ("Schwarz auf Weiß") Text.
 
   <tag/invleft_right/
      Die linke Spalte beschreibt die Vordergrundfarben:
@@ -4250,11 +4249,7 @@ Die folgenden Attribut-Tabellen sind verfügbar:
     ein nicht gesetztes Vordergrund-Bit setzt den entsprechenden Punkt in der linken Spalte.
     Diese etwas unintuitive Logik macht es allerding leichter, häufig vorkommende Attributkombinationen 
     zu erkennen.
-    #TODO
-    A background bit being on triggers its corresponding dot,
-    whereas a foreground bit being off triggers its corresponding dot.
-    This unintuitive logic actually makes it easier
-    to read the most commonly used attribute combinations.
+   
   <tag/upper_lower/
      Das obere Quadrat beschreibt die Vordergrundfarben:
     <descrip>
@@ -4263,7 +4258,7 @@ Die folgenden Attribut-Tabellen sind verfügbar:
       <tag/Punkt 2/Blau
       <tag/Punkt 5/Hell
     </descrip>
-    Das untere Quadrat bereciht die Hintergrundfarben:
+    Das untere Quadrat beschreibt die Hintergrundfarben:
     <descrip>
       <tag/Punkt 3/Rot
       <tag/Punkt 6/Grün
@@ -4273,41 +4268,37 @@ Die folgenden Attribut-Tabellen sind verfügbar:
     Ein Punkt ist gesetzt wenn das entsprechende Attribut-Bit aktiv ist.
 </descrip>
 
-Beachten Sie auch den Kommandozeilenparamter <ref id="options-attributes-table" name="-a">, 
+Beachten Sie auch den Kommandozeilenparameter <ref id="options-attributes-table" name="-a">, 
 die <ref id="configure-attributes-table" name="attributes-table">-Direktive in der Konfigurationsdatei
-und die Build-Option <ref id="build-attributes-table" name="--with-attributes-table"> für weitere Informationen, wie Sie alternative 
-Attribut-Tabellen verwenden können.
+und die Build-Option <ref id="build-attributes-table" name="--with-attributes-table"> für weitere Informationen, 
+wie Sie alternative Attribut-Tabellen verwenden können.
 
 <sect2>Format der Attribut-Table<p>
-Eine Attribut-Tabelle besteht aus einer Reihe von Definitionen, jeweils eine pro Zeile, welche definieren, wie Kombinationen von
-<tt/VGA/-Attributen in Braille repräsentiert werden.
+Eine Attribut-Tabelle besteht aus einer Reihe von Definitionen - jeweils eine pro Zeile - welche angeben, wie Kombinationen von <tt/VGA/-Attributen in Braille repräsentiert werden.
 
 Die Zeichenkodierung muss in <tt/UTF-8/ erfolgen.
 Leerzeichen (Spaces, Tabulator) am Zeilenbeginn sowie vor und/oder nach einem Schlüsselwort werden ignoriert.
-Zeilen die nur Leerzeichen enthalten,w erden ignoriert.
-Wenn das erste Zeichen, das kein Leerzeichen ist, ein "&num;"-Zeichen ist, wird diese Zeile als Kommentar behadelt und ignoriert.
+Zeilen die nur Leerzeichen enthalten, werden ignoriert.
+Wenn das erste Zeichen einer Zeile, das kein Leerzeichen ist, ein "&num;"-Zeichen ist, wird diese Zeile als Kommentar behandelt und ignoriert.
 
-<sect2>Attributes Table Directives<p>
-The following directives are provided:
+<sect2>Schlüsselwörter der Attribut-Tabellen<p>
+Die folgenden Schlüsselwörter werden unterstützt:
 <descrip>
-  <tag><tt/dot/ <em/dot/ <em/state/ &num; <em/comment/</tag>
+  <tag><tt/dot/ <em/Punkt/ <em/Status/ &num; <em/Kommentar/</tag>
     Use the <tt/dot/ directive to specify
     what a specific dot represents.
 
     <descrip>
-      <tag><em/dot/</tag>
-        The dot being defined.
-        It is a single digit within the range <tt/1/-<tt/8/ as defined by the
-        <ref id="dots" name="Standard Braille Dot Numbering Convention">.
-      <tag><em/state/</tag>
-        What the dot represents.
-        It may be:
+      <tag><em/Punkt/</tag>
+	Der zu definierende Punkt. Eine Ziffer im Bereich von <tt/1/-<tt/8/ nach dem Schema der <ref id="dots" name="#TODOStandard Braille Dot Numbering Convention">.
+      <tag><em/Status/</tag>
+	Das Attribut, das der Punkt representieren soll.      
+        Erlaubt sind:
         <descrip>
-          <tag><tt/=/<em/attribute/</tag>The dot is raised if the named attribute is on.
-          <tag><tt/&tilde;/<em/attribute/</tag>The dot is raised if the named attribute is off.
+          <tag><tt/=/<em/Attribut/</tag>Der Punkt ist gesetzt wenn das Attribut aktiv ist.
+          <tag><tt/&tilde;/<em/Attribut/</tag>der Punkt ist gesetzt wenn das Attribut nicht aktiv ist.
         </descrip>
-
-        The names of the attribute bits are:
+	Die Namen der Attribut-Bits sind:
         <descrip>
           <tag/0X01/<tt/fg-blue/
           <tag/0X02/<tt/fg-green/
@@ -4320,59 +4311,46 @@ The following directives are provided:
         </descrip>
     </descrip>
 
-    Examples:
+    Beispiele:
     <itemize>
       <item><tt/dot 1 =fg-red/
       <item><tt/dot 2 &tilde;bg-blue/
     </itemize>
-  <tag><tt/include/ <em/file/ &num; <em/comment/</tag>
-    Use the <tt/include/ directive to include the content of an attributes subtable.
-    It is recursive, which means that
-    any attributes subtable can itself include yet another attributes subtable.
-    Care must be taken to ensure that an "include loop" is not created.
+  <tag><tt/include/ <em/Datei/ &num; <em/Kommentar/</tag>
+   Verwenden Sie <tt/include/, um eine Attributs-Untertabelle einzubinden. Dieses Schlüsselwort ist rekursiv, was bedeutet, dass eine Attributs-Untertabelle weitere Untertabellen einbinden kann. Hier ist also Vorsicht geboten, damit keine Schleife durch eingebettete Untertabellen entsteht.
 
     <descrip>
-      <tag><em/file/</tag>
-        The file to be included.
-        It may be either a relative or an absolute path.
-        If relative, it is anchored at the directory containing the including file.
+      <tag><em/Datei/</tag>
+	Name der einzubettenden Datei. Dies kann entweder ein relativer Pfad (relativ zur Datei, die diese Datei einbettet) order eine absoluter Pfad sein.      
+
     </descrip>
 </descrip>
 
 <sect1>Kurzschrift-Tabellen<label id="table-contraction"><p>
-Files with names of the form <tt/*.ctb/ are contraction tables,
-and with names of the form <tt/*.cti/ are contraction subtables.
-They are used by BRLTTY to translate character sequences on the screen
-into their corresponding contracted braille representations.
+Dateien mit den Namen <tt/*.ctb/ stellen Kurzschrift-Tabellen, Dateien mit den Namen <tt/*.cti/ Kurzschrift-Untertabellen dar.
+Diese werden von BRLTTY verwendet, um Zeichenketten auf dem Bildschirm durch ihre entsprechende Kurzschrift-Variante zu ersetzen.
 
-BRLTTY presents contracted braille if:
+BRLTTY zeigt Kurzschrift-Braille an, falls:
 <itemize>
   <item>
-    A contraction table has been selected.
-    See the <ref id="options-contraction-table" name="-c"> command line option
-    and the <ref id="configure-contraction-table" name="contraction-table"> configuration file directive
-    for details.
+    Eine Kurzschrift-Tabelle ausgewählt wurde.
+    Beachten Sie auch den Kommandozeilenparameter <ref id="options-contraction-table" name="-c"> und die <ref id="configure-contraction-table" name="contraction-table">-Direktive in der Konfigurationsdatei. 
   <item>
-    The 6-dot braille feature has been activated.
-    See the <ref id="command-SIXDOTS" name="SIXDOTS"> command
-    and the <ref id="preference-text-style" name="Text Style"> preference
-    for details.
+    Der 6-Punkte Braille Modus aktiv ist.
+    Beachten Sie dazu das Kommando <ref id="command-SIXDOTS" name="SIXDOTS">  und die <ref id="preference-text-style" name="#TODOText Style"> Einstellung.
 </itemize>
-This feature isn't available if the
-<ref id="build-contracted-braille" name="--disable-contracted-braille"> build option was specified.
+Diese Funktion ist nicht verfügbar, wenn die Build-Option <ref id="build-contracted-braille" name="--disable-contracted-braille"> angegeben wurde. 
 
-The following contraction tables are provided:
+Die folgenden Kurzschrift-Tabellen sind verfügbar:
 <table loc="h">
   <tabular ca="ll">
-    Name|Language@
+    Name|Sprache@
     &ContractionTables
   </tabular>
 </table>
-See the <ref id="options-contraction-table" name="-c"> command line option,
-and the <ref id="configure-contraction-table" name="contraction-table"> configuration file directive
-for details regarding how to use a contraction table.
+Beachten Sie auch den Kommandozeilenparameter <ref id="options-contraction-table" name="-c"> und die <ref id="configure-contraction-table" name="contraction-table">-Direktive in der Konfigurationsdatei für Details, wie eine Kurzschrift-Tabelle verwendet wird.
 
-<sect2>Contraction Table Format<p>
+<sect2>Format der Kurzschrift-Tabelle<p>
 A contraction table consists of a sequence of entries, one per line,
 which define how character sequences are to be represented in braille.
 <tt/UTF-8/ character encoding must be used.
@@ -5261,11 +5239,11 @@ e.g. over a slow serial link to a remote host.
 
 <appendix>
 
-<sect>Supported Braille Displays<label id="displays"><p>
-BRLTTY supports the following braille displays:
+<sect>Unterstützte Braillezeilen<label id="displays"><p>
+BRLTTY unterstützt die folgenden Braillezeilen:
 <table loc="h">
   <tabular ca="ll">
-    Name|Models@<hline>
+    Name|Modell@<hline>
     &BrailleDrivers
   </tabular>
 </table>
