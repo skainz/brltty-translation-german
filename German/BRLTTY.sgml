@@ -10,8 +10,8 @@
 <article>
 
 <titlepag>
-  <title>BRLTTY Reference Manual
-    <subtitle>Access to the Console Screen for Blind Persons using Refreshable Braille Displays
+  <title>BRLTTY Bedienungsanleitung
+    <subtitle>Zugriff auf die Konsole für blinde Personen mittels Braille-Anzeigegeräten
   <author>
     <name>Nikhil Nair <tt><htmlurl url="mailto:nn201@cus.cam.ac.uk" name="&lt;nn201@cus.cam.ac.uk&gt;"></tt>
   <and>
@@ -36,9 +36,9 @@
 <lof>
 <lot>
 
-<sect>Formalities<p>
+<sect>Formelles<p>
 
-<sect1>License<p>
+<sect1>Lizenz<p>
 This program is free software.
 You may redistribute it and/or modify it under the terms of
 <htmlurl url="http://www.gnu.org/licenses/licenses.html#GPL" name="The GNU General Public License">
@@ -50,32 +50,32 @@ It should be in the file <tt/LICENSE-GPL/ in the top-level directory.
 If not, write to the Free Software Foundation Inc.,
 675 Mass Ave, Cambridge, MA 02139, USA.
 
-<sect1>Disclaimer<p>
+<sect1>Haftungsausschuss<p>
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY - not even
 the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 See the <bf/GNU General Public License/ for more details.
 
-<sect1>Contact Information<label id="contact"><p>
-BRLTTY represents the work of a team.
-For up-to-date information, see BRLTTY's web page at
+<sect1>Kontaktinformationen<label id="contact"><p>
+BRLTTY ist die Arbeit eines Teams.
+Für aktuelle Informationen besuchen sie die Webseite von BRLTTY:
 [<htmlurl url="http://mielke.cc/brltty/" name="http://mielke.cc/brltty/">].
-As of this writing, the team includes:
+Zum Zeitpunkt der Erstellung dieses Dokuments besteht das Team aus folgenden Personen:
 <itemize>
   <item>
-    Dave Mielke (maintainer, active)
+    Dave Mielke (Unterstützer, aktiv)
     <descrip>
       <tag/Web/<htmlurl url="http://mielke.cc/" name="http://mielke.cc/">
       <tag/E-Mail/<htmlurl url="mailto:dave@mielke.cc" name="&lt;dave@mielke.cc&gt;">
     </descrip>
   <item>
-    Samuel Thibault (active)
+    Samuel Thibault (aktiv)
     <descrip>
       <tag/Web/<htmlurl url="http://dept-info.labri.fr/~thibault/" name="http://dept-info.labri.fr/~thibault/">
       <tag/E-Mail/<htmlurl url="mailto:samuel.thibault@ens-lyon.org" name="&lt;samuel.thibault@ens-lyon.org&gt;">
     </descrip>
   <item>
-    Mario Lang (active)
+    Mario Lang (aktiv)
     <descrip>
       <tag/Web/<htmlurl url="http://delysid.org/" name="http://delysid.org/">
       <tag/E-Mail/<htmlurl url="mailto:mlang@delysid.org" name="&lt;mlang@delysid.org&gt;">
@@ -93,183 +93,172 @@ As of this writing, the team includes:
       <tag/E-Mail/<htmlurl url="mailto:s.doyon@videotron.ca" name="&lt;s.doyon@videotron.ca&gt;">
     </descrip>
   <item>
-    Nikhil Nair  (author)
+    Nikhil Nair  (Autor)
     <descrip>
       <tag/E-Mail/<htmlurl url="mailto:nn201@cus.cam.ac.uk" name="&lt;nn201@cus.cam.ac.uk&gt;">
     </descrip>
 </itemize>
+Fragen, Kommentare, Anregungen, Kritik und Beteiligung sind gerne willkommen.
+Obwohl unsere Email-Adressen oben angeführt sind,
+ist der beste Weg mit uns in Kontakt zu treten, die BRLTTY Email-Liste.
+Sie können Emails an diese Liste über folgende Adresse senden:
+<htmlurl url="mailto:BRLTTY@mielke.cc" name="&lt;BRLTTY@mielke.cc&gt;">
 
-Questions, comments, suggestions, criticisms, and contributions are all welcome.
-Even though our e-mail addresses are listed above,
-the best way to contact us is via BRLTTY's mailing list.
-You can post to the list by sending e-mail to
-<htmlurl url="mailto:BRLTTY@mielke.cc" name="&lt;BRLTTY@mielke.cc&gt;">.
-If you aren't subscribed to the list
-then your posts will be held for moderator approval.
-To subscribe, unsubscribe, change settings, view archives, etc,
-go to the list's information page at
+Falls Sie nicht Mitglied der Liste sind, werden Ihre Mails vor der 
+veröffentlichung auf der List von einem Moderator gesichtet.
+Zum Anmelden, Abmelden, Ändern Ihrer Einstellung, Archiv, etc. dieser Liste, 
+besuchen Sie die Webseite:
 <htmlurl url="http://mielke.cc/mailman/listinfo/brltty" name="http://mielke.cc/mailman/listinfo/brltty">.
 
-<sect>Introduction<p>
-BRLTTY gives a braille user access to the text consoles of a Linux/Unix system.
-It runs as a background process (daemon)
-which operates a refreshable braille display,
-and can be started very early in the system boot sequence.
-It enables a braille user, therefore, to easily independently handle
-aspects of system administration such as
-single user mode entry,
-file system recovery,
-and boot problem analysis.
-It even greatly eases such routine tasks as logging in.
+<sect>Einleitung<p>
+BRLTTY ermöglicht einem Braille-Benutzer Zugriff zur Text-Konsole eines Linux/Unix Systems.
+Es läuft als Hintergrundprozess(Dämon) und steuert ein Braille-Anzeigegerät. 
+BRLTTY kann bereits sehr früh wärend des Systemstarts aktiv sein und ermöglicht somit 
+unabhängiges durchführen von Administrationsaufgaben wie Single-User-Modus, 
+Wiederherstellung von Dateisystemen und Analyse von Boot-Problemen.
+#TODO It even greatly eases such routine tasks as logging in.
 
-BRLTTY reproduces a rectangular portion of the screen
-(referred to within this document as `the window')
-as braille text on the display.
-Controls on the display can be used to
-move the window around on the screen,
-to enable and disable various viewing options,
-and to perform special functions.
+BRLTTY stellt einen rechteckigen Ausschnitt des Bildschirms (im weiteren als `Fenster' bezeichnet)
+als Braille-Text auf der Braille-Anzeige dar. Steuertasten auf der Braille-Anzeige ermöglichen das
+Verschieben des dargestellten Bildschirm-Ausschnitts, das Ein-/Ausschalten verschiedener Anzeigeoptionen und
+das Aktivieren von Spezialfunktionen.
 
-<sect1>Feature Summary<p>
-BRLTTY provides the following capabilities:
+<sect1>Überblick<p>
+BRLTTY stellt die folgenden Funtionen zur Verfügung:
 <itemize>
   <item>
-    Full implementation of the usual screen review facilities.
+    #TODOVollständige Umsetzung der üblichen Bildschirm-Betrachtungs-Funktionen. Full implementation of the usual screen review facilities.
   <item>
-    Choice between <tt/block/, <tt/underline/, or <tt/no/ cursor.
+    Auwahl zwischen <tt/block/-, <tt/unterstrichenem/-, or <tt/keinem/ Cursor.
   <item>
-    Optional <tt/underline/ to indicate specially highlighted text.
+    Optionale <tt/Unterstreichung/ um hervorgehobenen Text zu kennzeichnen.
   <item>
-    Optional use of <tt/blinking/ (rates individually settable) for
-    cursor, special highlighting underline, and/or capital letters.
+    Optionales <tt/Blinken/ (Frequenz jeweils individuell setzbar) für
+    Cursor, Unterstreichung und/oder Großbuchstaben.
   <item>
-    Screen freezing for leisurely review.
+    Anhalten des Bildschirms für bequemes Lesen.
   <item>
-    Intelligent cursor routing, allowing easy fetching of cursor within
-    text editors, web browsers, etc.,
-    without moving ones hands from the braille display.
+    Intelligente Cursor-Steuerung, die einfaches Auffinden des Cursors in Texteditoren, 
+    Web-Browsern, etc. ermöglicht, ohne die Hände von der  Braille-Anzeige nehmen zu müssen.
   <item>
-    A cut-and-paste function (linear or rectangular) which is particularly useful for
-    copying long file names,
-    copying text between virtual terminals,
-    entering complicated commands,
-    etc.
+    Eine Kopieren-und-Einfügen Funktion (zeilen- oder blockweise), welche vor allem nützlich ist, um beispielsweise 
+    lange Dateinamen oder komplizierte Kommandos einzugeben oder um Inhalte zwischen virtuellen Terminals zu kopieren.
   <item>
-    Table driven in-line contracted braille (English and French provided).
+    #TODO    Table driven in-line contracted braille (English and French provided).
   <item>
-    Support for multiple braille codes.
+    Unterstützung verschiedene Braille Codes.
   <item>
-    Ability to identify an unknown character.
+    Möglichkeit zur Identifizierung unbekannter Zeichen.
   <item>
-    Ability to inspect character highlighting.
+    #TODO Ability to inspect character highlighting.
   <item>
     An on-line help facility for braille display commands.
   <item>
-    A preferences menu.
+    Ein Einstellungen-Menü.
   <item>
-    Basic speech support.
+    Einfache Sprachunterstützung.
   <item>
-    Modular design allowing relatively easy addition of
-    drivers for other braille displays and speech synthesizers.
+    Modulares Design, um relativ einfach neue Braille-Anzeigen 
+    oder Sprachsynthesegeräte hinzufügen zu können.
   <item>
-    An Application Programming Interface.
+    Eine Programmierschnittstelle (API).
 </itemize>
 
-<sect1>System Requirements<p>
-To date, BRLTTY runs under Linux, Solaris, OpenBSD, FreeBSD, NetBSD, and Windows.
-While ports to other Unix-like operating systems aren't currently planned,
-we do welcome any interest in such projects.
-
+<sect1>Systemvoraussetzungen<p>
+Aktuell läuft BRLTTY unter Linux, Solaris, OpenBSD, FreeBSD, NetBSD und Windows.
+Obwohl Portierung für andere Unix-artige Betriebssysteme momentan nicht geplant sind,
+ist Interesse und Engagement dahingehend jederzeit willkommen.
 <descrip>
   <tag/Linux/
-    This software has been tested on a variety of Linux systems:
+    Die Software wurde auf einer Vielzahl an Linux-Systemen getestet:
     <itemize>
       <item>
-        Desktops, laptops, and some PDAs.
+        Desktops, Laptops und einige PDAs.
       <item>
-        Processors from a 386SX20 to a Pentium.
+        Prozessoren von 386SX20 bis Pentium. #TODO was ist mit amd64 ?
       <item>
-        A huge range of memory sizes.
+	Einer grossen Auswahl an Hauptspeichergrößen.
       <item>
-        Several distributions including Debian, Red Hat, Slackware, and SuSE.
+	Einige Linux-Distributionen, unter anderem Debian, Red Hat, Slackware, und SuSE.
       <item>
-        Many kernels, including 1.2.13, 2.0, 2.2, and 2.4.
+	Vielen verschiedenen Kernel-Versionen, insbesondere 1.2.13, 2.0, 2.2, 2.4, 2.6 und 3.0.
     </itemize>
   <tag/Solaris/
-    This software has been tested on the following Solaris systems:
+    Die Software wurde auf folgenden Solaris-Systemen getestet:
     <itemize>
       <item>
-        The Sparc architecture (releases 7, 8, and 9).
+        Sparc-Architektur (Releases 7, 8, und 9).
       <item>
-        The Intel architecture (release 9).
+        Intel-Architektur (Release 9).
     </itemize>
   <tag/OpenBSD/
-    This software has been tested on the following OpenBSD systems:
+    Die Software wurde auf folgenden OpenBSD-Systemen getestet:
     <itemize>
       <item>
-        The Intel architecture (release 3.4).
+        Intel-Architektur (Release 3.4).
     </itemize>
   <tag/FreeBSD/
-    This software has been tested on the following FreeBSD systems:
+     Die Software wurde auf folgenden FreeBSD-Systemen getestet:
     <itemize>
       <item>
-        The Intel architecture (release 5.1).
+        Intel-Architektur (Release 5.1).
     </itemize>
   <tag/NetBSD/
-    This software has been tested on the following NetBSD systems:
+     Die Software wurde auf folgenden NetBSD-Systemen getestet:
     <itemize>
       <item>
-        The Intel architecture (release 1.6).
+        Intel-Architektur (Release 1.6).
     </itemize>
   <tag/Windows/
-    This software has been tested on Windows 95, 98, and XP.
+     Die Software wurde auf Windows 95, 98 und XP getestet.
 </descrip>
 
-On Linux, BRLTTY can inspect the content of the screen
-completely independently of any logged in user.
-It does this by using a special device
-which provides easy access to the contents of the current virtual console.  
-This device was introduced in version 1.1.92 of the Linux kernel,
-and is normally called either <tt>/dev/vcsa</> or <tt>/dev/vcsa0</>
-(on systems with <tt/devfs/ it's called <tt>/dev/vcc/a</>).
-For this reason, Linux kernel 1.1.92 or later is required
-if BRLTTY is to be used in this way.
-This capability:
+Unter Linux kann BRLTTY auf den Bildschirminhalt auch ohne 
+angemeldeten Benutzer  zugreifen. Dies geschieht mittes eines
+eigenen Gerätes, das einfachen Zugriff auf den Inhalt der aktuellen
+virtuellen Konsole erlaubt.
+Dieses Gerät wurde in Kernel 1.1.92 eingeführt, und heisst üblicherweise
+<tt>/dev/vcsa</> oder <tt>/dev/vcsa0</> (Auf Systemen mit <tt/devfs/ heisst es <tt>/dev/vcc/a</>).
+Aus diesem Grund ist eine Kernelversion 1.1.92 oder höher notwendig, um BRLTTY 
+auf diese Art zu verwenden. Dadurch ist es möglich, daß
 <itemize>
   <item>
-    Allows BRLTTY to be started very early in the system boot sequence.
+    BRLTTY sehr früh während des Systemstarts aktiv wird.
   <item>
-    Enables the braille display to be fully operational during the login prompt.
-  <item>
-    Makes it much easier for a braille user to perform boot-time system administration tasks.
+    die Braille-Anzeige beim Login-Prompt voll funktionsfähig ist.
+    <item>
+      Braille-Benutzer Administrationsaufgaben während des Systemstarts 
+      durchführen können.
 </itemize>
 
-A patch for the <tt/screen/ program is provide
-(see the <tt/Patches/ subdirectory).
-It allows BRLTTY to access <tt/screen/'s screen image via shared memory,
-and, therefore, allows BRLTTY to be used quite effectively on platforms
-which don't have their own screen content inspection facility.
-The main weakness of the <tt/screen/ approach is that 
-BRLTTY can't be started until the user has logged in.
+Es gibt auch einen Patch für das Programm <tt/screen/,
+(siehe Unterverzeichnis <tt/Patches/).
+Dieser ermöglicht BRLTTY den direkten Zugriff auf die Speicherbereiche von 
+<tt/screen/ via Shared-memory und ermöglicht eine sehr effiziente Benutzung 
+von BRLTTY auf Systemen, die keine eigene Zugriffmöglichkeit dieser Art besitzen.
+Der Nachteil der verwendung von BRLTTY via <tt/screen/ ist, dass BRLTTY nicht 
+gestartet werden kann, bis sich ein Benutzer am System angemeldet hat.
 
-BRLTTY only works with text-based consoles and applications.
-It can be used with <tt/curses/-based applications,
-but not with any application which
-either uses special VGA features
-or requires a graphics console (like the X Window system).
+BRLTTY funktioniert nur mit text-basierenden Konsolen und Anwendungen.
+Es kann mit Anwendungen, die auf  <tt/curses/ basieren, interagieren, 
+aber nicht mit Programmen, die spezielle VGA-Funktionen oder eine 
+grafische Konsole (z.B. das X Window System) benötigen.
 
-You must also, of course, possess a supported refreshable braille display
-(see section <ref id="displays" name="Supported Braille Displays"> for the complete list).
-We hope that additional displays will be supported in the future, so,
-if you have any vaguely technical programming information
-for a device which you'd like to see supported,
-then please let us know (see section <ref id="contact" name="Contact Information">).
+Sie müssen natürlich ein Braille-Anzeigegerät besitzen 
+(siehe <ref id="displays" name="#TODO Supported Braille Displays"> für eine komplette 
+Liste). Wir hoffen, in Zukunft noch mehr Braille-Displays unterstützen zu können. 
+Falls Sie also irgenwelche technischen Informationen zu Geräten besitzen, für die 
+Sie gerne Unterstützung in BRLTTY hätten, kontaktieren Sie uns bitte 
+(siehe Abschnitt <ref id="contact" name="Kontaktinformationen">).
 
-Finally, you need tools to build the executable from its source:
-<tt/make/, <tt/C/ and <tt/C++/ compilers, <tt/yacc/, <tt/awk/, etc.
-The development tools provided with standard Unix distributions should suffice.
-If you have problems,
-then contact us and we'll compile a binary for you.
+Ebenso benötigen Sie noch die Werkzeuge, um  usführbare Programme aus Quelltext zu erstellen:
+<tt/make/, <tt/C/ und <tt/C++/ Compiler, <tt/yacc/, <tt/awk/, etc.
+Die Entwicklungswerkzeuge, die bei einer üblichen Unix-Distribution enthalten sind, sollten hier ausreichen.
+Falls Sie Probleme haben, kontaktieren Sie uns bitte und wir werden den Quelltext für Sie übersetzen.
+
+
+
+
 
 <sect>#TODOThe Build Procedure<p>
 
@@ -410,7 +399,7 @@ installierten Dateien darstellen, sind:
 </descrip>
 
 <sect1>Installation aus einem TAR Ball<label id="tar"><p>
-Hier die Anleitung, wenn Sie BRLTTY so schnell wie möglich installieren möchten, unter der Annahmne,
+Hier folgt nun die Anleitung, wenn Sie BRLTTY so schnell wie möglich installieren möchten, unter der Annahmne,
 dass alle von uns gewählten Standardeinstellung für Sie passen.
 <enum>
   <item>
