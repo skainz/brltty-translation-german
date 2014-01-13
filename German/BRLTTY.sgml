@@ -36,7 +36,7 @@
 <lof>
 <lot>
 
-<sect>Formelles<p>
+<sect>Formalitäten<p>
 
 <sect1>Lizenz<p>
 This program is free software.
@@ -144,15 +144,15 @@ BRLTTY stellt die folgenden Funtionen zur Verfügung:
     Eine Kopieren-und-Einfügen Funktion (zeilen- oder blockweise), welche vor allem nützlich ist, um beispielsweise 
     lange Dateinamen oder komplizierte Kommandos einzugeben oder um Inhalte zwischen virtuellen Terminals zu kopieren.
   <item>
-    #TODO    Table driven in-line contracted braille (English and French provided).
+    Tabellenbasierende Braillekurzschrift-Übersetzung (Deutsch, Englisch und Französisch).
   <item>
     Unterstützung verschiedene Braille Codes.
   <item>
     Möglichkeit zur Identifizierung unbekannter Zeichen.
   <item>
-    #TODO Ability to inspect character highlighting.
+    Möglichkeit zur Identifikation von Textattributen.
   <item>
-    An on-line help facility for braille display commands.
+    Ein eingebautes Hilfesystem.
   <item>
     Ein Einstellungen-Menü.
   <item>
@@ -331,40 +331,40 @@ Nach dem Compilieren sollten folgende Dateien installiert sein:
     
     <descrip>
       <tag/*.conf/
-	 Treiber-spezifisch Konfigurationsdaten.
-	 Die Dateiname folgen mehr oder weniger dem Schema <tt/brltty-/<em/driver/<tt/.conf/,
+	 Treiber-spezifische Konfigurationsdaten.
+	 Die Dateinamen folgen mehr oder weniger dem Schema <tt/brltty-/<em/driver/<tt/.conf/,
         wobei <em/driver/ der 2 Zeichen lange <ref id="drivers" name="#TODOdriver identification code"> ist.
       <tag/*.atb/
-        Attributes tables
-        (see section <ref id="table-attributes" name="Attributes Tables"> for details).
-        Their names look like <em/name/<tt/.atb/.
+        Attribut-Tabellen
+        (siehe Abschnitt <ref id="table-attributes" name="Attributes Tables"> für Details).
+        Die Dateinamen folgen dem Schema <em/name/<tt/.atb/.
       <tag/*.ati/
-        Include files for attributes tables.
+        Include-Dateien für Attribut-Tabellen
       <tag/*.ctb/
-        Contraction tables
-        (see section <ref id="table-contraction" name="Contraction Tables"> for details).
-        Their names look like <em/language/<tt/-/<em/country/<tt/-/<em/level/<tt/.ctb/.
+        Kurzschrift-Tabellen
+        (siehe Abschnitt <ref id="table-contraction" name="Kurzschrift-Tabellen"> für Details).
+        Die Dateinamen folgen dem Schema <em/sprache/<tt/-/<em/land/<tt/-/<em/level/<tt/.ctb/.
       <tag/*.cti/
         Include files for contraction tables.
       <tag/*.ktb/
-        Key tables
-        (see section <ref id="table-key" name="Key Tables"> for details).
-        Their names look like <em/name/<tt/.ktb/.
+        Tasten-Tabellen
+        (siehe Abschnitt <ref id="table-key" name="Tasten-Tabellen"> für Details).
+        Die Dateinamen folgen dem Schema <em/name/<tt/.ktb/.
       <tag/*.kti/
-        Include files for key tables.
+        Include-Dateien für Tasten-Tabellen.
       <tag/*.ttb/
-        Text tables
-        (see section <ref id="table-text" name="Text Tables"> for details).
-        Their names look like <em/language/<tt/.ttb/.
+        Text-Tabellen
+        (siehe Abschnitt <ref id="table-text" name="Text-Tabellen"> für Details).
+        Die Dateinamen folgen dem Schema <em/sprache/<tt/.ttb/.
       <tag/*.tti/
-        Include files for text tables.
+        Include-Dateien für Text-Tabellen.
       <tag/*.hlp/
 	 Treiber-spezifische Handbuchseiten.
-	 Die Dateinamen folgen mehr oder weniger dem Schema <tt/brltty-/<em/driver/<tt/.hlp/,
-         wobei <em/driver/ der 2 Zeichen lange <ref id="drivers" name="driver identification code"> ist.
+	 Die Dateinamen folgen mehr oder weniger dem Schema <tt/brltty-/<em/treiber/<tt/.hlp/,
+         wobei <em/treiber/ der 2 Zeichen lange <ref id="drivers" name="#TODOdriver identification code"> ist.
     </descrip>
   <tag>/var/lib/BrlAPI/</>
-    Local sockets for connecting to the Application Programming Interface.
+    Lokaler Unix-Socket für den Zugriff auf die Programmierschnittstelle (API).
   <tag>/include/</>
     C Header-Dateien für die Programmierschnittstelle (API).
     Die Dateinamen folgen dem Schema <tt/brlapi-/<em/function/<tt/.h/.
@@ -390,7 +390,7 @@ installierten Dateien darstellen, sind:
 <descrip>
   <tag>/etc/brltty.conf</tag>
     Datei mit den Standard-Systemeinstellungen. Diese wird vom Systemadministrator erstellt.
-    Siehe <ref id="configure" name="#TODOThe Configuration File"> für weitere Informationen.
+    Siehe <ref id="configure" name="Konfigurationsdatei"> für weitere Informationen.
   <tag>/etc/brltty-<em/driver/.prefs</tag>
     Die Programmeinstellungen werden hier gespeichert.
     (<em/driver/ ist der 2 Zeichen lange <ref id="drivers" name="#TODOdriver identification code">).
@@ -473,9 +473,10 @@ Sie sollten auch die <tt/README/-Datei im Verzeichnis des Treibers für Ihre Brai
     Setzt die Standardparameter für die Braille Anzeigetreiber. Wird ein Parameter mehrmals angegeben, dann wird der letzte (=rechteste) Wert verwendet.
      Wird ein Parameter zusätzlich mit einem Treiber angegeben (siehe Abschnitt <ref id="drivers" name="#TODODriver Identification Codes">), dann gilt 
      dieser Parameter nur für den jeweiligen Treiber.
-    Die Liste der möglichen Parameter für jeden Treiber finden Sie in der Dokumentation des jeweiligen Treibers.						beachten Sie auch die Option <ref id="configure-braille-parameters" name="braille-parameters"> in der Konfigurationsdatei sowie
+    Die Liste der möglichen Parameter für jeden Treiber finden Sie in der Dokumentation des jeweiligen Treibers.						Beachten Sie auch die Option <ref id="configure-braille-parameters" name="braille-parameters"> in der Konfigurationsdatei sowie
     die Option <ref id="options-braille-parameters" name="-B"> für die Angabe der Optionen zur Laufzeit.
   <tag><tt/--with-braille-device=/<em/device/<tt/,/...<label id="build-braille-device"></tag>
+							     
     Specify the default device to which the braille display is connected
     (see section <ref id="operand-braille-device" name="Braille Device Specification">).
     If this option isn't specified,
@@ -538,38 +539,35 @@ Sie sollten auch die <tt/README/-Datei im Verzeichnis des Treibers für Ihre Brai
     This setting can be changed with the
     <ref id="preference-attributes-table" name="Attributes Table"> preference.
   <tag><tt/--with-speech-driver=/<em/driver/<label id="build-speech-driver"></tag>
-    Specify the speech synthesizer drivers
-    which are to be linked into the BRLTTY binary.
-    Those drivers which aren't listed via this option
-    are built as dynamically loadable shared objects
-    and can still be selected at run-time.
-    Each driver must be identified
-    either by its two-letter <ref id="drivers" name="driver identification code">
-    or by its proper name (full or abbreviated).
-    The driver identifiers must be
-    separated from one another by a single comma.
-    If a driver identifier is prefixed by a minus sign (<tt/-/),
-    then that driver is excluded from the build.
-    Any of the following words can also be used as the operand of this option:
-    <descrip>
+    Gibt an, welche Sprachsynthese-Treiber statisch in die BRLTTY-Datei eingebettet werden sollen.
+    Alle Treiber, die nicht durch diese Option angegeben werden, werden als dynamisch 
+    nachladbare Objekte übersetzt und können zur Laufzeit ausgewählt werden.
+    Jeder Treiber muss entweder durch einen 2 Zeichen langen <ref id="drivers" name="#TODOdriver identification code">
+    oder durch seinen Namen (vollständig oder abgekürzt) angegeben werden.
+    Die einzelnen Treibernamen oder IDs müssen durch Komma getrennt werden.
+    Wird dem Treibernamen oder ID ein Minus-zeichen (<tt/-/) vorangstellt,
+    wird der entsprechende Treiber von der Übersetzung ausgenommen.
+    Jedes der folgende Schlüsselwörter können ebenso als Parameter für diese Option verwendet werden:
+    
+
+  <descrip>
       <tag/all/
-        Link all of the drivers into the binary.
-        Don't build any of them as dynamically loadable shared objects.
+	 Bettet alle Treiber in die BRLTTY-Datei ein und übersetzt keinen der Treiber als dynamisch ladbares Objekt.
         This word may also be specified as the final element of a driver list.
-        This is how to specify the dfault driver when all the drivers are to be linked in.
+        #TODO ?? This is how to specify the default driver when all the drivers are to be linked in.
       <tag/-all/
-        Only build those drivers which have been explicitly included via this option.
+        Übersetze ausschließlich die Treiber, welche explizit angegeben wurden.
       <tag/no/
-        Don't build any drivers at all.
-        This is equivalent to specifying <tt/--without-speech-driver/.
+	 Übersetzte gar keinen Treiber.
+	 Das entspricht der Option <tt/--without-speech-driver/.
       <tag/yes/
-        Build all of the drivers as dynamically loadable shared objects.
-        Don't link any of them into the binary.
-        This is equivalent to specifying <tt/--with-speech-driver/.
+	 Übersetzt alle Treiber als dynamisch nachladbare Objekte, bette jedoch keinen in die BRLTTY-Datei ein.
+	 Das entspricht der Option <tt/--with-speech-driver/.
     </descrip>
-    See the <ref id="configure-speech-driver" name="speech-driver"> configuration file directive
-    and the <ref id="options-speech-driver" name="-s"> command line option
-    for run-time selection.
+
+  Beachten Sie auch die <ref id="configure-speech-driver" name="speech-driver"> Option in der Konfigurationsdatei
+      sowei die Option <ref id="options-speech-driver" name="-s"> für die Auswahl des Sprachsynthese-Treibers zur Laufzeit.
+  
   <tag><tt/--with-speech-parameters=/[<em/driver/<tt/:/]<em/name/<tt/=/<em/value/<tt/,/...<label id="build-speech-parameters"></tag>
     Specify the default parameter settings for the speech synthesizer drivers.
     If the same parameter is specified more than once,
@@ -1226,7 +1224,7 @@ then you may wish to use the following <tt/brltty/ command line options:
 <sect1>Starting BRLTTY<p>
 BRLTTY, when properly installed, is invoked with the single command <tt/brltty/.
 A configuration file
-(see section <ref id="configure" name="The Configuration File"> for details)
+(see section <ref id="configure" name="Konfigurations-Datei"> for details)
 can be created in order to establish system defaults for such things as
 the location of the preferences file,
 the braille display driver to be used,
@@ -2387,7 +2385,7 @@ See also the <ref id="command-SWITCHVT" name="SWITCHVT"> routing key command.
     This feature only affects the current virtual terminal.
 </descrip>
 
-<sect1>The Configuration File<label id="configure"><p>
+<sect1>Konfigurationsdatei<label id="configure"><p>
 System defaults for many settings may be established within a configuration file.
 The default name for this file is <tt>/etc/brltty.conf</tt>,
 although it may be overridden with the
@@ -2631,7 +2629,7 @@ The <tt/brltty/ command accepts the following options:
     Write diagnostic messages to standard error.
     The default is to record them via <tt/syslog/.
   <tag><tt/-f/<em/file/ <tt/--configuration-file=/<em/file/<label id="options-configuration-file"></tag>
-    Specify the location of the <ref id="configure" name="configuration file">
+    Specify the location of the <ref id="configure" name="Konfigurationsdatei">
     which is to be used for the establishing of default run-time settings.
   <tag><tt/-h/ <tt/--help/<label id="options-help"></tag>
     Display a summary of the command line options accepted by BRLTTY,
@@ -4345,7 +4343,7 @@ The following directives are provided:
     </descrip>
 </descrip>
 
-<sect1>Contraction Tables<label id="table-contraction"><p>
+<sect1>Kurzschrift-Tabellen<label id="table-contraction"><p>
 Files with names of the form <tt/*.ctb/ are contraction tables,
 and with names of the form <tt/*.cti/ are contraction subtables.
 They are used by BRLTTY to translate character sequences on the screen
