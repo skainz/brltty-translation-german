@@ -286,7 +286,7 @@ Nach dem Compilieren sollten folgende Dateien installiert sein:
       <tag/libbrlapi.a/
 	 Statische Bibliothek für die Programmierschnittstelle (API).
       <tag/libbrlapi.so/
-	 Dynamisch nachladbare Bibliothe für die Programmierschnittstelle (API).
+	 Dynamisch nachladbare Bibliothek für die Programmierschnittstelle (API).
     </descrip>
   <tag>/lib/brltty/</>
     Ihre Installation von BRLTTY beinhaltet möglicherweise nicht alle der folgenden Dateien.
@@ -354,8 +354,8 @@ Nach dem Compilieren sollten folgende Dateien installiert sein:
         Include-Dateien für Text-Tabellen.
       <tag/*.hlp/
 	 Treiber-spezifische Handbuchseiten.
-	 Die Dateinamen folgen mehr oder weniger dem Schema <tt/brltty-/<em/treiber/<tt/.hlp/,
-         wobei <em/treiber/ die 2 Zeichen lange <ref id="drivers" name="Treiberkennung"> ist.
+	 Die Dateinamen folgen mehr oder weniger dem Schema <tt/brltty-/<em/Treiber/<tt/.hlp/,
+         wobei <em/Treiber/ die 2 Zeichen lange <ref id="drivers" name="Treiberkennung"> ist.
     </descrip>
   <tag>/var/lib/BrlAPI/</>
     Lokaler Unix-Socket für den Zugriff auf die Programmierschnittstelle (API).
@@ -365,8 +365,8 @@ Nach dem Compilieren sollten folgende Dateien installiert sein:
     Die Haupt-Headerdatei ist <tt/brlapi.h/.
   <tag>/include/brltty/</>
     C Header-Dateien für den Zugriff auf die Braille-Hardware.
-    Die Dateinamen folgen dem Schema <tt/brldefs-/<em/driver/<tt/.h/
-    (wobei <em/driver/ die 2 Zeichen lange <ref id="drivers" name="Treiberkennung">) ist.
+    Die Dateinamen folgen dem Schema <tt/brldefs-/<em/Treiber/<tt/.h/
+    (wobei <em/Treiber/ die 2 Zeichen lange <ref id="drivers" name="Treiberkennung">) ist.
     Die Dateien <tt/brldefs.h/ und <tt/api.h/ sind nur mehr der Abwertskompatibilität wegen
     vorhanden und sollten nicht mehr verwendet werden.					      
   <tag>/man/</>
@@ -465,73 +465,51 @@ Sie sollten auch die <tt/README/-Datei im Verzeichnis des Treibers für Ihre Brai
       sowei die Option <ref id="options-braille-driver" name="-b"> für die Treiberauswahl zur Laufzeit.
   <tag><tt/--with-braille-parameters=/[<em/Treiber/<tt/:/]<em/Name/<tt/=/<em/Wert/<tt/,/...<label id="build-braille-parameters"></tag>
     Setzt die Standardparameter für die Braillezeilen-Treiber. Wird ein Parameter mehrmals angegeben, dann wird der letzte (=rechteste) Wert verwendet.
-     Wird ein Parameter zusätzlich mit einem Treiber angegeben (siehe Abschnitt <ref id="drivers" name="Treiberkennungen">), dann gilt 
+     Wird ein Parameter zusätzlich mit einer Treiberkennung angegeben (siehe Abschnitt <ref id="drivers" name="Treiberkennungen">), dann gilt 
      dieser Parameter nur für den jeweiligen Treiber.
     Die Liste der möglichen Parameter für jeden Treiber finden Sie in der Dokumentation des jeweiligen Treibers.						Beachten Sie auch die Option <ref id="configure-braille-parameters" name="braille-parameters"> in der Konfigurationsdatei sowie
     die Option <ref id="options-braille-parameters" name="-B"> für die Angabe der Optionen zur Laufzeit.
-  <tag><tt/--with-braille-device=/<em/Gerät/<tt/,/...<label id="build-braille-device"></tag>
-							     
-    Specify the default device to which the braille display is connected
-    (see section <ref id="operand-braille-device" name="Braille Device Specification">).
-    If this option isn't specified,
-    then <tt/usb:/ is assumed if USB support is available,
-    and an operating system appropriate path
-    for the primary (first) serial port (device) is assumed if not.
-    See the <ref id="configure-braille-device" name="braille-device"> configuration file directive
-    and the <ref id="options-braille-device" name="-d"> command line option
-    for run-time selection.
+  <tag><tt/--with-braille-device=/<em/Schnittstelle/<tt/,/...<label id="build-braille-device"></tag>
+    Bestimmt die Standard-Schnittstelle, an welcher die Braillezeile angeschlossen ist (siehe Abschnitt <ref id="operand-braille-device" name="#TODOBraille Device Specification">).
+Ist dieser Option nicht angegeben, wird standardmäßig <tt/usb:/ angenommen sofern USB-Unterstützung verfügbar ist. Ohne USB-Unterstützung wird der Pfad zum primären (ersten) seriellen Anschluss angenommen.
+Beachten die <ref id="configure-braille-device" name="braille-device">-Direktive in der Konfigurationsdatei und den Kommandozeilenparameter <ref id="options-braille-device" name="-d">  zum spezifizieren der Schnittstelle zur Laufzeit.
   <tag><tt/--with-libbraille=/<em/Verzeichnis/<label id="build-libbraille"></tag>
-    Specify the installed location of the Libbraille package,
-    and build the Libbraille braille display driver
-    (see <ref id="restrictions-libbraille" name="Build Restrictions">).
-    Any of the following words can also be used as the operand of this option:
+    Gibt den Verzeichnispfad des Libbraille-Pakets an und übersetzt den Libbraille Braillezeilentreiber. 
+
+    (siehe <ref id="restrictions-libbraille" name="#TODOBuild Restrictions">).
+    Folgende Schlüssenwörter können ebenso verwendet werden:
     <descrip>
       <tag/no/
-        Don't build the driver.
-        This is equivalent to specifying <tt/--without-libbraille/.
+	 Übersetze den Treiber nicht. Das entspricht der Option <tt/--without-libbraille/.
       <tag/yes/
-        Build the driver if the package can be found in
+	 Übersetzt den Treiber wenn das Libbraille-Pakete in einem der folgenden Verzeichnisse gefunden wird:
+
         <tt>/usr</>,
         <tt>/usr/local</>,
         <tt>/usr/local/Libbraille</>,
         <tt>/usr/local/libbraille</>,
         <tt>/opt/Libbraille</>,
-        or <tt>/opt/libbraille</>.
-        This is equivalent to specifying <tt/--with-libbraille/.
+        oder <tt>/opt/libbraille</>.
+        Das entspricht der Option <tt/--with-libbraille/.
     </descrip>
   <tag><tt/--with-text-table=/<em/Datei/<label id="build-text-table"></tag>
-    Specify the built-in (fallback) text table
-    (see section <ref id="table-text" name="Text-Tabellen"> for details).
-    The specified table is linked into the BRLTTY binary, and is used
-    either if locale-based autoselection fails
-    or if the requested table can't be loaded.
-    The absolute path to a table outside the source tree may be specified.
-    The <tt/.ttb/ extension is optional.
-    If this option isn't specified,
-    then <tt/en-nabcc/,
-    a commonly (in North America) used 8-dot variant of the
-    <ref id="nabcc" name="North American Braille Computer Code">,
-    is assumed.
-    See the <ref id="configure-text-table" name="text-table"> configuration file directive
-    and the <ref id="options-text-table" name="-t"> command line option
-    for run-time selection.
-    This setting can be changed with the
-    <ref id="preference-text-table" name="Text Table"> preference.
+    Gibt die Standard-Text-Tabelle an (siehe Abschnitt <ref id="table-text" name="Text-Tabellen"> für Details).
+    Diese Tabelle wird in BRLTTY eingebettet und wird verwendet, wenn die automatische Auswahl der Text-Tabellen basierend auf den Spracheinstellungen des Systems nicht funktioniert oder falls eine angegebene Tabelle nicht geladen werden konnte.
+Sie können hier auch einen absoluten Pfad, auch ausserhalb der BRLTTY-Dateihierarchie, angeben. Die Dateiendung <tt/.ttb/ ist optional.
+Wird diese Option nicht angegeben, wird <tt/en-nabcc/ angenommen,
+    eine üblicherweise (in Nordamerika) verwendete 8-Punkt Braillevariante des
+    <ref id="nabcc" name="Nordamerikanischen Braille Computer-Codes">.
+    Beachten Sie auch die <ref id="configure-text-table" name="text-table">-Direktive in der Konfigurationsdatei und den Kommandozeilenparameter <ref id="options-text-table" name="-t"> zur Auswahl der Text-Tabelle zur Laufzeit.
+    Diese Option kann auch mit der <ref id="preference-text-table" name="#TODO consistenz Text Table">-Einstellung geändert werden.
   <tag><tt/--with-attributes-table=/<em/Datei/<label id="build-attributes-table"></tag>
-    Specify the built-in (fallback) attributes table
-    (see section <ref id="table-attributes" name="Attributes Translation"> for details).
-    The specified table is linked into the BRLTTY binary, and is used
-    if the requested table can't be loaded.
-    The absolute path to a table outside the source tree may be specified.
-    The <tt/.atb/ extension is optional.
-    If this option isn't specified,
-    then <tt/left_right/ is assumed.
-    Change it to <tt/invleft_right/ if you'd like it done the old way.
-    See the <ref id="configure-attributes-table" name="attributes-table"> configuration file directive
-    and the <ref id="options-attributes-table" name="-a"> command line option
-    for run-time selection.
-    This setting can be changed with the
-    <ref id="preference-attributes-table" name="Attributes Table"> preference.
+  Gibt die Standard-Attribut-Tabelle an (siehe Abschnitt <ref id="table-attributes" name="Attributes Translation"> für Details).
+    Diese Tabelle wird in BRLTTY eingebettet und wird verwendet, wenn eine angegebene Tabelle nicht geladen werden konnte.
+Sie können hier auch einen absoluten Pfad, auch ausserhalb der BRLTTY-Dateihierarchie, angeben. Die Dateiendung <tt/.atb/ ist optional.
+Wird diese Option nicht angegeben, wird <tt/left_right/ angenommen.
+Setzten Sie die Option auf <tt/invleft_right/, falls Sie den früheren Modus bevorzugen.
+  Beachten Sie auch die  <ref id="configure-attributes-table" name="attributes-table">-Direktive in der Konfigurationsdatei und den Kommandozeilenparameter  <ref id="options-attributes-table" name="-a"> zur Auswahl der Attribut-Tabelle zur Laufzeit.
+  Diese Option kann auch mit der  <ref id="preference-attributes-table" name="#TODO consistenzAttributes Table">-Einstellung geändert werden.
+
   <tag><tt/--with-speech-driver=/<em/Treiber/<label id="build-speech-driver"></tag>
     Gibt an, welche Sprachsynthese-Treiber statisch in die BRLTTY-Datei eingebettet werden sollen.
     Alle Treiber, die nicht durch diese Option angegeben werden, werden als dynamisch 
@@ -541,7 +519,7 @@ Sie sollten auch die <tt/README/-Datei im Verzeichnis des Treibers für Ihre Brai
     Die einzelnen Treibernamen oder IDs müssen durch Komma getrennt werden.
     Wird dem Treibernamen oder ID ein Minus-zeichen (<tt/-/) vorangstellt,
     wird der entsprechende Treiber von der Übersetzung ausgenommen.
-    Jedes der folgende Schlüsselwörter können ebenso als Parameter für diese Option verwendet werden:
+    Jedes der folgende Schlüsselwörter kann ebenso als Parameter für diese Option verwendet werden:
     
 
   <descrip>
@@ -562,46 +540,35 @@ Sie sollten auch die <tt/README/-Datei im Verzeichnis des Treibers für Ihre Brai
   Beachten Sie auch die <ref id="configure-speech-driver" name="speech-driver">-Option in der Konfigurationsdatei sowei den Kommandozeilenparameter <ref id="options-speech-driver" name="-s"> für die Auswahl des Sprachsynthese-Treibers zur Laufzeit.
   
   <tag><tt/--with-speech-parameters=/[<em/Treiber/<tt/:/]<em/Name/<tt/=/<em/Wert/<tt/,/...<label id="build-speech-parameters"></tag>
-    Specify the default parameter settings for the speech synthesizer drivers.
-    If the same parameter is specified more than once,
-    then its rightmost assignment is used.
-    If a parameter name is qualified by a driver
-    (see section <ref id="drivers" name="Treiberkennungen">)
-    then that setting only applies to that driver;
-    if it isn't then it applies to all drivers.
-    For a description of the parameters accepted by a specific driver,
-    please see the documentation for that driver.
-    See the <ref id="configure-speech-parameters" name="speech-parameters"> configuration file directive
-    and the <ref id="options-speech-parameters" name="-S"> command line option
-    for run-time selection.
+ Setzt die Standardparameter für die Sprachsynthesizer-Treiber. Wird ein Parameter mehrmals angegeben, dann wird der letzte (=rechteste) Wert verwendet.
+ Wird ein Parameter zusätzlich mit einer Treiberkennung angegeben (siehe Abschnitt <ref id="drivers" name="Treiberkennungen">), dann gilt 
+     dieser Parameter nur für den jeweiligen Treiber.
+  Die Liste der möglichen Parameter für jeden Treiber finden Sie in der Dokumentation des jeweiligen Treibers.
+    Beachten Sie auch die <ref id="configure-speech-parameters" name="speech-parameters">-Direktive in der Konfigurationsdatei und den Kommandozeilenparameter <ref id="options-speech-parameters" name="-S"> zur Angabe der Parameter zur Laufzeit.
   <tag><tt/--with-flite=/<em/Verzeichnis/<label id="build-flite"></tag>
-    Specify the installed location of the FestivalLite text-to-speech package,
-    and build the FestivalLite speech synthesizer driver
-    (see <ref id="restrictions-flite" name="Build Restrictions">).
-    Any of the following words can also be used as the operand of this option:
-    <descrip>
+	Gibt das Verzeichnis des FestivalLite Text-zu-Sprache (TTS) Paketes an und
+übersetzt den FestivalLite Sprachsynthesizer-Treiber (siehe <ref id="restrictions-flite" name="#TODO Build Restrictions">).
+      Jedes der folgende Schlüsselwörter kann ebenso als Parameter für diese Option verwendet werden:
+  
+       <descrip>
       <tag/no/
-        Don't build the driver.
-        This is equivalent to specifying <tt/--without-flite/.
+	 Übersetze diesen Treiber nicht. Das entspricht der Option <tt/--without-flite/.
       <tag/yes/
-        Build the driver if the package can be found in
+	 Übersetze den Treiber, wenn das FestivalLite-Paket in einem der folgenden Verzeichnisse gefunden wird:
         <tt>/usr</>,
         <tt>/usr/local</>,
         <tt>/usr/local/FestivalLite</>,
         <tt>/usr/local/flite</>,
         <tt>/opt/FestivalLite</>,
-        or <tt>/opt/flite</>.
-        This is equivalent to specifying <tt/--with-flite/.
+        oder <tt>/opt/flite</>.
+        Das enspricht der Option <tt/--with-flite/.
     </descrip>
   <tag><tt/--with-flite-language=/<em/Sprache/<label id="build-flite-language"></tag>
-    Specify the language which the FestivalLite text to speech engine is to use.
-    The default language is <tt/usenglish/.
-  <tag><tt/--with-flite-lexicon=/<em/lexicon/<label id="build-flite-lexicon"></tag>
-    Specify the lexicon which the FestivalLite text to speech engine is to use.
-    The default lexicon is <tt/cmulex/.
+    Die Sprache, die der FestivalLite-Treiber verwenden soll. Standard ist <tt/usenglish/.
+  <tag><tt/--with-flite-lexicon=/<em/Lexikon/<label id="build-flite-lexicon"></tag>
+    Gibt das Wörterbuch an, das von FestivalLite verwendet werden soll. Das Standardwörterbuch ist <tt/cmulex/.
   <tag><tt/--with-flite-voice=/<em/Stimme/<label id="build-flite-voice"></tag>
-    Specify the voice which the FestivalLite text to speech engine is to use.
-    The default voice is <tt/cmu_us_kal16/.
+    Gibt die Stimme an, die von FestivalLite verwendet werden soll. Die Standardstimme ist <tt/cmu_us_kal16/.
   <tag><tt/--with-mikropuhe=/<em/Verzeichnis/<label id="build-mikropuhe"></tag>
     Specify the installed location of the Mikropuhe text-to-speech package,
     and build the Mikropuhe speech synthesizer driver
