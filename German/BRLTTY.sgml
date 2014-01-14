@@ -972,32 +972,28 @@ Ist diese Option nicht aktiv, sind alle Pfade absolut.
     Falls eine Plattform mehr als eine Audio-Schnittstelle hat, gibt dieser Parameter die zu verwendende an.
     <table loc="h">
       <tabular ca="lll">
-        Plattform|Interface|Beschreibung@<hline>
+        Plattform|Schnittstelle|Beschreibung@<hline>
         Linux
           |oss|Open Sound System@
           |alsa|Advanced Linux Sound Architecture@
       </tabular>
     </table>
   <tag><tt/--disable-midi-support/<label id="build-midi-support"></tag>
-    Reduce program size by excluding support for
-    the Musical Instrument Digital Interface of the sound card.
-  <tag><tt/--enable-midi-support=/<em/interface/</tag>
-    If a platform provides more than one Musical Instrument Digital Interface
-    then the one which is to be used may be specified.
+   Verringert die Programmgröße durch weglassen der Unterstützung der MIDI-Schnittstelle.
+  <tag><tt/--enable-midi-support=/<em/Schnittstelle/</tag>
+  Falls eine Plattform mehr als eine MIDI-Schnittstelle hat, gibt dieser Parameter die zu verwendende an.
     <table loc="h">
       <tabular ca="lll">
-        Platform|Interface|Description@<hline>
+        Plattform|Schnittstelle|Beschreibung@<hline>
         Linux
           |oss|Open Sound System@
           |alsa|Advanced Linux Sound Architecture@
       </tabular>
     </table>
   <tag><tt/--disable-fm-support/<label id="build-fm-support"></tag>
-    Reduce program size by excluding support for
-    the FM synthesizer on an AdLib, OPL3, Sound Blaster, or equivalent sound card.
+  Verringert die Programmgröße durch weglassen der Unterstützung des FM-Synthesizers auf AbLib, OPL3, SoundBlaster oder kompatiblen Soundkarten.
   <tag><tt/--disable-pm-configfile/<label id="build-pm-configfile"></tag>
-    Reduce program size by excluding support for
-    the Papenmeier driver's configuration file.
+Verringert die Programmgröße durch weglassen der Unterstützung der Konfigurationsdatei für den Papenmeier-Treiber.
   <tag><tt/--disable-gpm/<label id="build-gpm"></tag>
     Reduce program size by excluding
     the interface to the <tt/gpm/ application
