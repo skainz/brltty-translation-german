@@ -937,54 +937,42 @@ Setzten Sie die Option auf <tt/invleft_right/, falls Sie den früheren Modus bevo
 </descrip>
 
 <sect3>Build Features<label id="build-features"><p>
-These options are primarily useful when building BRLTTY for use on a boot disk.
+Diese Optionen sind am ehesten dann nützlich, wenn BRLTTY für die Verwendung auf einer Boot-Diskette übersetzt werden soll.
 <descrip>
   <tag><tt/--enable-standalone-programs/<label id="build-standalone-programs"></tag>
-    Create statically linked, rather than dynamically linked, programs.
-    This option removes all dependencies on shared objects at run-time.
-    Only the default drivers (see the
+    Erzeugt statische Programme, die keine dynamischen Bibliotheken verwenden.
+    Diese Option verhindert die Nutzung von dynamisch geladenen Objekten zur Laufzeit.
+    Es werden nur die Standardtreiber (siehe die Build-Optionen
     <ref id="build-braille-driver" name="--with-braille-driver">,
     <ref id="build-speech-driver" name="--with-speech-driver">,
-    and <ref id="build-screen-driver" name="--with-screen-driver">
-    build options) are compiled.
+    und <ref id="build-screen-driver" name="--with-screen-driver">) übersetzt.
   <tag><tt/--enable-relocatable-install/<label id="build-relocatable-install"></tag>
-    If this feature is enabled then all internal paths
-    are recalculated to be relative to the program directory.
-    If it's disabled then all internal paths are absolute.
-    This feature allows the entire installed file hierarchy
-    to be copied or moved, in tact, from one place to another,
-    and is primarily intended for use on Windows platforms.
+    Wird diese Option verwendet, werden alle Verzeichnispfade, die intern von BRLTTY verwendet werden,
+    auf Verzeichnispfade relativ zum Programmverzeichnis umgestellt. Das macht es möglich, dass die gesamte Hierarchie der installierten Dateien ohne Probleme an einen anderen Ort verschoben werden kann. Diese Funktion ist haupsächlich für Windows-Betriebssysteme gedacht.
+Ist diese Option nicht aktiv, sind alle Pfade absolut.
   <tag><tt/--disable-stripping/<label id="build-stripping"></tag>
-    Don't remove the symbol tables from executables and shared objects when installing them.
+    Verhindert das Entfernen der Symboltabellen aus den Programmen und Objektdateien beim Installieren.
   <tag><tt/--disable-learn-mode/<label id="build-learn-mode"></tag>
-    Reduce program size by excluding command learn mode
-    (see section <ref id="learn" name="Command Learn Mode">).
+    Verringert die Programmgröße durch weglassen des <ref id="learn" name="#TODOCommand Learn Mode">.
   <tag><tt/--disable-contracted-braille/<label id="build-contracted-braille"></tag>
-    Reduce program size by excluding support for contracted braille
-    (see section <ref id="table-contraction" name="Contraction Tables">).
+    Verringert die Programmgröße durch weglassen der Unterstützung für Kurzschrift-Braille (siehe Abschnitt <ref id="table-contraction" name="Kurzschrift-Tabellen">).
   <tag><tt/--disable-speech-support/<label id="build-speech-support"></tag>
-    Reduce program size by excluding support for speech synthesizers.
+    Verringert die Programmgröße durch weglassen der Unterstützung für Sprachsynthesizer.
   <tag><tt/--disable-iconv/<label id="build-iconv"></tag>
-    Reduce program size by excluding support for
-    character set conversion.
+    Verringert die Programmgröße durch weglassen der Unterstützung für Zeichensatz-Umwandlung.
   <tag><tt/--disable-icu/<label id="build-icu"></tag>
-    Reduce program size by excluding support for
-    Unicode-based internationalization.
+    Verringert die Programmgröße durch weglassen der Unterstützung für Unicode-basierende Internationalisierung.
   <tag><tt/--disable-x/<label id="build-x"></tag>
-    Reduce program size by excluding support for
-    X11.
+    Verringert die Programmgröße durch weglassen der Unterstützung für X11.
   <tag><tt/--disable-beeper-support/<label id="build-beeper-support"></tag>
-    Reduce program size by excluding support for
-    the console tone generator.
+    Verringert die Programmgröße durch weglassen der Unterstützung für den Konsolen-Beeper.
   <tag><tt/--disable-pcm-support/<label id="build-pcm-support"></tag>
-    Reduce program size by excluding support for
-    the digital audio interface on the sound card.
-  <tag><tt/--enable-pcm-support=/<em/interface/</tag>
-    If a platform provides more than one digital audio interface
-    then the one which is to be used may be specified.
+    Verringert die Programmgröße durch weglassen der Unterstützung für digitale Soundausgabe.
+  <tag><tt/--enable-pcm-support=/<em/Schnittstelle/</tag>
+    Falls eine Plattform mehr als eine Audio-Schnittstelle hat, gibt dieser Parameter die zu verwendende an.
     <table loc="h">
       <tabular ca="lll">
-        Platform|Interface|Description@<hline>
+        Plattform|Interface|Beschreibung@<hline>
         Linux
           |oss|Open Sound System@
           |alsa|Advanced Linux Sound Architecture@
