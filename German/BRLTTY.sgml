@@ -105,9 +105,8 @@ Sie können Emails an diese Liste über folgende Adresse senden:
 <htmlurl url="mailto:BRLTTY@mielke.cc" name="&lt;BRLTTY@mielke.cc&gt;">
 
 Falls Sie nicht Mitglied der Liste sind, werden Ihre Mails vor der 
-veröffentlichung auf der List von einem Moderator gesichtet.
-Zum Anmelden, Abmelden, Ändern Ihrer Einstellung, Archiv, etc. dieser Liste, 
-besuchen Sie die Webseite:
+Veröffentlichung auf der Liste von einem Moderator gesichtet.
+Zum Anmelden, Abmelden, Ändern Ihrer Einstellung, Einsicht ins Archiv, etc. dieser Liste, besuchen Sie die Webseite:
 <htmlurl url="http://mielke.cc/mailman/listinfo/brltty" name="http://mielke.cc/mailman/listinfo/brltty">.
 
 <sect>Einleitung<p>
@@ -239,8 +238,8 @@ Der Nachteil der verwendung von BRLTTY via <tt/screen/ ist, dass BRLTTY nicht
 gestartet werden kann, bis sich ein Benutzer am System angemeldet hat.
 
 BRLTTY funktioniert nur mit text-basierenden Konsolen und Anwendungen.
-Es kann mit Anwendungen, die auf  <tt/curses/ basieren, interagieren, 
-aber nicht mit Programmen, die spezielle VGA-Funktionen oder eine 
+Daher kann es mit Anwendungen, die auf  <tt/curses/ basieren, interagieren, 
+jedoch nicht mit Programmen, die spezielle VGA-Funktionen oder eine 
 grafische Konsole (z.B. das X Window System) benötigen.
 
 Sie müssen natürlich eine Braillezeile besitzen 
@@ -250,7 +249,7 @@ Falls Sie also irgenwelche technischen Informationen zu Geräten besitzen, für di
 Sie gerne Unterstützung in BRLTTY hätten, kontaktieren Sie uns bitte 
 (siehe Abschnitt <ref id="contact" name="Kontaktinformationen">).
 
-Ebenso benötigen Sie noch die Werkzeuge, um  usführbare Programme aus Quelltext zu erstellen:
+Ebenso benötigen Sie noch die Werkzeuge, um  ausführbare Programme aus Quelltext zu erstellen:
 <tt/make/, <tt/C/ und <tt/C++/ Compiler, <tt/yacc/, <tt/awk/, etc.
 Die Entwicklungswerkzeuge, die bei einer üblichen Unix-Distribution enthalten sind, sollten hier ausreichen.
 Falls Sie Probleme haben, kontaktieren Sie uns bitte und wir werden den Quelltext für Sie übersetzen.
@@ -259,9 +258,9 @@ Falls Sie Probleme haben, kontaktieren Sie uns bitte und wir werden den Quelltex
 <sect>Der Build-Prozess<p>
 
 BRLTTY kann von der BRLTTY-Webseite 
-(siehe Abschnitt <ref id="contact" name="#TODOContact Information"> für die Adresse) heruntergeladen werden.
+(siehe Abschnitt <ref id="contact" name="Kontaktinformationen"> für die Adresse) heruntergeladen werden.
 
-Dort sind alle Versionen als komprimierte <ref id="tar" name="#TODOtar balls"> verfügbar.
+Dort sind alle Versionen als komprimierte <ref id="tar" name="tar balls"> verfügbar.
 Neuere Versionen sind auch als <ref id="rpm" name="RPM">-Dateien (RedHat Package Manager) erhältlich.
 
 Diese Informationen habe sicherlich Ihre Neugier geweckt, und nun können Sie es kaum erwarten, loszulegen.
@@ -323,7 +322,7 @@ Nach dem Compilieren sollten folgende Dateien installiert sein:
     </descrip>
   <tag>/etc/brltty/</>
       Ihre Installation von BRLTTY beinhaltet möglicherweise nicht alle der folgenden Dateien.
-    Diese werden bei Bedarf abhängig von den gewählten   <ref id="build" name="#TODO Build Options"> erstellt.
+    Diese werden bei Bedarf abhängig von den gewählten   <ref id="build" name="Build-Optionen"> erstellt.
     
     <descrip>
       <tag/*.conf/
@@ -387,9 +386,9 @@ installierten Dateien darstellen, sind:
   <tag>/etc/brltty.conf</tag>
     Datei mit den Standard-Systemeinstellungen. Diese wird vom Systemadministrator erstellt.
     Siehe <ref id="configure" name="Konfigurationsdatei"> für weitere Informationen.
-  <tag>/etc/brltty-<em/driver/.prefs</tag>
+  <tag>/etc/brltty-<em/Treiber/.prefs</tag>
     Die Programmeinstellungen werden hier gespeichert.
-    (<em/driver/ ist der 2 Zeichen lange <ref id="drivers" name="#TODOdriver identification code">).
+    (<em/Treiber/ ist der 2 Zeichen lange <ref id="drivers" name="#TODOdriver identification code">).
     Diese Datei wird mit dem Kommando <ref id="command-PREFSAVE" name="#TODOPREFSAVE"> erstellt.
     Siehe <ref id="preferences" name="#TODOPreferences Settings"> für weitere Informationen.
 </descrip>
@@ -426,7 +425,7 @@ Um BRLTTY zu deinstallieren, gehen Sie wie folgt vor:
 </tscreen>
 Das ist alles was Sie zu tun haben. Für all jene, die wirklich wissen wollen, was hier passiert, gibt es hier die Details:
 
-<sect2>Übersetzungs-Optionen<label id="build"><p>
+<sect2>Build-Optionen<label id="build"><p>
 Der erste Schritt zur Übersetzung von BRLTTY ist, das Programm für Ihr System und/oder nach Ihren persönlichen Preferenzen
 zu konfigurieren.
 Das geschieht durch das Aufrufen des Kommandos <tt/configure/ im Hauptverzeichnis von BRLTTY.
@@ -439,7 +438,7 @@ Sie sollten auch die <tt/README/-Datei im Verzeichnis des Treibers für Ihre Brai
 
 <sect3>#TODOSystem Defaults<label id="build-defaults"><p>
 <descrip>
-  <tag><tt/--with-braille-driver=/<em/driver/<label id="build-braille-driver"></tag>
+  <tag><tt/--with-braille-driver=/<em/Treiber/<label id="build-braille-driver"></tag>
     Gibt an, welche Treiber statisch in die BRLTTY-Datei eingebettet werden sollen.
     Alle Treiber, die nicht durch diese Option angegeben werden, werden als dynamisch 
     nachladbare Objekte übersetzt und können zur Laufzeit ausgewählt werden.
@@ -482,7 +481,7 @@ Sie sollten auch die <tt/README/-Datei im Verzeichnis des Treibers für Ihre Brai
     See the <ref id="configure-braille-device" name="braille-device"> configuration file directive
     and the <ref id="options-braille-device" name="-d"> command line option
     for run-time selection.
-  <tag><tt/--with-libbraille=/<em/directory/<label id="build-libbraille"></tag>
+  <tag><tt/--with-libbraille=/<em/Verzeichnis/<label id="build-libbraille"></tag>
     Specify the installed location of the Libbraille package,
     and build the Libbraille braille display driver
     (see <ref id="restrictions-libbraille" name="Build Restrictions">).
@@ -501,7 +500,7 @@ Sie sollten auch die <tt/README/-Datei im Verzeichnis des Treibers für Ihre Brai
         or <tt>/opt/libbraille</>.
         This is equivalent to specifying <tt/--with-libbraille/.
     </descrip>
-  <tag><tt/--with-text-table=/<em/file/<label id="build-text-table"></tag>
+  <tag><tt/--with-text-table=/<em/Datei/<label id="build-text-table"></tag>
     Specify the built-in (fallback) text table
     (see section <ref id="table-text" name="Text-Tabellen"> for details).
     The specified table is linked into the BRLTTY binary, and is used
@@ -519,7 +518,7 @@ Sie sollten auch die <tt/README/-Datei im Verzeichnis des Treibers für Ihre Brai
     for run-time selection.
     This setting can be changed with the
     <ref id="preference-text-table" name="Text Table"> preference.
-  <tag><tt/--with-attributes-table=/<em/file/<label id="build-attributes-table"></tag>
+  <tag><tt/--with-attributes-table=/<em/Datei/<label id="build-attributes-table"></tag>
     Specify the built-in (fallback) attributes table
     (see section <ref id="table-attributes" name="Attributes Translation"> for details).
     The specified table is linked into the BRLTTY binary, and is used
@@ -534,7 +533,7 @@ Sie sollten auch die <tt/README/-Datei im Verzeichnis des Treibers für Ihre Brai
     for run-time selection.
     This setting can be changed with the
     <ref id="preference-attributes-table" name="Attributes Table"> preference.
-  <tag><tt/--with-speech-driver=/<em/driver/<label id="build-speech-driver"></tag>
+  <tag><tt/--with-speech-driver=/<em/Treiber/<label id="build-speech-driver"></tag>
     Gibt an, welche Sprachsynthese-Treiber statisch in die BRLTTY-Datei eingebettet werden sollen.
     Alle Treiber, die nicht durch diese Option angegeben werden, werden als dynamisch 
     nachladbare Objekte übersetzt und können zur Laufzeit ausgewählt werden.
@@ -601,10 +600,10 @@ Sie sollten auch die <tt/README/-Datei im Verzeichnis des Treibers für Ihre Brai
   <tag><tt/--with-flite-lexicon=/<em/lexicon/<label id="build-flite-lexicon"></tag>
     Specify the lexicon which the FestivalLite text to speech engine is to use.
     The default lexicon is <tt/cmulex/.
-  <tag><tt/--with-flite-voice=/<em/voice/<label id="build-flite-voice"></tag>
+  <tag><tt/--with-flite-voice=/<em/Stimme/<label id="build-flite-voice"></tag>
     Specify the voice which the FestivalLite text to speech engine is to use.
     The default voice is <tt/cmu_us_kal16/.
-  <tag><tt/--with-mikropuhe=/<em/directory/<label id="build-mikropuhe"></tag>
+  <tag><tt/--with-mikropuhe=/<em/Verzeichnis/<label id="build-mikropuhe"></tag>
     Specify the installed location of the Mikropuhe text-to-speech package,
     and build the Mikropuhe speech synthesizer driver
     (see <ref id="restrictions-mikropuhe" name="Build Restrictions">).
@@ -623,7 +622,7 @@ Sie sollten auch die <tt/README/-Datei im Verzeichnis des Treibers für Ihre Brai
         or <tt>/opt/mikropuhe</>.
         This is equivalent to specifying <tt/--with-mikropuhe/.
     </descrip>
-  <tag><tt/--with-speechd=/<em/directory/<label id="build-speechd"></tag>
+  <tag><tt/--with-speechd=/<em/Verzeichnis/<label id="build-speechd"></tag>
     Specify the installed location of the speech-dispatcher text-to-speech package,
     and build the speech-dispatcher speech synthesizer driver.
     Any of the following words can also be used as the operand of this option:
@@ -641,7 +640,7 @@ Sie sollten auch die <tt/README/-Datei im Verzeichnis des Treibers für Ihre Brai
         or <tt>/opt/speechd</>.
         This is equivalent to specifying <tt/--with-speechd/.
     </descrip>
-  <tag><tt/--with-swift=/<em/directory/<label id="build-swift"></tag>
+  <tag><tt/--with-swift=/<em/Verzeichnis/<label id="build-swift"></tag>
     Specify the installed location of the Swift text-to-speech package,
     and build the Swift speech synthesizer driver.
     Any of the following words can also be used as the operand of this option:
@@ -659,7 +658,7 @@ Sie sollten auch die <tt/README/-Datei im Verzeichnis des Treibers für Ihre Brai
         or <tt>/opt/swift</>.
         This is equivalent to specifying <tt/--with-swift/.
     </descrip>
-  <tag><tt/--with-theta=/<em/directory/<label id="build-theta"></tag>
+  <tag><tt/--with-theta=/<em/Verzeichnis/<label id="build-theta"></tag>
     Specify the installed location of the Theta text-to-speech package,
     and build the Theta speech synthesizer driver
     (see <ref id="restrictions-theta" name="Build Restrictions">).
@@ -5248,11 +5247,11 @@ BRLTTY unterstützt die folgenden Braillezeilen:
   </tabular>
 </table>
 
-<sect>Supported Speech Synthesizers<label id="synthesizers"><p>
-BRLTTY supports the following speech synthesizers:
+<sect>Unterstützte Sprachsynthesizer<label id="synthesizers"><p>
+BRLTTY unterstützt die folgenden Sprachsynthesizer:
 <table loc="h">
   <tabular ca="ll">
-    Name|Models@<hline>
+    Name|Modell@<hline>
     &SpeechDrivers
   </tabular>
 </table>
@@ -5404,26 +5403,25 @@ The default MIDI device is:
   </tabular>
 </table>
 
-<sect>Standard Braille Dot Numbering Convention<label id="dots"><p>
-A standard braille cell consists of six dots
-arranged in three rows and two columns.
-Each dot can be specifically identified by its number as follows:
-<descrip>
-  <tag/1/Top-left (row 1, column 1).
-  <tag/2/Middle-left (row 2, column 1).
-  <tag/3/Bottom-left (row 3, column 1).
-  <tag/4/Top-right (row 1, column 2).
-  <tag/5/Middle-right (row 2, column 2).
-  <tag/6/Bottom-right (row 3, column 2).
-</descrip>
+<sect>Standardisierte Braillepunkt-Nummerierung<label id="dots"><p>
+Ein Braillezeichen besteht aus 6 Punkten die in 3 Reihen und 2 Spalten angeordnet sind. 
+Jeder Punkt kann nach folgenden Schema eindeutig identifiziert werden:
 
-Computer braille has introduced a fourth row at the bottom.
 <descrip>
-  <tag/7/Below-left (row 4, column 1).
-  <tag/8/Below-right (row 4, column 2).
+  <tag/1/Oben-Links (Zeile 1, Spalte 1).
+  <tag/2/Mitte-Links (Zeile 2, Spalte 1).
+  <tag/3/Unten-Links (Zeile 3, Spalte 1).
+  <tag/4/Oben-Rechts (Zeile 1, Spalte 2).
+  <tag/5/Mitte-Rechts (Zeile 2, Spalte 2).
+  <tag/6/Unten-Rechts (Zeile 3, Spalte 2).
 </descrip>
+Mit Computerbraille wurde eine zusätzliche vierte Zeile unten hinzugefügt.
 
-Perhaps a picture will make this numbering convention easier to understand.
+<descrip>
+  <tag/7/Unterhalb-Links (Zeile 4, Spalte 1).
+  <tag/8/Unterhalb-Rechts (Zeile 4, Spalte 2).
+</descrip>
+Hier ein Bild, um die Numerierung zu illustrieren:
 <tscreen><verb>
 1 o o 4
 2 o o 5
