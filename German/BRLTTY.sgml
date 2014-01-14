@@ -291,28 +291,27 @@ Nach dem Compilieren sollten folgende Dateien installiert sein:
   <tag>/lib/brltty/</>
     Ihre Installation von BRLTTY beinhaltet möglicherweise nicht alle der folgenden Dateien.
     Diese werden bei Bedarf abhängig von den gewählten 
-    <ref id="build" name="#TODO Build Options"> erstellt.
+    <ref id="build" name="Build-Optionen"> erstellt.
     <descrip>
       <tag/brltty-brl.lst/
 	 Eine Liste von Treibern, die als dynamisch ladbare Objekte übersetzt wurden. Diese können
 	 zur Laufzeit ausgewählt und verwendet werden.
-	 Jede Zeile besteht aus einem 2 Zeichen langen Identifikations-Code für einen Treiber,
+	 Jede Zeile besteht aus einer 2 Zeichen langen Treiberkennung,
 	 ein Tabulator-Zeichen und eine Beschreibung der Braillezeile, die der Treiber unterstützt.
-      <tag>libbrlttyb<em/driver/.so.1</tag>
+      <tag>libbrlttyb<em/Treiber/.so.1</tag>
 	Der dynamisch ladbare Treiber für eine Braillezeile, wobei 
-       <em/driver/ der 2 Zeichen lange <ref id="drivers" name="#TODO driver identification code"> ist.
+       <em/Treiber/ die 2 Zeichen lange <ref id="drivers" name="Treiberkennung"> ist.
       <tag/brltty-spk.lst/
 	 Eine Liste von Sprachsynthesizer-Treibern, welche als dynamisch ladbare Objekte übersetzt wurden und
 	 somit zur Laufzeit ausgewählt und verwendet werden können.
-	 Jede Zeile besteht aus einem 2 Zeichen langen Identifikations-Code für einen Treiber,
+	 Jede Zeile besteht aus einer 2 Zeichen langen Treiberkennung,
 	 ein Tabulator-Zeichen und eine Beschreibung des Sprachsynthesizers, den der Treiber unterstützt.
       <tag>libbrlttys<em/driver/.so.1</tag>
 	Der dynamisch ladbare Treiber für einen Sprachsynthesizer, wobei
-        <em/driver/ der 2 Zeichen lange <ref id="drivers" name="#TODOdriver identification code"> ist.
+        <em/driver/ die 2 Zeichen lange <ref id="drivers" name="Treiberkennung"> ist.
     </descrip>
   <tag>/lib/brltty/rw/</>
-    Dateien die zur Laufzeit erzeugt werden, beispielsweise benötigte aber nicht vorhandene System-Dateien #TODO stimmt das?
-    Files created at run-time, e.g. needed but missing system resources.
+    Dateien die zur Laufzeit erzeugt werden, beispielsweise benötigte aber nicht vorhandene System-Dateien.
   <tag>/etc/</>
     <descrip>
       <tag/brltty.conf/
@@ -328,7 +327,7 @@ Nach dem Compilieren sollten folgende Dateien installiert sein:
       <tag/*.conf/
 	 Treiber-spezifische Konfigurationsdaten.
 	 Die Dateinamen folgen mehr oder weniger dem Schema <tt/brltty-/<em/driver/<tt/.conf/,
-        wobei <em/driver/ der 2 Zeichen lange <ref id="drivers" name="#TODOdriver identification code"> ist.
+        wobei <em/driver/ die 2 Zeichen lange <ref id="drivers" name="Treiberkennung"> ist.
       <tag/*.atb/
         Attribut-Tabellen
         (siehe Abschnitt <ref id="table-attributes" name="Attribut-Tabellen"> für Details).
@@ -356,7 +355,7 @@ Nach dem Compilieren sollten folgende Dateien installiert sein:
       <tag/*.hlp/
 	 Treiber-spezifische Handbuchseiten.
 	 Die Dateinamen folgen mehr oder weniger dem Schema <tt/brltty-/<em/treiber/<tt/.hlp/,
-         wobei <em/treiber/ der 2 Zeichen lange <ref id="drivers" name="#TODOdriver identification code"> ist.
+         wobei <em/treiber/ die 2 Zeichen lange <ref id="drivers" name="Treiberkennung"> ist.
     </descrip>
   <tag>/var/lib/BrlAPI/</>
     Lokaler Unix-Socket für den Zugriff auf die Programmierschnittstelle (API).
@@ -367,7 +366,7 @@ Nach dem Compilieren sollten folgende Dateien installiert sein:
   <tag>/include/brltty/</>
     C Header-Dateien für den Zugriff auf die Braille-Hardware.
     Die Dateinamen folgen dem Schema <tt/brldefs-/<em/driver/<tt/.h/
-    (wobei <em/driver/ der 2 Zeichen lange <ref id="drivers" name="#TODOdriver identification code">).
+    (wobei <em/driver/ die 2 Zeichen lange <ref id="drivers" name="Treiberkennung">) ist.
     Die Dateien <tt/brldefs.h/ und <tt/api.h/ sind nur mehr der Abwertskompatibilität wegen
     vorhanden und sollten nicht mehr verwendet werden.					      
   <tag>/man/</>
@@ -388,8 +387,8 @@ installierten Dateien darstellen, sind:
     Siehe <ref id="configure" name="Konfigurationsdatei"> für weitere Informationen.
   <tag>/etc/brltty-<em/Treiber/.prefs</tag>
     Die Programmeinstellungen werden hier gespeichert.
-    (<em/Treiber/ ist der 2 Zeichen lange <ref id="drivers" name="#TODOdriver identification code">).
-    Diese Datei wird mit dem Kommando <ref id="command-PREFSAVE" name="#TODOPREFSAVE"> erstellt.
+    (<em/Treiber/ ist die 2 Zeichen lange <ref id="drivers" name="Treiberkennung">).
+    Diese Datei wird mit dem Kommando <ref id="command-PREFSAVE" name="PREFSAVE"> erstellt.
     Siehe <ref id="preferences" name="#TODOPreferences Settings"> für weitere Informationen.
 </descrip>
 
@@ -442,7 +441,7 @@ Sie sollten auch die <tt/README/-Datei im Verzeichnis des Treibers für Ihre Brai
     Gibt an, welche Treiber statisch in die BRLTTY-Datei eingebettet werden sollen.
     Alle Treiber, die nicht durch diese Option angegeben werden, werden als dynamisch 
     nachladbare Objekte übersetzt und können zur Laufzeit ausgewählt werden.
-    Jeder Treiber muss entweder durch einen 2 Zeichen langen <ref id="drivers" name="#TODOdriver identification code">
+    Jeder Treiber muss entweder durch eine 2 Zeichen lange <ref id="drivers" name="Treiberkennung">
     oder durch seinen Namen (vollständig oder abgekürzt) angegeben werden.
     Die einzelnen Treibernamen oder IDs müssen durch Komma getrennt werden.
     Wird dem Treibernamen oder ID ein Minus-zeichen (<tt/-/) vorangstellt,
@@ -466,7 +465,7 @@ Sie sollten auch die <tt/README/-Datei im Verzeichnis des Treibers für Ihre Brai
       sowei die Option <ref id="options-braille-driver" name="-b"> für die Treiberauswahl zur Laufzeit.
   <tag><tt/--with-braille-parameters=/[<em/Treiber/<tt/:/]<em/Name/<tt/=/<em/Wert/<tt/,/...<label id="build-braille-parameters"></tag>
     Setzt die Standardparameter für die Braillezeilen-Treiber. Wird ein Parameter mehrmals angegeben, dann wird der letzte (=rechteste) Wert verwendet.
-     Wird ein Parameter zusätzlich mit einem Treiber angegeben (siehe Abschnitt <ref id="drivers" name="#TODODriver Identification Codes">), dann gilt 
+     Wird ein Parameter zusätzlich mit einem Treiber angegeben (siehe Abschnitt <ref id="drivers" name="Treiberkennungen">), dann gilt 
      dieser Parameter nur für den jeweiligen Treiber.
     Die Liste der möglichen Parameter für jeden Treiber finden Sie in der Dokumentation des jeweiligen Treibers.						Beachten Sie auch die Option <ref id="configure-braille-parameters" name="braille-parameters"> in der Konfigurationsdatei sowie
     die Option <ref id="options-braille-parameters" name="-B"> für die Angabe der Optionen zur Laufzeit.
@@ -537,7 +536,7 @@ Sie sollten auch die <tt/README/-Datei im Verzeichnis des Treibers für Ihre Brai
     Gibt an, welche Sprachsynthese-Treiber statisch in die BRLTTY-Datei eingebettet werden sollen.
     Alle Treiber, die nicht durch diese Option angegeben werden, werden als dynamisch 
     nachladbare Objekte übersetzt und können zur Laufzeit ausgewählt werden.
-    Jeder Treiber muss entweder durch einen 2 Zeichen langen <ref id="drivers" name="#TODOdriver identification code">
+    Jeder Treiber muss entweder durch eine 2 Zeichen lange <ref id="drivers" name="Treiberkennung">
     oder durch seinen Namen (vollständig oder abgekürzt) angegeben werden.
     Die einzelnen Treibernamen oder IDs müssen durch Komma getrennt werden.
     Wird dem Treibernamen oder ID ein Minus-zeichen (<tt/-/) vorangstellt,
@@ -567,7 +566,7 @@ Sie sollten auch die <tt/README/-Datei im Verzeichnis des Treibers für Ihre Brai
     If the same parameter is specified more than once,
     then its rightmost assignment is used.
     If a parameter name is qualified by a driver
-    (see section <ref id="drivers" name="Driver Identification Codes">)
+    (see section <ref id="drivers" name="Treiberkennungen">)
     then that setting only applies to that driver;
     if it isn't then it applies to all drivers.
     For a description of the parameters accepted by a specific driver,
@@ -4056,42 +4055,35 @@ or until any key on the display is pressed.
 <sect>Tabellen<label id="tables"><p>
 
 <sect1>Text-Tabellen<label id="table-text"><p>
-Files with names of the form <tt/*.ttb/ are text tables,
-and with names of the form <tt/*.tti/ are text subtables.
-They are used by BRLTTY to translate the characters on the screen
-into their corresponding 8-dot computer braille representations.
+Dateien mit Namen der Form <tt/*.ttb/ stellen Text-Tabellen dar,
+<tt/*.tti/-Dateien sind Text-Untertabellen.
+BRLTTY verwendet diese Tabellen um die Zeichen am Bildschirm in ihre ensprechende 8-Punkt Computerbraille-Darstellung zu übersetzen.
 
-BRLTTY is initially configured to use the
-<ref id="nabcc" name="North American Braille Computer Code">
-(NABCC) text table.
-In addition to this default,
-the following alternatives are provided:
+BRLTTY ist standardmäßig so eingestellt, dass die 
+<ref id="nabcc" name="Nordamerikanische Braille Computer-Code">-Tabelle (NABCC) verwendet wird.
+Zusätzlich zu dieser Standardtabelle sind noch folgende Tabellen verfügbar:
 <table loc="h">
   <tabular ca="ll">
     Name|Language@
     &TextTables
   </tabular>
 </table>
-See the <ref id="options-text-table" name="-t"> command line option,
-the <ref id="configure-text-table" name="text-table"> configuration file directive,
-and the <ref id="build-text-table" name="--with-text-table"> build option
-for details regarding how to use an alternate text table.
+Beachten Sie auch den Kommandozeilenparameter <ref id="options-text-table" name="-t">, die
+<ref id="configure-text-table" name="text-table">-Direktive in der Konfigurationsdatei
+und die Build-Option <ref id="build-text-table" name="--with-text-table"> für weitere Details, wie Sie alternative Text-Tabellen verwenden können.
 
-<sect2>Text Table Format<p>
-A text table consists of a sequence of directives, one per line,
-which define how each character is to be represented in braille.
-<tt/UTF-8/ character encoding must be used.
-White-space (blanks, tabs) at the beginning of a line, 
-as well as before and/or after any operand of any directive,
-is ignored.
-Lines containing only white-space are ignored.
-If the first non-white-space character of a line is "&num;"
-then that line is a comment and is ignored.
+<sect2>Format der Text-Tabelle<p>
+Eine Text-Tabelle besteht aus einer Reihe von Definitionen - jeweils eine pro Zeile - welche angeben, wie einzelne Zeichen in Braille dargestellt werden sollen.
 
-<sect2>Text Table Directives<p>
-The following directives are provided:
+Die Zeichenkodierung muss in <tt/UTF-8/ erfolgen.
+Leerzeichen (Spaces, Tabulator) am Zeilenbeginn sowie vor und/oder nach einem Schlüsselwort werden ignoriert.
+Zeilen die nur Leerzeichen enthalten, werden ignoriert.
+Wenn das erste Zeichen einer Zeile, das kein Leerzeichen ist, ein "&num;"-Zeichen ist, wird diese Zeile als Kommentar behandelt und ignoriert.
+
+<sect2>Schlüsselwörter der Text-Tabellen<p>
+Die folgenden Schlüsselwörter werden unterstützt:
 <descrip>
-  <tag><tt/char/ <em/character/ <em/dots/ &num; <em/comment/</tag>
+  <tag><tt/char/ <em/Zeichen/ <em/Punkte/ &num; <em/Kommentar /</tag>
     Use the <tt/char/ directive to specify
     how a Unicode character is to be represented in braille.
     Characters defined with this directive
@@ -4106,7 +4098,7 @@ The following directives are provided:
     then the first one is selected.
 
     <descrip>
-      <tag><em/character/</tag>
+      <tag><em/Zeichen/</tag>
         The Unicode character being defined.
         It may be:
         <itemize>
@@ -4133,7 +4125,7 @@ The following directives are provided:
             - <tag/\\/A literal backslash.
             </descrip>
         </itemize>
-      <tag><em/dots/</tag>
+      <tag><em/Punkte/</tag>
         The braille representation of the Unicode character.
         It is a sequence of one to eight dot numbers.
         If the dot number sequence is enclosed within parentheses
@@ -5256,7 +5248,7 @@ BRLTTY unterstützt die folgenden Sprachsynthesizer:
   </tabular>
 </table>
 
-<sect>Driver Identification Codes<label id="drivers"><p>
+<sect>Treiberkennungen<label id="drivers"><p>
 <table loc="h">
   <tabular ca="ll">
     Code|Name@<hline>
