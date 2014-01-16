@@ -623,23 +623,21 @@ Setzten Sie die Option auf <tt/invleft_right/, falls Sie den früheren Modus bevo
         Das entspricht der Option <tt/--with-swift/.
     </descrip>
   <tag><tt/--with-theta=/<em/Verzeichnis/<label id="build-theta"></tag>
-    Specify the installed location of the Theta text-to-speech package,
-    and build the Theta speech synthesizer driver
-    (see <ref id="restrictions-theta" name="Build Restrictions">).
-    Any of the following words can also be used as the operand of this option:
+  Gibt das Verzeichnis an, in dem das theta-Paket installiert ist und übersetzt den theta Sprachsynthesizer-Treiber  (siehe <ref id="restrictions-theta" name="#TODO Build Restrictions">).
+    Jedes der folgende Schlüsselwörter kann ebenso als Parameter für diese Option verwendet werden:
     <descrip>
       <tag/no/
-        Don't build the driver.
-        This is equivalent to specifying <tt/--without-theta/.
+	 Übersetze diesen Treiber nicht.
+	 Das entspricht der Option <tt/--without-theta/.
       <tag/yes/
-        Build the driver if the package can be found in
+	 Übersetze den Treiber, wenn das theta-Paket in einem der folgende Verzeichnisse gefunden wird:
         <tt>/usr</>,
         <tt>/usr/local</>,
         <tt>/usr/local/Theta</>,
         <tt>/usr/local/theta</>,
         <tt>/opt/Theta</>,
-        or <tt>/opt/theta</>.
-        This is equivalent to specifying <tt/--with-theta/.
+        oder <tt>/opt/theta</>.
+        Das entspricht der Option <tt/--with-theta/.
     </descrip>
   <tag><tt/--with-viavoice=/<em/directory/<label id="build-viavoice"></tag>
     Specify the installed location of the ViaVoice text-to-speech package,
