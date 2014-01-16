@@ -630,6 +630,7 @@ Setzten Sie die Option auf <tt/invleft_right/, falls Sie den früheren Modus bevo
 	 Übersetze diesen Treiber nicht.
 	 Das entspricht der Option <tt/--without-theta/.
       <tag/yes/
+
 	 Übersetze den Treiber, wenn das theta-Paket in einem der folgende Verzeichnisse gefunden wird:
         <tt>/usr</>,
         <tt>/usr/local</>,
@@ -640,23 +641,21 @@ Setzten Sie die Option auf <tt/invleft_right/, falls Sie den früheren Modus bevo
         Das entspricht der Option <tt/--with-theta/.
     </descrip>
   <tag><tt/--with-viavoice=/<em/directory/<label id="build-viavoice"></tag>
-    Specify the installed location of the ViaVoice text-to-speech package,
-    and build the ViaVoice speech synthesizer driver
-    (see <ref id="restrictions-viavoice" name="Build Restrictions">).
-    Any of the following words can also be used as the operand of this option:
+ Gibt das Verzeichnis an, in dem das viavoice-Paket installiert ist und übersetzt den viavoice Sprachsynthesizer-Treiber (siehe  <ref id="restrictions-viavoice" name="Build Restrictions">).
+    Jedes der folgende Schlüsselwörter kann ebenso als Parameter für diese Option verwendet werden:
     <descrip>
       <tag/no/
-        Don't build the driver.
-        This is equivalent to specifying <tt/--without-viavoice/.
+	 Übersetze diesen Treiber nicht.
+       Dies entspricht der Option <tt/--without-viavoice/.
       <tag/yes/
-        Build the driver if the package can be found in
+ 	 Übersetze den Treiber, wenn das viavoice-Paket in einem der folgenden Verzeichnisse gefunden wird:
         <tt>/usr</>,
         <tt>/usr/local</>,
         <tt>/usr/local/ViaVoice</>,
         <tt>/usr/local/viavoice</>,
         <tt>/opt/ViaVoice</>,
-        or <tt>/opt/viavoice</>.
-        This is equivalent to specifying <tt/--with-viavoice/.
+        oder <tt>/opt/viavoice</>.
+        Das entspricht der Option <tt/--with-viavoice/.
     </descrip>
   <tag><tt/--with-screen-driver=/<em/driver/<label id="build-screen-driver"></tag>
     Specify the screen drivers
