@@ -570,59 +570,57 @@ Setzten Sie die Option auf <tt/invleft_right/, falls Sie den früheren Modus bevo
   <tag><tt/--with-flite-voice=/<em/Stimme/<label id="build-flite-voice"></tag>
     Gibt die Stimme an, die von FestivalLite verwendet werden soll. Die Standardstimme ist <tt/cmu_us_kal16/.
   <tag><tt/--with-mikropuhe=/<em/Verzeichnis/<label id="build-mikropuhe"></tag>
-    Specify the installed location of the Mikropuhe text-to-speech package,
-    and build the Mikropuhe speech synthesizer driver
-    (see <ref id="restrictions-mikropuhe" name="Build Restrictions">).
-    Any of the following words can also be used as the operand of this option:
-    <descrip>
+    Gibt das Verzeichnis an, in dem das Mikropuhe Text-zu-Sprache (TTS) Paket installiert ist und übersetzt den
+    Mikropuhe Sprachsynthesizer-Treiber (siehe <ref id="restrictions-mikropuhe" name="#TODOBuild Restrictions">).
+    Jedes der folgende Schlüsselwörter kann ebenso als Parameter für diese Option verwendet werden:
+  						    
+      <descrip>
       <tag/no/
-        Don't build the driver.
-        This is equivalent to specifying <tt/--without-mikropuhe/.
+	 Übersetzte diesen Treiber nicht.
+	 Das entspricht der Option <tt/--without-mikropuhe/.
       <tag/yes/
-        Build the driver if the package can be found in
+	 Übersetze den Treiber, wenn das Mikropuhe-Paket in einem der folgenden Verzeichnisse gefunden wird:
         <tt>/usr</>,
         <tt>/usr/local</>,
         <tt>/usr/local/Mikropuhe</>,
         <tt>/usr/local/mikropuhe</>,
         <tt>/opt/Mikropuhe</>,
-        or <tt>/opt/mikropuhe</>.
-        This is equivalent to specifying <tt/--with-mikropuhe/.
+        oder <tt>/opt/mikropuhe</>.
+        Das entspricht der Option <tt/--with-mikropuhe/.
     </descrip>
   <tag><tt/--with-speechd=/<em/Verzeichnis/<label id="build-speechd"></tag>
-    Specify the installed location of the speech-dispatcher text-to-speech package,
-    and build the speech-dispatcher speech synthesizer driver.
-    Any of the following words can also be used as the operand of this option:
-    <descrip>
+  Gibt das Verzeichnis an, in dem das speechd-Paket installiert ist und übersetzt den speechd Sprachsynthesizer-Treiber.
+    Jedes der folgende Schlüsselwörter kann ebenso als Parameter für diese Option verwendet werden:
+      <descrip>
       <tag/no/
-        Don't build the driver.
-        This is equivalent to specifying <tt/--without-speechd/.
+        Übersetze diesen Treiber nicht.
+	 Das entspricht der Option <tt/--without-speechd/.
       <tag/yes/
-        Build the driver if the package can be found in
+	 Übersetze den Treiber, wenn das speechd-Paket in einem der folgenden Verzeichnisse gefunden wird:
         <tt>/usr</>,
         <tt>/usr/local</>,
         <tt>/usr/local/speech-dispatcher</>,
         <tt>/usr/local/speechd</>,
         <tt>/opt/speech-dispatcher</>,
-        or <tt>/opt/speechd</>.
-        This is equivalent to specifying <tt/--with-speechd/.
+        oder <tt>/opt/speechd</>.
+        Das entspricht der Option <tt/--with-speechd/.
     </descrip>
   <tag><tt/--with-swift=/<em/Verzeichnis/<label id="build-swift"></tag>
-    Specify the installed location of the Swift text-to-speech package,
-    and build the Swift speech synthesizer driver.
-    Any of the following words can also be used as the operand of this option:
+  Gibt das Verzeichnis an, in dem das swift-Paket installiert ist und übersetzt den swift Sprachsynthesizer-Treiber.
+    Jedes der folgende Schlüsselwörter kann ebenso als Parameter für diese Option verwendet werden:
     <descrip>
       <tag/no/
-        Don't build the driver.
-        This is equivalent to specifying <tt/--without-swift/.
+        Übersetze diesen Treiber nicht.
+	 Das entspricht der Option <tt/--without-swift/.
       <tag/yes/
-        Build the driver if the package can be found in
+	 Übersetze den Treiber, wenn das swift-Paket in einem der folgende Verzeichnisse gefunden wird:
         <tt>/usr</>,
         <tt>/usr/local</>,
         <tt>/usr/local/Swift</>,
         <tt>/usr/local/swift</>,
         <tt>/opt/Swift</>,
-        or <tt>/opt/swift</>.
-        This is equivalent to specifying <tt/--with-swift/.
+        oder <tt>/opt/swift</>.
+        Das entspricht der Option <tt/--with-swift/.
     </descrip>
   <tag><tt/--with-theta=/<em/Verzeichnis/<label id="build-theta"></tag>
     Specify the installed location of the Theta text-to-speech package,
