@@ -1003,14 +1003,13 @@ Beachten Sie such die  <ref id="configure-api-parameters" name="api-parameters">
 
   <tag><tt/--disable-java-bindings/<label id="build-java-bindings"></tag>
 Verhindert das Übersetzen der Java-Bindings für die Programmierschnittstelle (API).
-
   <tag><tt/--disable-lisp-bindings/<label id="build-lisp-bindings"></tag>
-    Don't build the Lisp bindings for the Application Programming Interface.
+Verhindert das Übersetzen der Lisp-Bindings für die Programmierschnittstelle (API).
   <tag><tt/--disable-python-bindings/<label id="build-python-bindings"></tag>
-    Don't build the Python bindings for the Application Programming Interface.
+Verhindert das Übersetzen der Python-Bindings für die Programmierschnittstelle (API).
   <tag><tt/--disable-tcl-bindings/<label id="build-tcl-bindings"></tag>
-    Don't build the Tcl bindings for the Application Programming Interface.
-  <tag><tt/--with-tcl-config=/<em/path/<label id="build-tcl-config"></tag>
+Verhindert das Übersetzen der Tcl-Bindings für die Programmierschnittstelle (API).
+  <tag><tt/--with-tcl-config=/<em/Verzeichnispfad/<label id="build-tcl-config"></tag>
     Specify the location of the Tcl configuration script (<tt/tclConfig.sh/).
     Either the path to the script itself
     or to the directory containing it
