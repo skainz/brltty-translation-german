@@ -657,7 +657,7 @@ Setzten Sie die Option auf <tt/invleft_right/, falls Sie den früheren Modus bevo
         oder <tt>/opt/viavoice</>.
         Das entspricht der Option <tt/--with-viavoice/.
     </descrip>
-  <tag><tt/--with-screen-driver=/<em/driver/<label id="build-screen-driver"></tag>
+  <tag><tt/--with-screen-driver=/<em/Treiber/<label id="build-screen-driver"></tag>
     Specify the screen drivers
     which are to be linked into the BRLTTY binary.
     Those drivers which aren't listed via this option
@@ -990,26 +990,20 @@ Ist diese Option nicht aktiv, sind alle Pfade absolut.
   <tag><tt/--disable-pm-configfile/<label id="build-pm-configfile"></tag>
 Verringert die Programmgröße durch weglassen der Unterstützung der Konfigurationsdatei für den Papenmeier-Treiber.
   <tag><tt/--disable-gpm/<label id="build-gpm"></tag>
-    Reduce program size by excluding
-    the interface to the <tt/gpm/ application
-    which allows BRLTTY to interact with the pointer (mouse) device
-    (see section <ref id="gpm" name="Pointer (Mouse) Support via GPM">).
+Verringert die Programmgröße durch das weglassen der Schnittstelle zum Programm  <tt/gpm/, das es BRLTTY ermöglicht die Mausunterstützung zu nutzen (siehe Abschnitt <ref id="gpm" name="#TODOPointer (Mouse) Support via GPM">).
   <tag><tt/--disable-api/<label id="build-api"></tag>
-    Reduce program size by excluding
-    the Application Programming Interface.
-  <tag><tt/--with-api-parameters=/<em/name/<tt/=/<em/value/<tt/,/...<label id="build-api-parameters"></tag>
-    Specify the default parameter settings for the Application Programming Interface.
-    If the same parameter is specified more than once,
-    then its rightmost assignment is used.
-    For a description of the parameters accepted by the interface,
-    please see the <bf/BrlAPI/ reference manual.
-    See the <ref id="configure-api-parameters" name="api-parameters"> configuration file directive
-    and the <ref id="options-api-parameters" name="-A"> command line option
-    for run-time selection.
+Verringert die Programmgröße durch das weglassen der Programmierschnittstelle (API).
+  <tag><tt/--with-api-parameters=/<em/Name/<tt/=/<em/Wert/<tt/,/...<label id="build-api-parameters"></tag>
+Gibt die Standard-Einstellungen für die Programmierschnittstelle an.
+Wird ein Parameter mehrmals angegeben, dann wird der letzte (=rechteste) Wert verwendet.
+Die Liste der möglichen Parametern entnehmen Sie bitte dem <bf/BrlAPI/ Handbuch.
+Beachten Sie such die  <ref id="configure-api-parameters" name="api-parameters">-Direktive in der Konfigurationsdatei und den Kommandozeilenparameter <ref id="options-api-parameters" name="-A"> zur Auswahl der Parameter zur Laufzeit. run-time selection.
   <tag><tt/--disable-caml-bindings/<label id="build-caml-bindings"></tag>
-    Don't build the Caml bindings for the Application Programming Interface.
+  Verhindert das Übersetzen der Caml-Bindings für die Programmierschnittstelle (API).
+
   <tag><tt/--disable-java-bindings/<label id="build-java-bindings"></tag>
-    Don't build the Java bindings for the Application Programming Interface.
+Verhindert das Übersetzen der Java-Bindings für die Programmierschnittstelle (API).
+
   <tag><tt/--disable-lisp-bindings/<label id="build-lisp-bindings"></tag>
     Don't build the Lisp bindings for the Application Programming Interface.
   <tag><tt/--disable-python-bindings/<label id="build-python-bindings"></tag>
