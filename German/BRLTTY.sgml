@@ -658,101 +658,82 @@ Setzten Sie die Option auf <tt/invleft_right/, falls Sie den früheren Modus bevo
         Das entspricht der Option <tt/--with-viavoice/.
     </descrip>
   <tag><tt/--with-screen-driver=/<em/Treiber/<label id="build-screen-driver"></tag>
-    Specify the screen drivers
-    which are to be linked into the BRLTTY binary.
-    Those drivers which aren't listed via this option
-    are built as dynamically loadable shared objects
-    and can still be selected at run-time.
-    Each driver must be identified
-    either by its two-letter driver identification code
-    (see section <ref id="screen" name="Supported Screen Drivers">)
-    or by its proper name (full or abbreviated).
-    The driver identifiers must be
-    separated from one another by a single comma.
-    If a driver identifier is prefixed by a minus sign (<tt/-/),
-    then that driver is excluded from the build.
-    Any of the following words can also be used as the operand of this option:
-    <descrip>
+  Gibt an, welche Bildschirmtreiber statisch in die BRLTTY-Datei eingebettet werden sollen.
+    Alle Treiber, die nicht durch diese Option angegeben werden, werden als dynamisch 
+    nachladbare Objekte übersetzt und können zur Laufzeit ausgewählt werden.
+    Jeder Treiber muss entweder durch eine 2 Zeichen lange Treiberkennung (siehe Abschnitt <ref id="screen" name="#TODOSupported Screen Drivers">)   oder durch seinen Namen (vollständig oder abgekürzt) angegeben werden.
+    Die einzelnen Treibernamen oder IDs müssen durch Komma getrennt werden.
+    Wird dem Treibernamen oder ID ein Minus-zeichen (<tt/-/) vorangstellt,
+    wird der entsprechende Treiber von der Übersetzung ausgenommen.
+    Jedes der folgende Schlüsselwörter kann ebenso als Parameter für diese Option verwendet werden:
+    
+
+ <descrip>
       <tag/all/
-        Link all of the drivers into the binary.
-        Don't build any of them as dynamically loadable shared objects.
+	 Bettet alle Bildschirmtreiber in die BRLTTY-Datei ein und übersetzt keinen der Treiber als dynamisch ladbares Objekt.
         This word may also be specified as the final element of a driver list.
-        This is how to specify the dfault driver when all the drivers are to be linked in.
+        #TODO ?? This is how to specify the default driver when all the drivers are to be linked in.
       <tag/-all/
-        Only build those drivers which have been explicitly included via this option.
+        Übersetze ausschließlich die Treiber, welche explizit angegeben wurden.
       <tag/no/
-        Don't build any drivers at all.
-        This is equivalent to specifying <tt/--without-screen-driver/.
+	 Übersetzte gar keinen Treiber.
+	 Das entspricht der Option <tt/--without-screen-driver/.
       <tag/yes/
-        Build all of the drivers as dynamically loadable shared objects.
-        Don't link any of them into the binary.
-        This is equivalent to specifying <tt/--with-screen-driver/.
+	 Übersetzt alle Treiber als dynamisch nachladbare Objekte, bette jedoch keinen in die BRLTTY-Datei ein.
+	 Das entspricht der Option <tt/--with-screen-driver/.
     </descrip>
-    The first non-excluded driver becomes the default driver.
-    If this option isn't specified,
-    or if no driver is specifically included,
-    then an operating system appropriate default is selected.
-    If a native driver for the current operating system is available,
-    then that driver is selected;
-    if not, then <tt/sc/ is selected.
-    See the <ref id="configure-screen-driver" name="screen-driver"> configuration file directive
-    and the <ref id="options-screen-driver" name="-x"> command line option
-    for run-time selection.
-  <tag><tt/--with-screen-parameters=/[<em/driver/<tt/:/]<em/name/<tt/=/<em/value/<tt/,/...<label id="build-screen-parameters"></tag>
-    Specify the default parameter settings for the screen drivers.
-    If the same parameter is specified more than once,
-    then its rightmost assignment is used.
-    If a parameter name is qualified by a driver
-    (see section <ref id="screen" name="Supported Screen Drivers">)
-    then that setting only applies to that driver;
-    if it isn't then it applies to all drivers.
-    For a description of the parameters accepted by a specific driver,
-    please see the documentation for that driver.
-    See the <ref id="configure-screen-parameters" name="screen-parameters"> configuration file directive
-    and the <ref id="options-screen-parameters" name="-X"> command line option
-    for run-time selection.
-  <tag><tt/--with-usb-package=/<em/package/<tt/,/...<label id="build-usb-package"></tag>
-    Specify the package which is to be used for USB I/O.
-    The package names must be separated from one another by a single comma,
-    and are processed from left to right.
-    The first one which is installed on the system is selected.
-    The following packages are supported:
+ 
+ Der erste nicht explizit ausgeschlossen Treiber wird als Standardtrieiber verwendet. Wird diese Option nicht angegeben oder kein Treiber explizit ausgewählt, wird ein dem Bestriebssystem entsprechender Standardtreiber gewählt. Ist ein eingebauter Treiber für Ihr Betriebssystem verfügbar, wird dieser verwendet, ansonsten wird  <tt/sc/ gewählt.
+Beachten Sie auch die  <ref id="configure-screen-driver" name="screen-driver">-Direktive in der Konfigurationsdatei und den Kommandozeilenparameter <ref id="options-screen-driver" name="-x">zur Auswahl dieser Option zur Laufzeit.
+
+
+  <tag><tt/--with-screen-parameters=/[<em/Treiber/<tt/:/]<em/Name/<tt/=/<em/Wert/<tt/,/...<label id="build-screen-parameters"></tag>
+
+ Setzt die Standardparameter für die Bildschirmreiber. Wird ein Parameter mehrmals angegeben, dann wird der letzte (=rechteste) Wert verwendet.
+ Wird ein Parameter zusätzlich mit einer Treiberkennung angegeben (siehe Abschnitt <ref id="screen" name="#TODOSupported Screen Drivers">), dann gilt 
+     dieser Parameter nur für den jeweiligen Treiber.
+  Die Liste der möglichen Parameter für jeden Treiber finden Sie in der Dokumentation des jeweiligen Treibers.
+    Beachten Sie auch die <ref id="configure-screen-parameters" name="screen-parameters">-Direktive in der Konfigurationsdatei und den Kommandozeilenparameter <ref id="options-screen-parameters" name="-X"> zur Angabe der Parameter zur Laufzeit.
+
+  <tag><tt/--with-usb-package=/<em/Paket/<tt/,/...<label id="build-usb-package"></tag>
+    Gibt das oder die Pakete an, mit denen die USB-Kommunikation abgewickelt werden soll.
+    Die Paketnamen müssen mit Komma getrennt sein und werden von links nach rechts abgearbeitet.
+    Das	erste der angegebene Pakete, dass am System gefunden wird, wird verwendet.
+    Die folgenden Pakete werden unterstützt:
     <enum>
       <item>libusb
       <item>libusb-1.0
     </enum>
-    Any of the following words can also be used as the operand of this option:
+    Jedes der folgende Schlüsselwörter kann ebenso als Parameter für diese Option verwendet werden:
     <descrip>
       <tag/no/
-        Don't support USB I/O.
-        This is equivalent to specifying <tt/--without-usb-package/.
+	 Verwende keine USB-Kommunikation.
+	 Das entspricht der Option <tt/--without-usb-package/.
       <tag/yes/
-        Use native support for USB I/O.
-        If native support isn't available for the current platform
-        then use the first available supported package
-        (as per the order specified above).
-        This is equivalent to specifying <tt/--with-usb-package/.
+	 Verwende die eingebaute Unterstützung für die USB-Kommunikation.
+	 Falls es keine eingebaute Unterstützung für ihre Plattform gibt, verwende das erste
+         verwendbare Paket (der Reihefolge von oben folgend).
+         Das entspricht der Option <tt/--with-usb-package/.
     </descrip>
-  <tag><tt/--with-bluetooth-package=/<em/package/<tt/,/...<label id="build-bluetooth-package"></tag>
-    Specify the package which is to be used for Bluetooth I/O.
-    The package names must be separated from one another by a single comma,
-    and are processed from left to right.
-    The first one which is installed on the system is selected.
-    The following packages are supported:
+  <tag><tt/--with-bluetooth-package=/<em/Paket/<tt/,/...<label id="build-bluetooth-package"></tag>
+  Gibt das oder die Pakete an, mit denen die Bluetooth-Kommunikation abgewickelt werden soll.
+   Die Paketnamen müssen mit Komma getrennt sein und werden von links nach rechts abgearbeitet.
+    Das	erste der angegebene Pakete, dass am System gefunden wird, wird verwendet.
+    Die folgenden Pakete werden unterstützt:
+
     <enum>
-      <item>(no packages are currently supported)
+      <item>(aktuell werden keine Pakete unterstützt #TODO)
     </enum>
-    Any of the following words can also be used as the operand of this option:
-    <descrip>
+  Jedes der folgende Schlüsselwörter kann ebenso als Parameter für diese Option verwendet werden:
+      <descrip>
       <tag/no/
-        Don't support Bluetooth I/O.
-        This is equivalent to specifying <tt/--without-bluetooth-package/.
+	 Verwende keine Bluetooth-Kommunikation.
+        Das entspricht der Option <tt/--without-bluetooth-package/.
       <tag/yes/
-        Use native support for Bluetooth I/O.
-        If native support isn't available for the current platform
-        then use the first available supported package
-        (as per the order specified above).
-        This is equivalent to specifying <tt/--with-bluetooth-package/.
+	 Verwende die eingebaute Unterstützung für die Bluetooth-Kommunikation.
+	 Falls es keine eingebaute Unterstützung für ihre Plattform gibt, verwende das erste
+         verwendbare Paket (der Reihefolge von oben folgend).
+         Das entspricht der Option  <tt/--with-bluetooth-package/.
     </descrip>
 </descrip>
 
