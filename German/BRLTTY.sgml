@@ -739,69 +739,41 @@ Beachten Sie auch die  <ref id="configure-screen-driver" name="screen-driver">-D
 
 <sect3>Directory Specification<label id="build-directoreis"><p>
 <descrip>
-  <tag><tt/--with-execute-root=/<em/directory/<label id="build-execute-root"></tag>
-    Specify the directory at which the
-    <ref id="hierarchy" name="installed file hierarchy">
-    is to be rooted at run-time.
-    The absolute path should be supplied.
-    If this option isn't specified,
-    then the system's root directory is assumed.
-    Use this option if you need to install
-    BRLTTY's run-time files in a non-standard location.
-    You need to use this feature, for example, if you'd like to have
-    more than one version of BRLTTY installed at the same time
-    (see section <ref id="multiple" name="Installing Multiple Versions">
-    for an example of how to do this).
-  <tag><tt/--with-install-root=/<em/directory/<label id="build-install-root"></tag>
-    Specify the directory beneath which the
-    <ref id="hierarchy" name="installed file hierarchy">
-    is to be installed.
-    The absolute path should be supplied.
-    If this option isn't specified,
-    then the run-time package root
-    (see the <ref id="build-execute-root" name="--with-execute-root"> build option)
-    is assumed.
-    This directory is only used by
-    <ref id="make-install" name="make install">
-    and <ref id="make-uninstall" name="make uninstall">.
-    Use this option if you need to install BRLTTY in a different location
-    than the one from which it'll ultimately be executed.
-    You need to use this feature, for example,
-    if you're building BRLTTY on one system for use on another.
-  <tag><tt/--prefix=/<em/directory/<label id="build-portable-root"></tag>
-    Specify the directory within the
-    <ref id="hierarchy" name="installed file hierarchy">
-    where the default directories for the architecture-independent files
-    are to be rooted.
+  <tag><tt/--with-execute-root=/<em/Verzeichnis/<label id="build-execute-root"></tag>
+    Gibt den Verzeichnispfad an, dass zur Laufzeit als Arbeitsverzeichnis für die <ref id="hierarchy" name="Hierarchie der installierten Dateien">
+    verwendet werden soll.  Dieser Pfad muss als absoluter Pfad angegeben werden. 
+    Wird dieser Wert nicht angegeben, wird das Wurzelverzeichnis des Systems verwendet.
+    Verwenden Sie diese Option, falls Sie die Dateien, die BRLTTY zur Laufzeit benötigt, nicht im Standardverzeichnis installieren.				Sie können diese Option zum Beispiel verwenden, wenn Sie mehrere Versionen von BRLTTY gleichzeitig installiert haben (siehe Abschnitt <ref id="multiple" name="Installing Multiple Versions"> für eun Beispiel, wie das gemacht wird).
+  <tag><tt/--with-install-root=/<em/Verzeichnis/<label id="build-install-root"></tag>
+    Gibt den Verzeichnispfad an, unter dem die    <ref id="hierarchy" name="Hierarchie der installierten Dateien"> installiert werden soll.
+    Dieser Pfad muss als absoluter Pfad angegeben werden. Wird diese Option nicht gesetzt, wird das Arbeitsverzeichnis (siehe Option <ref id="build-execute-root" name="--with-execute-root">) verwendet.
+						      
+    Dieser Verzeichnispfad wird nur von <ref id="make-install" name="make install">
+    und <ref id="make-uninstall" name="make uninstall"> verwendet. Verwenden Sie diese Option, falls sie BRLTTY in einem anderen Verzeichnis installieren, als dem, von welchem aus sie BRLTTY letztendlich ausführen wollen. Das brauchen Sie beispielsweise, wenn Sie BRLTTY für ein anderes System übersetzen.
+						     
+  <tag><tt/--prefix=/<em/Verzeichnis/<label id="build-portable-root"></tag>
+    Gibt innerhalb der <ref id="hierarchy" name="Hierarchie der installierten Dateien"> das Basisverzeichnis für die architektur-unabhängigen Dateien an. Das beinhaltet die Verzeichnisse:
+    <itemize>
+      <item>Das <ref id="build-writable-directory" name="writable directory">
+      <item>Das <ref id="build-data-directory" name="data directory">
+      <item>Das <ref id="build-configuration-directory" name="configuration directory">
+      <item>Das <ref id="build-manpage-directory" name="manpage directory">
+      <item>Das <ref id="build-include-directory" name="include directory">
+    </itemize>
+    Dieser Pfad sollte als absoluter Pfad angegeben werden. Wird er nicht angegeben, wird das Wurzelverzeichnis des Systems verwendet. Dieses wird als Basisverzeichnis, wie durch die Option <ref id="build-execute-root" name="--with-execute-root"> angegeben, gesetzt.
+    <tag><tt/--exec-prefix=/<em/Verzeichnis/<label id="build-architecture-root"></tag>
+    Gibt innerhalb der <ref id="hierarchy" name="Hierarchie der installierten Dateien">, das Arbeitsverzeichnis für die architektur-abhängigen Dateien an.
+    Das betrifft die folgenden Verzeichnisse:
+
     These directories include:
     <itemize>
-      <item>the <ref id="build-writable-directory" name="writable directory">
-      <item>the <ref id="build-data-directory" name="data directory">
-      <item>the <ref id="build-configuration-directory" name="configuration directory">
-      <item>the <ref id="build-manpage-directory" name="manpage directory">
-      <item>the <ref id="build-include-directory" name="include directory">
+      <item>Das <ref id="build-program-directory" name="program directory">
+      <item>Das <ref id="build-library-directory" name="library directory">
+      <item>Das <ref id="build-api-directory" name="API directory">
     </itemize>
-    The absolute path should be supplied.
-    If this option isn't specified,
-    then the system's root directory is assumed.
-    This directory is rooted at the directory specified by the
-    <ref id="build-execute-root" name="--with-execute-root"> build option.
-  <tag><tt/--exec-prefix=/<em/directory/<label id="build-architecture-root"></tag>
-    Specify the directory within the
-    <ref id="hierarchy" name="installed file hierarchy">
-    where the default directories for the architecture-dependent files
-    are to be rooted.
-    These directories include:
-    <itemize>
-      <item>the <ref id="build-program-directory" name="program directory">
-      <item>the <ref id="build-library-directory" name="library directory">
-      <item>the <ref id="build-api-directory" name="API directory">
-    </itemize>
-    The absolute path should be supplied.
-    If this option isn't specified,
-    then the directory specified via the
-    <ref id="build-portable-root" name="--prefix">
-    build option is assumed.
+    Dieser Pfad sollte als absoluter Pfad angegeben werden. Wird er nicht angegeben, wird der wert der Option 
+       <ref id="build-portable-root" name="--prefix"> verwendet.
+    build option is assumed. Dieses Verzeichnis wird im #SIMON
     This directory is rooted at the directory specified by the
     <ref id="build-execute-root" name="--with-execute-root"> build option.
   <tag><tt/--libdir=/<em/directory/<label id="build-api-directory"></tag>
