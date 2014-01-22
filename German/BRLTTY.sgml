@@ -764,8 +764,6 @@ Beachten Sie auch die  <ref id="configure-screen-driver" name="screen-driver">-D
     <tag><tt/--exec-prefix=/<em/Verzeichnis/<label id="build-architecture-root"></tag>
     Gibt innerhalb der <ref id="hierarchy" name="Hierarchie der installierten Dateien">, das Arbeitsverzeichnis für die architektur-abhängigen Dateien an.
     Das betrifft die folgenden Verzeichnisse:
-
-    These directories include:
     <itemize>
       <item>Das <ref id="build-program-directory" name="program directory">
       <item>Das <ref id="build-library-directory" name="library directory">

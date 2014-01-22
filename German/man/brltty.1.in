@@ -19,9 +19,9 @@
 .TH "BRLTTY" "1" "Apr 2013" "brltty 4.5" "The BRLTTY Project"
 .SH NAME
 brltty \- refreshable braille display driver for Linux/Unix
-.SH SYNOPSIS
+.SH ÜBERSICHT
 \fBbrltty \fR[\fIoption\fR ...]
-.SH DESCRIPTION
+.SH BESCHREIBUNG
 .B brltty
 is a background process (daemon)
 which provides access to the console screen (when in text mode)
@@ -29,7 +29,7 @@ for a blind person using a refreshable braille display.
 It drives the braille display,
 and provides complete screen review functionality.
 Some speech capability has also been incorporated.
-.SH OPTIONS
+.SH OPTIONEN
 Options can be passed to
 .B brltty
 in a number of ways.
@@ -48,7 +48,7 @@ option is in effect)
 The Configuration File
 .IP 5. 4
 Built-in Defaults
-.SS "Command Line Options"
+.SS "Kommandozeilenparameter"
 The options are processed sequentially from left to right.
 If an option is specified more than once,
 or in case of a conflict,
@@ -420,18 +420,18 @@ Parameters for the screen driver.
 If the same parameter is specified more than once
 then the rightmost specification is used.
 Parameter names may be abbreviated.
-.SS "Environment Variables"
-The following environment variables are recognized if the
+.SS "Umgebungsvariablen"
+Die nachfolgend aufgelisteten Umgebungsvariablen werden verwendet, wenn die Option 
 .B \-E
 .RB "(" "\-\-environment\-variables" ")"
-option is specified:
+angegeben wird:
 .TP
-\fBBRLTTY_API_PARAMETERS=\fIname\fB=\fIvalue\fB,\fR...
-Parameters for the application programming interface.
-See the
+\fBBRLTTY_API_PARAMETERS=\fIName\fB=\fIWert\fB,\fR...
+Parameter für die Programmierschnittstelle (API).
+Beachten sie die Option
 .B \-A
 .RB "(" "\-\-api\-parameters=" ")"
-option for details.
+für Details.
 .TP
 \fBBRLTTY_ATTRIBUTES_TABLE=\fItable\fR
 The attributes table.
@@ -547,7 +547,7 @@ See the
 .B \-t
 .RB "(" "\-\-text\-table=" ")"
 option for details.
-.SS "The Configuration File"
+.SS "Die Konfigurationsdatei"
 Blank lines are ignored.
 If the character
 .B "#"
@@ -824,12 +824,12 @@ If this is done then autodetection is performed using each listed driver in sequ
 You may need to experiment in order to determine the most reliable order
 since some drivers autodetect better than others.
 .PP
-If the single word
+Wird nur das Wort 
 .B auto
-is specified then autodetection is performed
+angegeben is specified then autodetection is performed
 using only those drivers which are known to be reliable for this purpose.
 .RE
-.SH "SEE ALSO"
+.SH "SIEHE AUCH"
 Die komplette Dokumentation von
 .BR brltty 
 finden Sie online unter 
