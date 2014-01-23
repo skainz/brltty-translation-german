@@ -722,7 +722,7 @@ Beachten Sie auch die  <ref id="configure-screen-driver" name="screen-driver">-D
     Die folgenden Pakete werden unterstützt:
 
     <enum>
-      <item>(aktuell werden keine Pakete unterstützt #TODO)
+      <item>(aktuell werden keine Pakete unterstützt)
     </enum>
   Jedes der folgende Schlüsselwörter kann ebenso als Parameter für diese Option verwendet werden:
       <descrip>
@@ -787,19 +787,13 @@ Beachten Sie auch die  <ref id="configure-screen-driver" name="screen-driver">-D
     <ref id="build-architecture-root" name="--exec-prefix"> build option)
     is assumed.
     The directory is created if it doesn't exist.
-  <tag><tt/--sysconfdir=/<em/directory/<label id="build-configuration-directory"></tag>
-    Specify the directory within the
-    <ref id="hierarchy" name="installed file hierarchy">
-    where the configuration files are to be installed.
-    The absolute path should be supplied.
-    If this option isn't specified,
-    then the directory
-    specified via the standard configure option <tt/--sysconfdir/
-    (which defaults to <tt>/etc</> rooted at the directory specified by the
-    <ref id="build-portable-root" name="--prefix"> build option)
-    is assumed.
-    The directory is created if it doesn't exist.
-  <tag><tt/--with-program-directory=/<em/directory/<label id="build-program-directory"></tag>
+  <tag><tt/--sysconfdir=/<em/Verzeichnis/<label id="build-configuration-directory"></tag>
+    Gibt das Verzeichnis innerhalb der <ref id="hierarchy" name="Hierarchie der installierten Dateien">
+    an, in dem die Konfigurationsdateien gespeichert werden sollen. Hier sollte ein aboluter Pfad angegeben werden.
+    Wird diese Option nicht verwendet, dann wird der Pfad der Standard-Konfigurationsoption  <tt/--sysconfdir/ verwendet,
+    (Standardwert ist hier <tt>/etc</>, relativ zum Verzeichnis das durch die Option <ref id="build-portable-root" name="--prefix">) gesetzt wird.
+    Falls das Verzeichnis nicht existiert, wird es automatisch angelegt.										
+  <tag><tt/--with-program-directory=/<em/Verzeichnis/<label id="build-program-directory"></tag>
     Specify the directory within the
     <ref id="hierarchy" name="installed file hierarchy">
     where the runnable programs (binaries, executables) are to be installed.
