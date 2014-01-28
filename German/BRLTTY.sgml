@@ -20,16 +20,13 @@
     <name>Stéphane Doyon <tt><htmlurl url="mailto:s.doyon@videotron.ca" name="&lt;s.doyon@videotron.ca&gt;"></tt>
   <and>
     <name>Dave Mielke <tt><htmlurl url="mailto:dave@mielke.cc" name="&lt;dave@mielke.cc&gt;"></tt>
-  <date>Version 4.5, Apr 2013
+  <date>Version 4.5, April 2013
   <abstract>
     Copyright &copy; 1995-2014 by The BRLTTY Developers.
-    BRLTTY is free software,
-    and comes with ABSOLUTELY NO WARRANTY.
-    It is placed under the terms of version 2 or later of
-    <bf/The GNU General Public License/
-    as published by
-    <bf/The Free Software Foundation/.
-  </abstract>
+    BRLTTY is freie Software. Es besteht KEINERLEI GARANTIE.
+    BRLTTY steht unter der Lizenz der <bf/The GNU General Public License/, Version 2 oder höher, wie von der
+    <bf/The Free Software Foundation/ herausgegeben.
+^  </abstract>
 </titlepag>
 
 <toc>
@@ -39,22 +36,13 @@
 <sect>Formalitäten<p>
 
 <sect1>Lizenz<p>
-This program is free software.
-You may redistribute it and/or modify it under the terms of
-<htmlurl url="http://www.gnu.org/licenses/licenses.html#GPL" name="The GNU General Public License">
-as published by <htmlurl url="http://www.gnu.org/fsf/fsf.html" name="The Free Software Foundation">.
-Version 2 (or any later version) of the license may be used.
+Dieses Programm ist freie Software. Sie können es unter den Bedingungen der <htmlurl url="http://www.gnu.org/licenses/licenses.html#GPL" name="GNU General Public License">, wie von der <htmlurl url="http://www.gnu.org/fsf/fsf.html" name="The Free Software Foundation"> veröffentlicht, weitergeben und/oder modifizieren, entweder gemäß Version 2 der Lizenz oder (nach Ihrer Option) jeder späteren Version. 
 
-You should have received a copy of the license along with this program.
-It should be in the file <tt/LICENSE-GPL/ in the top-level directory.
-If not, write to the Free Software Foundation Inc.,
-675 Mass Ave, Cambridge, MA 02139, USA.
+Sie sollten ein Exemplar der GNU General Public License zusammen mit diesem Programm erhalten haben. Falls nicht, schreiben Sie an die 
+ Free Software Foundation Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 
 <sect1>Haftungsausschluss<p>
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY - not even
-the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-See the <bf/GNU General Public License/ for more details.
+Die Veröffentlichung dieses Programms erfolgt in der Hoffnung, daß es Ihnen von Nutzen sein wird, aber OHNE IRGENDEINE GARANTIE, sogar ohne die implizite Garantie der MARKTREIFE oder der VERWENDBARKEIT FÜR EINEN BESTIMMTEN ZWECK. Details finden Sie in der <bf/GNU General Public License/. 
 
 <sect1>Kontaktinformationen<label id="contact"><p>
 BRLTTY ist die Arbeit eines Teams.
@@ -771,9 +759,7 @@ Beachten Sie auch die  <ref id="configure-screen-driver" name="screen-driver">-D
     </itemize>
     Dieser Pfad sollte als absoluter Pfad angegeben werden. Wird er nicht angegeben, wird der wert der Option 
        <ref id="build-portable-root" name="--prefix"> verwendet.
-    build option is assumed. Dieses Verzeichnis wird im #SIMON
-    This directory is rooted at the directory specified by the
-    <ref id="build-execute-root" name="--with-execute-root"> build option.
+    build option is assumed. Dieses Verzeichnis wird relativ zum Verzeichnis, das in der Option  <ref id="build-execute-root" name="--with-execute-root"> angegeben wurde, angenommen.
   <tag><tt/--libdir=/<em/directory/<label id="build-api-directory"></tag>
     Specify the directory within the
     <ref id="hierarchy" name="installed file hierarchy">
@@ -861,19 +847,11 @@ Beachten Sie auch die  <ref id="configure-screen-driver" name="screen-driver">-D
     <ref id="build-portable-root" name="--prefix"> build option)
     is assumed.
     The directory is created if it doesn't exist.
-  <tag><tt/--with-include-directory=/<em/directory/<label id="build-include-directory"></tag>
-    Specify the directory within the
-    <ref id="hierarchy" name="installed file hierarchy">
-    where the C header files for the Application Programming Interface
-    are to be installed.
-    The absolute path should be supplied.
-    If this option isn't specified,
-    then the <tt/brltty/ subdirectory of the directory
-    specified via the standard configure option <tt/--includedir/
-    (which defaults to <tt>/include</> rooted at the directory specified by the
-    <ref id="build-portable-root" name="--prefix"> build option)
-    is assumed.
-    The directory is created if it doesn't exist.
+  <tag><tt/--with-include-directory=/<em/Verzeichnis/<label id="build-include-directory"></tag>
+    Gibt das Verzeichnis innerhalb der <ref id="hierarchy" name="Hierarchie der installierten Dateien"> an, in dem die 
+    C-Header-Dateien für die Programmierschnittstelle (API) installiert werden sollen.
+    Hier sollte ein absoluter Pfad angegeben werden. Wird diese Option nicht angegeben, wird das Unterverzeichnis <tt/brltty/ des Verzeichnisses verwendet,    das durch die Standard-Konfigurationsoption  <tt/--includedir/ angegeben wurde. ( Diese Option ist standardmäßig <tt>/include</>, relativ zum Verzeichnis, das über die Option <ref id="build-portable-root" name="--prefix"> angegeben wurde.) 
+    Falls das Verzeichnix nicht existiert, wird es automatisch erzeugt.
 </descrip>
 
 <sect3>Build Features<label id="build-features"><p>
@@ -931,7 +909,7 @@ Ist diese Option nicht aktiv, sind alle Pfade absolut.
       </tabular>
     </table>
   <tag><tt/--disable-fm-support/<label id="build-fm-support"></tag>
-  Verringert die Programmgröße durch weglassen der Unterstützung des FM-Synthesizers auf AbLib, OPL3, SoundBlaster oder kompatiblen Soundkarten.
+  Verringert die Programmgröße durch weglassen der Unterstützung des FM-Synthesizers auf AdLib, OPL3, SoundBlaster oder kompatiblen Soundkarten.
   <tag><tt/--disable-pm-configfile/<label id="build-pm-configfile"></tag>
 Verringert die Programmgröße durch weglassen der Unterstützung der Konfigurationsdatei für den Papenmeier-Treiber.
   <tag><tt/--disable-gpm/<label id="build-gpm"></tag>
@@ -955,22 +933,21 @@ Verhindert das Übersetzen der Python-Bindings für die Programmierschnittstelle (
   <tag><tt/--disable-tcl-bindings/<label id="build-tcl-bindings"></tag>
 Verhindert das Übersetzen der Tcl-Bindings für die Programmierschnittstelle (API).
   <tag><tt/--with-tcl-config=/<em/Verzeichnispfad/<label id="build-tcl-config"></tag>
-    Specify the location of the Tcl configuration script (<tt/tclConfig.sh/).
-    Either the path to the script itself
-    or to the directory containing it
-    may be supplied.
-    Any of the following words can also be used as the operand of this option:
+    Gibt den Pfad zum Tcl-Konfigurationsscripts (<tt/tclConfig.sh/) an. Hier kann entweder der volle Pfad zum Skript oder das Verzeichnis, in dem das Skrikt enthalten ist, angegeben werden.
+
+  Jedes der folgende Schlüsselwörter kann ebenso als Parameter für diese Option verwendet werden:
+  
     <descrip>
       <tag/no/
-        Use other means to guess if Tcl is available, and, if so, where it has been installed.
-        This is equivalent to specifying <tt/--without-tcl-config/.
+        Verwende andere Methoden, um heruaszufinden, ob Tcl verfügbar ist, und wenn ja, wo es installiert wurde.
+        Das entspricht der Option  <tt/--without-tcl-config/.
       <tag/yes/
-        Search for the script in a few commonly used directories.
-        This is equivalent to specifying <tt/--with-tcl-config/.
+	 Suche nach dme Skript in einigen üblicherweise verwendeten Verzeichnissen.
+         Das entspricht der Option <tt/--with-tcl-config/.
     </descrip>
 </descrip>
 
-<sect3>Miscellaneous Options<label id="build-miscellaneous"><p>
+<sect3>weitere Optionen<label id="build-miscellaneous"><p>
 <descrip>
   <tag><tt/--with-init-path=/<em/path/<label id="build-init-path"></tag>
     Specify the path to the real <tt/init/ program for the system.
@@ -1098,28 +1075,16 @@ then you may wish to use the following <tt/brltty/ command line options:
     rather than to the system log.
 </itemize>
 
-<sect1>Starting BRLTTY<p>
-BRLTTY, when properly installed, is invoked with the single command <tt/brltty/.
-A configuration file
-(see section <ref id="configure" name="Konfigurations-Datei"> for details)
-can be created in order to establish system defaults for such things as
-the location of the preferences file,
-the braille display driver to be used,
-the device to which the braille display is connected,
-and the text table to be used.
-Many options
-(see section <ref id="options" name="Command Line Options"> for details)
-allow explicit run-time specification of such things as
-the location of the configuration file,
-any defaults established within the configuration file,
-and some characteristics which have reasonable defaults
-but which those who think they know what they're doing may wish to play with.
-The <ref id="options-help" name="-h"> option
-displays a summary of all the options.
-The <ref id="options-version" name="-V"> option
-displays the current version of the program, the API, and the selected drivers.
-The <ref id="options-verify" name="-v"> option
-displays the values of the options after all sources have been considered.
+<sect1>Starten von BRLTTY<p>
+Wenn BRLTTY richtig installeirt wurde, kann es mit dem Kommando  <tt/brltty/ gestartet werden.
+Eine Konfigurationsdatei (siehe Abschnitt <ref id="configure" name="Konfigurations-Datei">)
+kann auch angelegt werden, um Standard-Systemeinstellungen wie z.B. den Pfad zur Einstellungsdatei, welcher Braille-Treiber verwendet wird, 
+an welcher Schnittstelle die Braillezeile angeschlossen ist, und welche Text-Tabelle verwendet werden soll.
+Viele Optionen (siehe Abschnitt <ref id="options" name="#TODOCommand Line Options">) können auch zur Laufzeit angegeben werden, wie z.B. der Pfad zur Konfigurations-Datei oder andere Optionen die zwar überlichweise gut verwendbare Standardwerte haben, aber für Personen, die glauben zu wissen was sie tun, geändert werden möchten.
+Die Option <ref id="options-help" name="-h"> zeigt eine Zusammenfassung aller Optionen an.
+Die Option <ref id="options-version" name="-V"> zeigt die aktuelle Programmversion, die Version der Programmierschnittstelle (API) und der aktivierten Treiber an.
+Die Option <ref id="options-verify" name="-v"> zeigt die Optionen an, nachdem alle verfügbaren Möglichkeiten zum Setzen der Optionen abgearbeitet wurden.
+
 
 It's probably best to have the system automatically start BRLTTY
 as part of the boot sequence
