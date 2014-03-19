@@ -1085,57 +1085,40 @@ Die Option <ref id="options-help" name="-h"> zeigt eine Zusammenfassung aller Op
 Die Option <ref id="options-version" name="-V"> zeigt die aktuelle Programmversion, die Version der Programmierschnittstelle (API) und der aktivierten Treiber an.
 Die Option <ref id="options-verify" name="-v"> zeigt die Optionen an, nachdem alle verfügbaren Möglichkeiten zum Setzen der Optionen abgearbeitet wurden.
 
-
-It's probably best to have the system automatically start BRLTTY
-as part of the boot sequence
-so that the braille display is already up and running when the login prompt appears.
-Most (probably all) distributions provide a script wherein
-user-supplied applications can be safely started near the end of the boot sequence.
-The name of this script is distribution-dependent.
-Here are the ones we know about so far:
+Es ist wahrscheinlich am Besten, wenn BRLTTY automatisch während des Systemstarts gestartet wird, damit die Braillezeile schon bereit ist, wenn der Login-Prompt erscheint.
+Die meisten (möglicherweise alle) Distributionen stellen eine Skriptdateien zur Verfügung, mit welcher vom Benutzer bereitsgestellte Programme gegen Ende des Systemstarts gestartet werden können. Der Name dieser Datei ist abhängig von der Distribution, hier eine Liste derer, die wir bereits kennen:
 <descrip>
   <tag/Red Hat/
     <tt>/etc/rc.d/rc.local</>
 </descrip>
 
-Starting BRLTTY from this script is a good approach (especially for new users).
-Just add a set of lines like these:
+BRLTTY von diesem Skript aus zu starten, ist eine guter Ansatz(speziell für neue Benutzer).
+Fügen Sie einfach folgende Zeilen ein:
 <tscreen><verb>
 if [ -x /bin/brltty -a -f /etc/brltty.conf ]
 then
    /bin/brltty
 fi
 </verb></tscreen>
-This can usually be abbreviated to the somewhat less readable form:
+Das kann auch durch eine kürzere, etwas weniger lesbare Variante ersetzt werden:
 <tscreen><verb>
 [ -x /bin/brltty -a -f /etc/brltty.conf ] && /bin/brltty
 </verb></tscreen>
-Don't add these lines before the first line
-(which usually looks like <tt>&num;!/bin/sh</>).
+Fügen Sie diese Zeilen nicht vor der ersten Zeile in der Datei ein (welche üblicherweise <tt>&num;!/bin/sh</> enthält).
 
-If the braille display is to be used by a system administrator,
-then it should probably be started as early as possible during the boot sequence
-(like before the file systems are checked)
-so that the display is usable
-in the event that something goes wrong during these checks
-and the system drops into single user mode.
-Again, exactly where it's best to do this is distribution-dependent.
-Here are the places we know about so far:
+Falls die Braillezeile von einem Systemadministrator verwendet werden soll, muss diese so früh als möglich während des Systemstarts aktiv sein (zum Beispiel noch vor der Überprüfung der Dateisysteme) damit Fehler während dieser Überprüfungen behandelt werden können.
+Welche Skripten hier angepasst werden ist wieder abhängig von der Distribution, hier eine Liste derer, die wir bereits wissen:
 <descrip>
   <tag>Debian</tag>
-    <tt>/etc/init.d/boot</> (for older releases)
+    <tt>/etc/init.d/boot</> (für ältere Releases)
     <newline>
-    <tt>/etc/init.d/</> (for newer releases)
-    <newline>
-    A <tt/brltty/ package is provided
-    (see [<htmlurl url="http://packages.debian.org/brltty" name="http://packages.debian.org/brltty">])
-    as of release <tt/3.0/ (<tt/Woody/).
-    Since this package takes care of starting BRLTTY,
-    there's no need for user-supplied code to do so if it's installed.
-    If you need the daemon to run with some command-line options,
-    you can change the contents between quotes
-    on the directive <tt/ARGUMENTS/
-    in the <tt>/etc/default/brltty</> file.
+    <tt>/etc/init.d/</> (für neuere Releases)
+    Ein <tt/brltty/ Paket 
+    (siehe [<htmlurl url="http://packages.debian.org/brltty" name="http://packages.debian.org/brltty">])
+    ist seit Release <tt/3.0/ (<tt/Woody/) verfügbar.
+    Da sich das Paket um das Starten von BRLTTY kümmert, ist es nicht notwendig, noch zusätzliche Anpassungen zu machen.
+    Falls Sie die Startoptionen von BRLTTY anpassen möchten, können Sie diese in Hochkomma bei der Direktive
+     <tt/ARGUMENTS/ in der Datei <tt>/etc/default/brltty</> angeben.
   <tag>RedHat</tag>
     <tt>/etc/rc.d/rc.sysinit</>
     <newline>
