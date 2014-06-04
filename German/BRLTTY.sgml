@@ -761,18 +761,13 @@ Beachten Sie auch die  <ref id="configure-screen-driver" name="screen-driver">-D
        <ref id="build-portable-root" name="--prefix"> verwendet.
     build option is assumed. Dieses Verzeichnis wird relativ zum Verzeichnis, das in der Option  <ref id="build-execute-root" name="--with-execute-root"> angegeben wurde, angenommen.
   <tag><tt/--libdir=/<em/directory/<label id="build-api-directory"></tag>
-    Specify the directory within the
-    <ref id="hierarchy" name="installed file hierarchy">
-    where the static archive and the dynamically loadable object
-    for the Application Programming Interface are to be installed.
-    The absolute path should be supplied.
-    If this option isn't specified,
-    then the directory
-    specified via the standard configure option <tt/--libdir/
-    (which defaults to <tt>/lib</> rooted at the directory specified by the
-    <ref id="build-architecture-root" name="--exec-prefix"> build option)
-    is assumed.
-    The directory is created if it doesn't exist.
+    Gibt das Verzeichnis innerhalb der 
+    <ref id="hierarchy" name="Hierarchie der installierten Dateien">
+    an, in dem  die statischen Archive und dynamisch nachladbaren Objekte für die Programmierschnittstelle (API) installiert werden sollen.
+    Hier sollte der absolute Pfad angegeben werden.
+    Wird diese Option nicht verwendet, dann wird das Verzeichnis, welches durch die Option <tt/--libdir/
+    (standardmäßig <tt>/lib</> relativ zum Verzeichnis, dass durch die Option <ref id="build-architecture-root" name="--exec-prefix"> gesetzt wurde) gesetzt wurde, angenommen. Falls dieses Verzeixchnsi noch nicht existiert, wird es neu angelegt.
+
   <tag><tt/--sysconfdir=/<em/Verzeichnis/<label id="build-configuration-directory"></tag>
     Gibt das Verzeichnis innerhalb der <ref id="hierarchy" name="Hierarchie der installierten Dateien">
     an, in dem die Konfigurationsdateien gespeichert werden sollen. Hier sollte ein aboluter Pfad angegeben werden.
@@ -950,29 +945,28 @@ Verhindert das Übersetzen der Tcl-Bindings für die Programmierschnittstelle (API
 <sect3>weitere Optionen<label id="build-miscellaneous"><p>
 <descrip>
   <tag><tt/--with-init-path=/<em/path/<label id="build-init-path"></tag>
-    Specify the path to the real <tt/init/ program for the system.
-    The absolute path should be supplied.
-    If this option is specified, then:
+    Gibt den Pfad zum tatsächlichen <tt/init/-Programm des Systems an.
+    Hier sollte der absolute Pfad angegeben werden.					      
+    Wird diese Option agegeben, dann:					      
+
     <enum>
       <item>
-        The <tt/init/ program should be moved to a new location.
+        Sollte das <tt/init/-Programm an die angegeben Position verschoben werden. 
       <item>
-        <tt/brltty/ should be moved to the <tt/init/ program's original location.
+        <tt/brltty/ sollte an die Stelle des ursprünglichen <tt/init/-Programms verschoben werden.
       <item>
-        When the system runs <tt/init/ at startup,
-        <tt/brltty/ is actually run.
-        It puts itself into the background,
-        and runs the real <tt/init/ in the foreground.
-        This is one (somewhat sneaky) way to have braille right at the outset.
-        It's especially useful for some install/rescue disks.
+        Wenn nun das System beim Starten <tt/init/ startet, wird eigenlich <tt/brllty/ gestartet.
+        Es stellt sich selbst in den Hintergrund und starten dann das unsprünglichen <tt/init/-Programm.
+	Dies ist eine (etwas unübliche) Art, Braille gleich von Anfang an zur Verfügung zu haben. Das ist besonders nützlich für
+        Installationsmedien oder Wiederherstellungsmedien.										
     </enum>
-    If this option isn't specified, then this feature isn't activated.
-    This option is primarily intended for building a braillified installer image.
+    Wird diese Option nicht angegeben, wird diese Funktion nicht aktiviert.
+    Diese Option ist hauptsächlich dafür gedacht, Installationsmedien mit Braille-Unterstützung zu bauen.
   <tag><tt/--with-stderr-path=/<em/path/<label id="build-stderr-path"></tag>
-    Specify the path to the file or device where standard erorr output is to be written.
-    The absolute path should be supplied.
-    If this option isn't specified, then this feature isn't activated.
-    This option is primarily intended for building a braillified installer image.
+    Gibt den Pfad zur Datei an, in die Standard-Error-Ausgaben geschrieben werden sollen.
+    Hier sollte der absolute Pfad angegeben werden.
+    Wird diese Option nicht angegeben, wird diese Funktion nicht aktiviert.
+    Diese Option ist hauptsächlich dafür gedacht, Installationsmedien mit Braille-Unterstützung zu bauen.
 </descrip>
 
 <sect2>Make File Targets<label id="make"><p>
