@@ -26,7 +26,7 @@
     BRLTTY is freie Software. Es besteht KEINERLEI GARANTIE.
     BRLTTY steht unter der Lizenz der <bf/The GNU General Public License/, Version 2 oder höher, wie von der
     <bf/The Free Software Foundation/ herausgegeben.
-^  </abstract>
+  </abstract>
 </titlepag>
 
 <toc>
@@ -482,7 +482,7 @@ Beachten die <ref id="configure-braille-device" name="braille-device">-Direktive
     </descrip>
   <tag><tt/--with-text-table=/<em/Datei/<label id="build-text-table"></tag>
     Gibt die Standard-Text-Tabelle an (siehe Abschnitt <ref id="table-text" name="Text-Tabellen"> für Details).
-    Diese Tabelle wird in BRLTTY eingebettet und wird verwendet, wenn die automatische Auswahl der Text-Tabellen basierend auf den Spracheinstellungen des Systems nicht funktioniert oder falls eine angegebene Tabelle nicht geladen werden konnte.
+    Diese Tabelle wird in BRLTTY eingebettet und wird verwendet, wenn die automatische Auswahl der Text-Tabellen basierend auf den Spracheinstellungen des Systems nicht funktioniert oder die angegebene Tabelle nicht geladen werden konnte.
 Sie können hier auch einen absoluten Pfad, auch ausserhalb der BRLTTY-Dateihierarchie, angeben. Die Dateiendung <tt/.ttb/ ist optional.
 Wird diese Option nicht angegeben, wird <tt/en-nabcc/ angenommen,
     eine üblicherweise (in Nordamerika) verwendete 8-Punkt Braillevariante des
@@ -505,7 +505,7 @@ Setzten Sie die Option auf <tt/invleft_right/, falls Sie den früheren Modus bevo
     Jeder Treiber muss entweder durch eine 2 Zeichen lange <ref id="drivers" name="Treiberkennung">
     oder durch seinen Namen (vollständig oder abgekürzt) angegeben werden.
     Die einzelnen Treibernamen oder IDs müssen durch Komma getrennt werden.
-    Wird dem Treibernamen oder ID ein Minus-zeichen (<tt/-/) vorangstellt,
+    Wird dem Treibernamen oder ID ein Minus-Zeichen (<tt/-/) vorangstellt,
     wird der entsprechende Treiber von der Übersetzung ausgenommen.
     Jedes der folgende Schlüsselwörter kann ebenso als Parameter für diese Option verwendet werden:
     
@@ -728,7 +728,7 @@ Beachten Sie auch die  <ref id="configure-screen-driver" name="screen-driver">-D
 <sect3>Directory Specification<label id="build-directoreis"><p>
 <descrip>
   <tag><tt/--with-execute-root=/<em/Verzeichnis/<label id="build-execute-root"></tag>
-    Gibt den Verzeichnispfad an, dass zur Laufzeit als Arbeitsverzeichnis für die <ref id="hierarchy" name="Hierarchie der installierten Dateien">
+    Gibt den Verzeichnispfad an, der zur Laufzeit als Arbeitsverzeichnis für die <ref id="hierarchy" name="Hierarchie der installierten Dateien">
     verwendet werden soll.  Dieser Pfad muss als absoluter Pfad angegeben werden. 
     Wird dieser Wert nicht angegeben, wird das Wurzelverzeichnis des Systems verwendet.
     Verwenden Sie diese Option, falls Sie die Dateien, die BRLTTY zur Laufzeit benötigt, nicht im Standardverzeichnis installieren.				Sie können diese Option zum Beispiel verwenden, wenn Sie mehrere Versionen von BRLTTY gleichzeitig installiert haben (siehe Abschnitt <ref id="multiple" name="Installing Multiple Versions"> für eun Beispiel, wie das gemacht wird).
@@ -766,7 +766,7 @@ Beachten Sie auch die  <ref id="configure-screen-driver" name="screen-driver">-D
     an, in dem  die statischen Archive und dynamisch nachladbaren Objekte für die Programmierschnittstelle (API) installiert werden sollen.
     Hier sollte der absolute Pfad angegeben werden.
     Wird diese Option nicht verwendet, dann wird das Verzeichnis, welches durch die Option <tt/--libdir/
-    (standardmäßig <tt>/lib</> relativ zum Verzeichnis, dass durch die Option <ref id="build-architecture-root" name="--exec-prefix"> gesetzt wurde) gesetzt wurde, angenommen. Falls dieses Verzeixchnsi noch nicht existiert, wird es neu angelegt.
+    (standardmäßig <tt>/lib</> relativ zum Verzeichnis, dass durch die Option <ref id="build-architecture-root" name="--exec-prefix"> gesetzt wurde) gesetzt wurde, angenommen. Falls dieses Verzeichnis noch nicht existiert, wird es neu angelegt.
 
   <tag><tt/--sysconfdir=/<em/Verzeichnis/<label id="build-configuration-directory"></tag>
     Gibt das Verzeichnis innerhalb der <ref id="hierarchy" name="Hierarchie der installierten Dateien">
@@ -775,73 +775,51 @@ Beachten Sie auch die  <ref id="configure-screen-driver" name="screen-driver">-D
     (Standardwert ist hier <tt>/etc</>, relativ zum Verzeichnis das durch die Option <ref id="build-portable-root" name="--prefix">) gesetzt wird.
     Falls das Verzeichnis nicht existiert, wird es automatisch angelegt.										
   <tag><tt/--with-program-directory=/<em/Verzeichnis/<label id="build-program-directory"></tag>
-    Specify the directory within the
-    <ref id="hierarchy" name="installed file hierarchy">
-    where the runnable programs (binaries, executables) are to be installed.
-    The absolute path should be supplied.
-    If this option isn't specified,
-    then the directory
-    specified via the standard configure option <tt/--bindir/
-    (which defaults to <tt>/bin</> rooted at the directory specified by the
-    <ref id="build-architecture-root" name="--exec-prefix"> build option)
-    is assumed.
-    The directory is created if it doesn't exist.
-  <tag><tt/--with-library-directory=/<em/directory/<label id="build-library-directory"></tag>
-    Specify the directory within the
-    <ref id="hierarchy" name="installed file hierarchy">
-    where the drivers and other architecture-dependent files are to be installed.
-    The absolute path should be supplied.
-    If this option isn't specified,
-    then the <tt/brltty/ subdirectory of the directory
-    specified via the standard configure option <tt/--libdir/
-    (which defaults to <tt>/lib</> rooted at the directory specified by the
-    <ref id="build-architecture-root" name="--exec-prefix"> build option)
-    is assumed.
-    The directory is created if it doesn't exist.
-  <tag><tt/--with-writable-directory=/<em/directory/<label id="build-writable-directory"></tag>
-    Specify the directory within the
-    <ref id="hierarchy" name="installed file hierarchy">
-    which may be written to.
-    The absolute path should be supplied.
-    Any of the following words can also be used as the operand of this option:
+    Gibt das Verzeichnis innerhalb der
+    <ref id="hierarchy" name="Hierarchie der installierten Dateien"> an, in dem die ausführbaren Programme (Binärdateien, sog. Executables) installiert werden sollen.
+Wird diese Option nicht angegeben, dann wird der Pfad der Standard-Konfigurationsoption <tt/--bindir/
+    (Standardwert ist hier <tt>/bin</> relativ zum Verzeichnis, das durch die Option <ref id="build-architecture-root" name="--exec-prefix"> spezifiziert wurde)
+    verwendet.
+    Falls das Verzeichnis nicht existiert, wird es automatisch angelegt.
+  <tag><tt/--with-library-directory=/<em/Verzeichnis/<label id="build-library-directory"></tag>
+    Gibt das Verzeichnis innerhalb der
+    <ref id="hierarchy" name="Hierarchie der installierten Dateien"> an, in dem die Treiber und andere Architektur-abhängige Dateien installiert werden sollen.
+Hier sollte ein aboluter Pfad angegeben werden. Wird diese Option nicht verwendet, dann wird das  <tt/brltty/-Unterverzeichnis des Verzeichnisses verwendet, welches durch die Standard-Konfigurationsoption <tt/--libdir/
+    (Standardwert ist hier <tt>/lib</> relativ zum Verzeichnis, dass durch die  <ref id="build-architecture-root" name="--exec-prefix"> Option spezifiziert wurde) angegeben wurde.
+    Falls das Verzeichnis nicht existiert, wird es automatisch angelegt.
+  <tag><tt/--with-writable-directory=/<em/Verzeichnis/<label id="build-writable-directory"></tag>
+    Gibt das Verzeichnis innerhalb der 
+    <ref id="hierarchy" name="Hierarchie der installierten Dateien"> an, in welchem BRLTTY Schreibzugriff haben soll.
+      Hier sollte ein absoluter Pfad angegeben werden.
+Jedes der folgende Schlüsselwörter kann ebenso als Parameter für diese Option verwendet werden:
     <descrip>
       <tag/no/
-        Don't define a writable directory.
-        This is equivalent to specifying <tt/--without-writable-directory/.
+        Es wird kein beschreibbares Verzeichnis angelegt.
+        Das enspricht der Option<tt/--without-writable-directory/.
       <tag/yes/
-        Use the default location.
-        This is equivalent to specifying <tt/--with-writable-directory/.
+        Verwendet das Standard-Verzeichnis. Das entspricht der Option  <tt/--with-writable-directory/.
     </descrip>
-    If this option isn't specified,
-    then the <tt>rw</> subdirectory of the directory specified via the
-    <ref id="build-library-directory" name="--with-library-directory"> build option
-    is assumed.
-    The directory is created if it doesn't exist.
-  <tag><tt/--with-data-directory=/<em/directory/<label id="build-data-directory"></tag>
-    Specify the directory within the
-    <ref id="hierarchy" name="installed file hierarchy">
-    where the tables, help pages,
-    and other architecture-independent files are to be installed.
-    The absolute path should be supplied.
-    If this option isn't specified,
-    then the <tt/brltty/ subdirectory of the directory
-    specified via the standard configure option <tt/--sysconfdir/
-    (which defaults to <tt>/etc</> rooted at the directory specified by the
-    <ref id="build-portable-root" name="--prefix"> build option)
-    is assumed.
-    The directory is created if it doesn't exist.
-  <tag><tt/--with-manpage-directory=/<em/directory/<label id="build-manpage-directory"></tag>
-    Specify the directory within the
-    <ref id="hierarchy" name="installed file hierarchy">
-    where the man pages are to be installed.
-    The absolute path should be supplied.
-    If this option isn't specified,
-    then the directory
-    specified via the standard configure option <tt/--mandir/
-    (which defaults to <tt>/man</> rooted at the directory specified by the
-    <ref id="build-portable-root" name="--prefix"> build option)
-    is assumed.
-    The directory is created if it doesn't exist.
+    Wird diese Option nicht verwendet, wird das Unterverzeichnis
+ <tt>rw</> jenes Verzeichnisses verwendet, das durch die Option
+    <ref id="build-library-directory" name="--with-library-directory"> angegeben wurde.
+     Falls das Verzeichnis nicht existiert, wird es automatisch angelegt.
+      
+  <tag><tt/--with-data-directory=/<em/Verzeichnis/<label id="build-data-directory"></tag>
+    Gibt das Verzeichnis innerhalb der 
+    <ref id="hierarchy" name="Hierarchie der installierten Dateien"> an, in welchem Tabellen, Hilfe-Seiten und andere Architektur-unabhängige Dateien installiert werden sollen.
+Hier sollte ein absoluter Pfad angegeben werden.
+    Wird diese Option nicht angegeben, wird das Unterverzeichnis <tt/brltty/ jenes Verzeichnisses verwendet, welches durch die Option  <tt/--sysconfdir/
+    (Standardwert ist hier <tt>/etc</> relativ zum Verzeichnis, welches durch die Option    <ref id="build-portable-root" name="--prefix"> spezifiziert wurde)
+    angegeben wurde.
+      Falls das Verzeichnis nicht existiert, wird es automatisch angelegt.
+  <tag><tt/--with-manpage-directory=/<em/Verzeichnis/<label id="build-manpage-directory"></tag>
+    Gibt das Verzeichnis innerhalb der 
+    <ref id="hierarchy" name="Hierarchie der installierten Dateien"> an, in welchem die Hilfe-Seiten installiert werden sollen.
+      Hier sollte ein absoluter Pfad angegeben werden.
+      Wird diese Option nicht verwendet, wird das Unterverzeichnis verwendet, welches durch die Option  <tt/--mandir/
+    (Standardwert ist hier <tt>/man</> relativ zum Verzeichnis, das durch die Option  <ref id="build-portable-root" name="--prefix"> spezifiziert wurde)
+    angegeben wurde.
+Falls das Verzeichnis nicht existiert, wird es automatisch angelegt.									
   <tag><tt/--with-include-directory=/<em/Verzeichnis/<label id="build-include-directory"></tag>
     Gibt das Verzeichnis innerhalb der <ref id="hierarchy" name="Hierarchie der installierten Dateien"> an, in dem die 
     C-Header-Dateien für die Programmierschnittstelle (API) installiert werden sollen.
@@ -928,7 +906,7 @@ Verhindert das Übersetzen der Python-Bindings für die Programmierschnittstelle (
   <tag><tt/--disable-tcl-bindings/<label id="build-tcl-bindings"></tag>
 Verhindert das Übersetzen der Tcl-Bindings für die Programmierschnittstelle (API).
   <tag><tt/--with-tcl-config=/<em/Verzeichnispfad/<label id="build-tcl-config"></tag>
-    Gibt den Pfad zum Tcl-Konfigurationsscripts (<tt/tclConfig.sh/) an. Hier kann entweder der volle Pfad zum Skript oder das Verzeichnis, in dem das Skrikt enthalten ist, angegeben werden.
+    Gibt den Pfad zum Tcl-Konfigurationsscripts (<tt/tclConfig.sh/) an. Hier kann entweder der volle Pfad zum Skript oder das Verzeichnis, in dem das Skript enthalten ist, angegeben werden.
 
   Jedes der folgende Schlüsselwörter kann ebenso als Parameter für diese Option verwendet werden:
   
@@ -970,54 +948,40 @@ Verhindert das Übersetzen der Tcl-Bindings für die Programmierschnittstelle (API
 </descrip>
 
 <sect2>Make File Targets<label id="make"><p>
-Once BRLTTY has been configured,
-the next steps are to compile and to install it.
-These are done by applying the system's <tt/make/ command
-to BRLTTY's main make file (<tt/Makefile/ in the top-level directory).
-BRLTTY's make file supports most of the common application maintenance targets.
-They include:
+Nachdem BRLTTY nun konfiguriert wurde, sind die nächsten Schritte das Compilieren und die Installation.
+Diese werden durch ausführen des Kommandos <tt/make/ mit dem
+Haupt-Makefile von BRLTTY (<tt/Makefile/ im obersten Verzeichnis) durchgeführt.
+Der Makefile von BRLTTY unterstützt die meisten der gängigen Make-Targets:
 <descrip>
   <tag/make/
-    A shortcut for <tt/make all/.
+    Äquivalent zu <tt/make all/.
   <tag>make all<label id="make-all"></tag>
-    Compile and link the BRLTTY executable, its drivers and their help pages,
-    its test programs, and a few other small utilities.
+  Compiliert und linkt die ausführbaren Dateien von BRLTTY, die Treiber, Hilfe-Seiten, Testprogramme und einige andere kleine Hilfsprogramme.
   <tag>make install<label id="make-install"></tag>
-    Complete the compile and link phase
-    (see <ref id="make-all" name="make all">),
-    and then install the BRLTTY executable, its data files, drivers, and help pages,
-    in the correct places and with the correct permissions.
+  Schließt die Compilierungs- und Linkerphase ab
+    (siehe <ref id="make-all" name="make all">),
+    und installiert die ausführbaren Dateien von BRLTTY, alle Daten-Dateien, Treiber und Hilfe-Seiten in die richtigen Verzeichnisse mit den richtigen Dateizugriffsrechten.
   <tag>make uninstall<label id="make-uninstall"></tag>
-    Remove the BRLTTY executable, its data files, drivers, and help pages,
-    from the system.
+  Entfernt die ausführbaren Dateien von BRLTTY, die Daten-Dateien, Treiber und Hilfe-Seiten vom System.
   <tag>make clean<label id="make-clean"></tag>
-    Ensure that the next compile and link
-    (see <ref id="make-all" name="make all">)
-    will be done from scratch by removing the results of
-    compiling, linking, and testing from the source directory structure.
-    This includes the removal of object files, executables,
-    dynamically loadable shared objects, driver lists, help pages,
-    temporary header files, and core files.
+  Stellt sicher, dass der nächste Compilierungs- und Link-Vorgang
+    (siehe <ref id="make-all" name="make all">)
+    von sauberen Verzeichnissen erfolgt. Es werden die Dateien, die evtl. beim Compilieren, Linken und Testen bereits erzeugt wurden, entfernt. Dies beinhaltet auch die ausführbaren Dateien, die dynamisch nachladbaren Objekte, Treiber-Listen, Hilfe-Seiten, temporäre Header-Dateien und coredump-Dateien.
   <tag>make distclean<label id="make-distclean"></tag>
-    In addition to removing the results of compiling and linking
-    (see <ref id="make-clean" name="make clean">):
+  Zusätzlich zur Entfernung der Ergebnisse vom Compilieren und Linken (siehe <ref id="make-clean" name="make clean">):
     <itemize>
       <item>
-        Remove the results of BRLTTY configuration
-        (see <ref id="build" name="Build Options">).
-        This includes the removal of
+	Entferne die Build-Konfiguration von BRLTTY.
+        (siehe <ref id="build" name="Build Options">).
+        Es werden die Dateien
         <tt/config.mk/, <tt/config.h/,
-        <tt/config.cache/, <tt/config.status/, and <tt/config.log/.
+        <tt/config.cache/, <tt/config.status/ und <tt/config.log/ gelöscht.
       <item>
-        Remove other files from the source directory structure
-        which tend to accumulate over time but which don't belong there.
-        This includes the removal of
-        editor backup files, test case results,
-        rejected patch hunks, and copies of original source files.
+	Lösche andere Dateien in den Quellcode-Verzeichnissen, die sich regelmäßig ansammeln, aber eigentlich nicht hier hingehören. Das beinhaltet Backup-Dateien von Text-Editoren, Ergebnisse von Test, nicht anwendbare Patch-Files und eventuelle Kopien von originalen Quellcode-Dateien.
     </itemize>
 </descrip>
 
-<sect1>Testing BRLTTY<p>
+<sect1>BRLTTY testen<p>
 After compiling, linking, and installing BRLTTY,
 it's a good idea to give it a quick test before activating it permanently.
 To do so, invoke it with the command:
