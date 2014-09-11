@@ -991,47 +991,43 @@ Für <em/device/, geben Sie bitte die Schnittstelle an, an der die Braillezeile a
 
 Diese Einstellungen können auch dauerhaft eingestellt werden, und zwar über folgende Wege:
 
-You can establish system defaults
-via the <ref id="configure-braille-driver" name="braille-driver">
-and the <ref id="configure-braille-device" name="braille-device">
-configuration file directives,
-and/or compile your needs right into BRLTTY
-via the <ref id="build-braille-driver" name="--with-braille-driver">
-and the <ref id="build-braille-device" name="--with-braille-device">
-build options.
+Es können System-Default-Einstellungen mit den Optionen
+<ref id="configure-braille-driver" name="braille-driver">
+<ref id="configure-braille-device" name="braille-device">
+eingestellt werden, 
 
-If all is well, BRLTTY's version identification message
-should appear on the braille display for a few seconds
-(see the <ref id="options-message-timeout" name="-M"> command line option).
-After it goes away (which you can hasten by pressing any key on the display),
-the area of the screen where the cursor is should appear.
-This means that you should expect to see your shell's command prompt.
-Then, as you enter your next command,
-each character should appear on the display as it's typed on the keyboard.
+und/oder die Einstellungen werden direkt in BRLTTY hineincompiliert, durch die Build-Optionen
+<ref id="build-braille-driver" name="--with-braille-driver">
+und <ref id="build-braille-device" name="--with-braille-device">.
 
-If this is your experience, then leave BRLTTY running, and enjoy it.
-If this isn't your experience, then it may be necessary
-to test each driver separately in order to isolate the source of the problem.
-The screen driver can be tested with <ref id="utility-scrtest" name="scrtest">,
-and the braille display driver can be tested with <ref id="utility-brltest" name="brltest">.
+Wenn Alles in Ordnung ist, erscheint die Versions-Information von BRLTTY für einige Sekunden auf der Braillezeile
+(siehe die Option <ref id="options-message-timeout" name="-M">).
+Sobald diese Meldung verschwindet (was durch einen Tastedruck auf der Braillezeile beschleunigt werden kann), sollte der
+Bereich des Bildschirms, wo gerade der Cursor steht, auf der Anzeige dargestellt werden.
+Sie können also erwarten, den Shell-Prompt zu sehen. Dann, wenn Sie weitere Kommandos eingeben, sollten die einzelnen 
+Zeichen, so wie Sie tippen, auf der Braillezeile erscheinen.
 
-If you experience a problem which requires a lot of digging,
-then you may wish to use the following <tt/brltty/ command line options:
+Wenn das bei Ihnen so läuft, dann können Sie BRLTTY einfach so weiter laufen lassen, weiter ist nichts zu tun.
+Wenn dem nicht so ist, dann kann es notwendig sein, jeden Treiber einzeln zu testen, um die Ursachen eventueller Probleme zu finden.
+Der Bildschirmtreiber kann mit <ref id="utility-scrtest" name="scrtest"> getestet werden,
+der Treiber für die Braillezeile mit <ref id="utility-brltest" name="brltest">.
+
+Falls Sie auf ein Problem stoßen, das tiefergehende Untersuchungen notwendig macht, können folgende Kommandozeile-Optionen  <tt/brltty/ verwendet werden:
 <itemize>
   <item>
     <ref id="options-log-level" name="-ldebug">
-    to log lots of diagnostic messages.
+      um viel, detaillierten Diagnose-Output zu bekommen.
   <item>
     <ref id="options-no-daemon" name="-n">
-    to keep BRLTTY in the foreground.
+      um BRLTTY in Vordergrund zu belassen.
   <item>
     <ref id="options-standard-error" name="-e">
-    to direct diagnostic messages to standard error
-    rather than to the system log.
+      um Diagnose-Meldungen auf die Standardausgabe und 
+nicht ins Systemlog umzuleiten.
 </itemize>
 
 <sect1>Starten von BRLTTY<p>
-Wenn BRLTTY richtig installeirt wurde, kann es mit dem Kommando  <tt/brltty/ gestartet werden.
+Wenn BRLTTY richtig installiert wurde, kann es mit dem Kommando  <tt/brltty/ gestartet werden.
 Eine Konfigurationsdatei (siehe Abschnitt <ref id="configure" name="Konfigurations-Datei">)
 kann auch angelegt werden, um Standard-Systemeinstellungen wie z.B. den Pfad zur Einstellungsdatei, welcher Braille-Treiber verwendet wird, 
 an welcher Schnittstelle die Braillezeile angeschlossen ist, und welche Text-Tabelle verwendet werden soll.
