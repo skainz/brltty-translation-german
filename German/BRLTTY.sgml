@@ -806,7 +806,7 @@ Jedes der folgende Schlüsselwörter kann ebenso als Parameter für diese Option ve
       
   <tag><tt/--with-data-directory=/<em/Verzeichnis/<label id="build-data-directory"></tag>
     Gibt das Verzeichnis innerhalb der 
-    <ref id="hierarchy" name="Hierarchie der installierten Dateien"> an, in welchem Tabellen, Hilfe-Seiten und andere Architektur-unabhängige Dateien installiert werden sollen.
+    <ref id="hierarchy" name="Hierarchie der installierten Dateien"> an, in welchem Tabellen, Hilfe-Dateien und andere Architektur-unabhängige Dateien installiert werden sollen.
 Hier sollte ein absoluter Pfad angegeben werden.
     Wird diese Option nicht angegeben, wird das Unterverzeichnis <tt/brltty/ jenes Verzeichnisses verwendet, welches durch die Option  <tt/--sysconfdir/
     (Standardwert ist hier <tt>/etc</> relativ zum Verzeichnis, welches durch die Option    <ref id="build-portable-root" name="--prefix"> spezifiziert wurde)
@@ -1150,12 +1150,14 @@ See the <ref id="build-execute-root" name="--with-execute-root">,
 and <ref id="build-data-directory" name="--with-data-directory">
 build options.
 
-<sect1>Security Considerations<p>
-BRLTTY needs to run with root privileges because it needs
-read and write access for the port to which the braille display is connected,
-read access to <tt>/dev/vcsa</> or equivalent
-(to query the screen dimensions and the cursor position,
-and to review the current screen content and highlighting),
+<sect1>Sicherheitsbetrachtungen<p>
+BRLTTY muss mit Administrator(root)-Rechten laufen, da es Vollzugriff auf
+die Schnittstelle benötigt, an der die Braillezeile angeschlossen ist,
+lesenden Zugriff auf <tt>/dev/vcsa</> oder eine entsprechende Schittstelle
+(um die Bildschirm-Dimensionen und die Cursorposition abfragen zu können, den aktuellen
+Bildschirminhalt und die Textattribute bzw. Hervorhebungen lesen zu können),
+und Vollzugriff auf die System-Konsole
+#TODO
 and read and write access to the system console
 (for arrow key entry during cursor routing,
 for input character insertion during paste,
@@ -1245,63 +1247,50 @@ but that's beyond the scope of this document.
 To uninstall BRLTTY, do:
 <tscreen>rpm -e brltty</tscreen>
 
-<sect1>Other Utilities<p>
-Building BRLTTY also results in the building of
-a few small helper and diagnostic utilities.
+<sect1>Zusätzliche Tools<p>
+Beim Compilieren von BRLTTY werden auch noch einige zusätzliche Tools und Diagnoseprogramme erstellt.
 
 <sect2>brltty-config<label id="utility-brltty-config"><p>
-This utility sets a number of environment variables to values
-which reflect the current installation of BRLTTY
-(see <ref id="build" name="Build Options">).
-It should be executed within an existing shell environment,
-i.e. not as a command in its own right,
-and can only be used by scripts which support <bf/Bourne Shell/ syntax.
-<tscreen>. brltty-config</tscreen>
+Dieses Programm setzt einige Umgebungsvariablen auf die Einstellungen, die der aktuellen BRLTTY-Installation entsprechen (siehe <ref id="build" name="Build Options">). 
+Es muss aus einer bestehenden Shell-Session aufgerufen werden und kann nicht als eigenständiges Kommando ausgeführt werden,
+und funktioniert auch nur in einer <bf/Bourne Shell/ kompatiblen Shell.
+<tscreen>brltty-config</tscreen>
 
-The following environment variables are set:
+Die folgenden Umgebungsvariablen werden gesetzt:
 <descrip>
   <tag/BRLTTY_VERSION/
-    The version number of the BRLTTY package.
+     Die Versionsnummer des BRLTTY-Paketes.
   <tag/BRLTTY_EXECUTE_ROOT/
-    Run-time root for the installed package.
-    Configured via the <ref id="build-execute-root" name="--with-execute-root"> build option.
+     Das Wurzelverzeichnis zur Laufzeit des installierten Paketes, wie durch die Build-Optionen
+     <ref id="build-execute-root" name="--with-execute-root"> konfiguriert.
   <tag/BRLTTY_PROGRAM_DIRECTORY/
-    Directory for runnable programs (binaries, executables).
-    Configured via the <ref id="build-program-directory" name="--with-program-directory"> build option.
+    Das Verzeichnis in dem die ausführbaren Dateien abgelegt sind, wie durch die Build-Option <ref id="build-program-directory" name="--with-program-directory"> 
   <tag/BRLTTY_LIBRARY_DIRECTORY/
-    Directory for drivers.
-    Configured via the <ref id="build-library-directory" name="--with-library-directory"> build option.
+    Das Verzeichnis für die Treiber, wie durch die Build-Option <ref id="build-library-directory" name="--with-library-directory"> konfiguriert.
   <tag/BRLTTY_WRITABLE_DIRECTORY/
-    Directory which can be written to.
-    Configured via the <ref id="build-writable-directory" name="--with-writable-directory"> build option.
+    Das Verzeichnis, in dem BRLTTY Schreibzugriff hat, wie durch die Build-Option <ref id="build-writable-directory" name="--with-writable-directory"> konfiguriert.
   <tag/BRLTTY_DATA_DIRECTORY/
-    Directory for tables and help pages.
-    Configured via the <ref id="build-data-directory" name="--with-data-directory"> build option.
+    Das Verzeichnis für Tabellen und Hilfe-Dateien, wie durch die Build-Option <ref id="build-data-directory" name="--with-data-directory"> konfiguriert.
   <tag/BRLTTY_MANPAGE_DIRECTORY/
-    Directory for manual pages.
-    Configured via the <ref id="build-manpage-directory" name="--with-manpage-directory"> build option.
+    Verzeichnis für die Hilfe-Seiten, wie durch die Build-Option <ref id="build-manpage-directory" name="--with-manpage-directory"> konfiguriert.
   <tag/BRLTTY_INCLUDE_DIRECTORY/
-    Directory for BrlAPI's C header files.
-    Configured via the <ref id="build-include-directory" name="--with-include-directory"> build option.
+    Das Verzeichnis, in dem die C Header-Dateien für die BrlAPI Schnittstelle abgelegt werden, wie durch die Build-Option <ref id="build-include-directory" name="--with-include-directory"> konfiguriert.
   <tag/BRLAPI_VERSION/
-    The version number of BrlAPI (BRLTTY's Application Programming Interface).
+     Die Versionsnummer der BrlAPI (BRLTTY's Programmierschnittstelle).
   <tag/BRLAPI_RELEASE/
-    The full release number of BrlAPI.
+     Die vollständige Release-Nummer der BrlAPI Programmierschnittstelle.
   <tag/BRLAPI_AUTH/
-    The name of BrlAPI's key file.
+     Der Dateiname der BrlAPI Key-Datei.
 </descrip>
 
-In addition, the following standard <bf/autoconf/ environment variables are also set:
+Zusätzlich werden die folgenden Standard-<bf/autoconf/ Umgebungsvariablen gesetzt:
 <descrip>
   <tag/prefix/
-    Subroot for architecture-independent files.
-    Configured via the <ref id="build-portable-root" name="--prefix"> build option.
+     Unterverzeichnis für die architektur-unabhängigen Dateien, wie durch die Build-Option  <ref id="build-portable-root" name="--prefix"> konfiguriert.
   <tag/exec_prefix/
-    Subroot for architecture-dependent files.
-    Configured via the <ref id="build-architecture-root" name="--exec-prefix"> build option.
+     Unterverzeichnis für die architekturabhängigen Dateien, wie durch die Build-Option  <ref id="build-architecture-root" name="--exec-prefix"> konfiguriert.
   <tag/bindir/
-    Default location for <ref id="build-program-directory" name="program directory">.
-    Configured via the <tt/--bindir/ build option.
+     Standardpfad für das  <ref id="build-program-directory" name="Programm-Verzeichnis">, wie durch die Option <tt/--bindir/ konfiguriert.
   <tag/libdir/
     Directory for BrlAPI's static archive and dynamically loadable object.
     Default anchor for <ref id="build-library-directory" name="library directory">.
