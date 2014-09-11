@@ -795,7 +795,7 @@ Jedes der folgende Schlüsselwörter kann ebenso als Parameter für diese Option ve
     <descrip>
       <tag/no/
         Es wird kein beschreibbares Verzeichnis angelegt.
-        Das enspricht der Option<tt/--without-writable-directory/.
+        Das entspricht der Option<tt/--without-writable-directory/.
       <tag/yes/
         Verwendet das Standard-Verzeichnis. Das entspricht der Option  <tt/--with-writable-directory/.
     </descrip>
@@ -824,7 +824,7 @@ Falls das Verzeichnis nicht existiert, wird es automatisch angelegt.
     Gibt das Verzeichnis innerhalb der <ref id="hierarchy" name="Hierarchie der installierten Dateien"> an, in dem die 
     C-Header-Dateien für die Programmierschnittstelle (API) installiert werden sollen.
     Hier sollte ein absoluter Pfad angegeben werden. Wird diese Option nicht angegeben, wird das Unterverzeichnis <tt/brltty/ des Verzeichnisses verwendet,    das durch die Standard-Konfigurationsoption  <tt/--includedir/ angegeben wurde. ( Diese Option ist standardmäßig <tt>/include</>, relativ zum Verzeichnis, das über die Option <ref id="build-portable-root" name="--prefix"> angegeben wurde.) 
-    Falls das Verzeichnix nicht existiert, wird es automatisch erzeugt.
+    Falls das Verzeichnix nicht existiert, wird es automatisch angelegt.
 </descrip>
 
 <sect3>Build Features<label id="build-features"><p>
@@ -982,18 +982,15 @@ Der Makefile von BRLTTY unterstützt die meisten der gängigen Make-Targets:
 </descrip>
 
 <sect1>BRLTTY testen<p>
-After compiling, linking, and installing BRLTTY,
-it's a good idea to give it a quick test before activating it permanently.
-To do so, invoke it with the command:
+Nachdem BRLTTY compiliert, gelinkt und installiert wurde, ist es eine gute Idee es zu Testen, bevor es dauerhaft aktiviert wird:
+Das wird mit folgendem Kommando gemacht:
 <tscreen>brltty -b<em/driver/ -d<em/device/</tscreen>
-For <em/driver/, specify the two-letter
-<ref id="drivers" name="driver identification code">
-corresponding to your braille display.
-For <em/device/, specify the full path
-for the device to which your braille display is connected.
+Für <em/driver/ geben Sie bitte die 2 Zeichen langen
+<ref id="drivers" name="Treiberkennung">, entsprechend ihrer Braillezeile, an.
+Für <em/device/, geben Sie bitte die Schnittstelle an, an der die Braillezeile angeschlossen ist.
 
-If you don't want to explicitly identify the driver and device
-each time you start BRLTTY, then you can take two approaches.
+Diese Einstellungen können auch dauerhaft eingestellt werden, und zwar über folgende Wege:
+
 You can establish system defaults
 via the <ref id="configure-braille-driver" name="braille-driver">
 and the <ref id="configure-braille-device" name="braille-device">
