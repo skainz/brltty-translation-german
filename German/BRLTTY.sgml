@@ -1157,8 +1157,9 @@ lesenden Zugriff auf <tt>/dev/vcsa</> oder eine entsprechende Schittstelle
 (um die Bildschirm-Dimensionen und die Cursorposition abfragen zu können, den aktuellen
 Bildschirminhalt und die Textattribute bzw. Hervorhebungen lesen zu können),
 und Vollzugriff auf die System-Konsole
+
 #TODO
-and read and write access to the system console
+#and read and write access to the system console
 (for arrow key entry during cursor routing,
 for input character insertion during paste,
 for special key simulation using keys on the braille display,
@@ -1171,80 +1172,72 @@ activating the internal beeper and simulating key strokes still require root pri
 So, if you're willing to give up cursor routing, cut&amp;paste, beeps,
 and all that, you can run BRLTTY without root priviledge.
 
-<sect1>Build and Run-Time Restrictions<p>
+<sect1>Einschränkungen zur Build- und Laufzeit<p>
 <descrip>
-  <tag/Alert Tunes/<label id="restrictions-tunes">
-    Some platforms don't support all of the tune devices.
-    See the <ref id="preference-tune-device" name="Tune Device">
-    preference for details.
-  <tag/FestivalLite Speech Synthesizer Driver/<label id="restrictions-flite">
-    The driver for the FestivalLite text to speech engine
-    is only built if that package has been installed.
+  <tag/Warntöne/<label id="restrictions-tunes">
+    Einige Plattformen unterstützen nicht alle Tongeber.
+    (siehe hierzu <ref id="preference-tune-device" name="Tongeber">).
+ 
+  <tag/FestivalLite Sprachsynthese-Treiber/<label id="restrictions-flite">
+     Der Treiber für die FestivalLite Sprachsynthese wird nur übersetzt,
+     wenn das Paket FestivalLite installiert ist.
+    
+    Dieser Treiber und der Treiber für die Theta Sprachsynthese
+    (siehe Build-Option <ref id="build-theta" name="--with-theta">)
+    können nicht gleichzeitig in BRLTTY eingebettet werden
+    (siehe dazu die Build-Option <ref id="build-speech-driver" name="--with-speech-driver">)
+    da ihre Bibliotheken zur Laufzeit sich ausschließende Symbole enthalten.
+  <tag/Libbraille Braillezeilen-Treiber/<label id="restrictions-libbraille">
+    Der Treiber für das Libbraille-Paket wird nur übersetzt, wenn das enstprechende Paket auch installiert ist.
+  <tag/Mikropuhe Sprachsynthese-Treiber/<label id="restrictions-mikropuhe">
+	Der Treiber für die Mikropuhe Sprachsynthese wird nur übersetzt, wenn das entsprechende Paket auch installiert ist.
+       Wird BRLTTY statisch gelinkt     (siehe Build-Option <ref id="build-standalone-programs" name="--enable-standalone-programs">), kann dieser Treiber nicht verwendet werden,
+		 da das Paket keine statische gelinkte Variante dieses Treibers beinhaltet.
+  <tag/Theta Sprachsynthese-Treiber/<label id="restrictions-theta">
+    Der Treiber für die Theta-Sprachsynthese wird nur übersetzt, wenn das entsprechende Paket auch installiert ist.
 
-    This driver and the driver for the Theta text to speech engine
-    (see the <ref id="build-theta" name="--with-theta"> build option)
-    cannot be simultaneously linked into the BRLTTY binary
-    (see the <ref id="build-speech-driver" name="--with-speech-driver"> build option)
-    because their run-time libraries contain conflicting symbols.
-  <tag/Libbraille Braille Display Driver/<label id="restrictions-libbraille">
-    The driver for the Libbraille package
-    is only built if that package has been installed.
-  <tag/Mikropuhe Speech Synthesizer Driver/<label id="restrictions-mikropuhe">
-    The driver for the Mikropuhe text to speech engine
-    is only built if that package has been installed.
+    Dieser Treiber und der Treiber für die FestivalLite Sprachsynthese
+    (siehe Build-Option <ref id="build-flite" name="--with-flite">)
+    können nicht gleichzeitig in BRLTTY eingebettet werden
+    (siehe dazu die Build-Option <ref id="build-speech-driver" name="--with-speech-driver">)
+    da ihre Bibliotheken zur Laufzeit sich ausschließende Symbole enthalten.
 
-    This driver cannot be included if the BRLTTY binary is statically linked
-    (see the <ref id="build-standalone-programs" name="--enable-standalone-programs"> build option)
-    because a static archive isn't included with the package.
-  <tag/Theta Speech Synthesizer Driver/<label id="restrictions-theta">
-    The driver for the Theta text to speech engine
-    is only built if that package has been installed.
+    Soll dieser Treiber als dynamisch-ladbares Objekt übersetzt werden,
+    muss <tt>$THETA_HOME/lib</> zur Umgebungsvariable <tt/LD_LIBRARY_PATH/ hinzugefügt werden,
+    bevor BRLTTY gestartet wird.
 
-    This driver and the driver for the FestivalLite text to speech engine
-    (see the <ref id="build-flite" name="--with-flite"> build option)
-    cannot be simultaneously linked into the BRLTTY binary
-    (see the <ref id="build-speech-driver" name="--with-speech-driver"> build option)
-    because their run-time libraries contain conflicting symbols.
+  <tag/ViaVoice Sprachsynthese-Treiber/<label id="restrictions-viavoice">
+    Der Treiber für die ViaVoice Sprachsynthese wird nur übersetzt, wenn das entprechende Paket auch installiert ist.
 
-    If this driver is built as a dynamically loadable shared object
-    then <tt>$THETA_HOME/lib</> must be added
-    to the <tt/LD_LIBRARY_PATH/ environment variable
-    before BRLTTY is invoked
-    because the shared objects within the package don't contain
-    run-time search paths for their dependencies.
-  <tag/ViaVoice Speech Synthesizer Driver/<label id="restrictions-viavoice">
-    The driver for the ViaVoice text to speech engine
-    is only built if that package has been installed.
+       Wird BRLTTY statisch gelinkt     (siehe Build-Option <ref id="build-standalone-programs" name="--enable-standalone-programs">), kann dieser Treiber nicht verwendet werden,
+		 da das Paket keine statische gelinkte Variante dieses Treibers beinhaltet.
 
-    This driver cannot be included if the BRLTTY binary is statically linked
-    (see the <ref id="build-standalone-programs" name="--enable-standalone-programs"> build option)
-    because a static archive isn't included with the package.
-  <tag/VideoBraille Braille Display Driver/<label id="restrictions-videobraille">
-    The driver for the VideoBraille braille display is built on all systems,
-    but only works on Linux.
+
+
+  <tag/VideoBraille Braillezeilen-Treiber/<label id="restrictions-videobraille">
+    Der Treiber für die Video-Braille Braillezeilen kann zwar auf allen Systemen übersetzt werden,
+    funktioniert jedoch nur unter Linux.
 </descrip>
 
-<sect1>Installing from an RPM File<label id="rpm"><p>
-To install BRLTTY from an RPM (RedHat Package Manager) file, do the following:
+<sect1>Installation aus einer RPM-Datei<label id="rpm"><p>
+Um BRLTTY aus einer RPM-(RedHat Package Manager) Datei zu installieren gehen Sie wie folgt vor:
 <enum>
   <item>
-    Download the binary package which corresponds to your hardware.
-    It'll be a file named
-    <tt/brltty-/<em/release/<tt/-/<em/version/<tt/./<em/architecture/<tt/.rpm/,
-    e.g. <tt/brltty-3.0-1.i386.rpm/.
+    Laden Sie das Binärpaket, ensprechend Ihrer Hardware, herunter.
+    Der Paketname folgt dem Schema
+    <tt/brltty-/<em/Release/<tt/-/<em/Version/<tt/./<em/Architektur/<tt/.rpm/,
+    zum Beispiel <tt/brltty-3.0-1.i386.rpm/.
   <item>
-    Install the package.
-    <tscreen>rpm -Uvh brltty-<em/release/-<em/version/.<em/architecture/.rpm</tscreen>
-    This should be done as <bf/root/.
-    Strictly speaking, the <tt/-U/ (update) option is the only one which is necessary.
-    The <tt/-v/ (verbose) option displays the name of the package as it's being installed.
-    The <tt/-h/ (hashes) option displays a progress meter (using hash signs).
+    Installieren Sie das Paket:
+    <tscreen>rpm -Uvh brltty-<em/Release/-<em/Version/.<em/Architektur/.rpm</tscreen>
+    Dies muss als <bf/root/ geschehen.
+    Genaugenommen genügt die Option  <tt/-U/ (update).
+     Die Option <tt/-v/ (verbose) zeigt den Namen es Pakets an, das installiert wird.
+    Die Optione <tt/-h/ (hashes) zeigt einen Fortschrittsbalken aus Rautezeichen an.
 </enum>
-For the brave,
-we also provide the source RPM (<tt/.src.rpm/) file,
-but that's beyond the scope of this document.
+Für die Mutigen stellen wir auch eine Quellcode-RPM-(<tt/.src.rpm/) Datei zur Verfügung, dies wird jedoch nicht in diesem Dokument behandelt.
 
-To uninstall BRLTTY, do:
+Um BRLTTY zu deinstallieren, verwenden Sie folgendes Kommando:
 <tscreen>rpm -e brltty</tscreen>
 
 <sect1>Zusätzliche Tools<p>
