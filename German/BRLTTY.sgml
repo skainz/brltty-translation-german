@@ -4107,22 +4107,21 @@ Die folgenden Kurzschrift-Tabellen sind verfügbar:
 Beachten Sie auch den Kommandozeilenparameter <ref id="options-contraction-table" name="-c"> und die <ref id="configure-contraction-table" name="contraction-table">-Direktive in der Konfigurationsdatei für Details, wie eine Kurzschrift-Tabelle verwendet wird.
 
 <sect2>Format der Kurzschrift-Tabelle<p>
-A contraction table consists of a sequence of entries, one per line,
-which define how character sequences are to be represented in braille.
-<tt/UTF-8/ character encoding must be used.
-White-space (blanks, tabs) at the beginning of a line,
-as well as before and/or after any operand,
-is ignored.
-Lines containing only white-space are ignored.
-If the first non-white-space character of a line is "&num;"
-then that line is a comment and is ignored.
+Eine Kurzschrift-Tabelle besteht aus einer Reihe von Definitionen - jeweils eine pro Zeile,
+die angeben, wie Zeichenfolgen in Braille dargestellt werden sollen.
+Die Zeichenkodierung muss in <tt/UTF-8/ erfolgen.
+Leerzeichen (Spaces, Tabulator) am Zeilenbeginn sowie vor und/oder nach einem Schlüsselwort werden ignoriert. 
+Zeilen die nur Leerzeichen enthalten, werden ignoriert. Wenn das erste Zeichen einer Zeile, 
+das kein Leerzeichen ist, ein "&num;"-Zeichen ist, wird diese Zeile als Kommentar behandelt und ignoriert.
 
-The format of a contraction table entry is:
-<tscreen><em/directive/ <em/operand/ ... [<em/comment/]</tscreen>
-Each directive has a specific number of operands.
-Any text beyond the last operand of a directive is interpreted as a comment.
-The order of the entries within a contraction table is, in general,
-anything that is convenient for its maintainer(s).
+Das Format der Einträge der Kurzschrift-Tabellen ist:
+<tscreen><em/Anweisung/ <em/Parameter/ ... [<em/Kommentar/]</tscreen>
+Jede Anweisung hat eine gewisse Anzahl am Parameternn
+Texte oder Zeichen, die nach der notwendigen Anzahl an Parametern angegeben sind, werden als Kommentare behandelt.
+
+Die Reihenfolge der Definitionen in einer Kurzschrift-Tabelle ist prinzipell beliebig und
+bleibt dem Ersteller der Tabelle überlassen. Einzige Ausnahmen ist:
+Ein Eintrag, der #TODO
 An entry which defines an entity, e.g. <tt/class/,
 must precede all references to that entity.
 
@@ -5021,63 +5020,56 @@ BRLTTY unterstützt die folgenden Sprachsynthesizer:
   </tabular>
 </table>
 
-<sect>Supported Screen Drivers<label id="screen"><p>
-BRLTTY supports the following screen drivers:
+<sect>Unterstützte Bildschirm-Treiber<label id="screen"><p>
+BRLTTY unterstützt die folgenden Bildschirm-Treiber:
 <descrip>
   <tag/as/
     AT-SPI
   <tag/hd/
-    This driver provides direct access to the Hurd console screen.
-    It's only selectable, and is the default, on Hurd systems.
+    Dieser Treiber ermöglicht den direkten Zugriff auf die Hurd-Konsole. Dieser Treiber ist
+nur auf Hurd-Systemen verfügbar und wird hier als Standardtreiber verwendet.
   <tag/lx/
-    This driver provides direct access to the Linux console screen.
-    It's only selectable, and is the default, on Linux systems.
+Dieser Treiber ermöglicht den Zugriff auf die Linux-Konsole. Dieser Treiber ist
+nur auf Linux-Systemen verfügbar und wird hier als Standardtreiber verwendet.
   <tag/sc/
-    This driver provides access to the <tt/screen/ program.
-    It's selectable on all systems,
-    and is the default if no native screen driver is available.
-    The patch for <tt/screen/ which we provide
-    (see the <tt/Patches/ subdirectory)
-    must be applied.
-    Use of this driver,
-    due to the fact that <tt/screen/ must be concurrently running,
-    makes BRLTTY effectively useful only after the user has logged in.
+     Dieser Treiber ermöglich den Zugriff auf das Programm  <tt/screen/.
+      Er ist auf allen Systemen verfügbar und wird standardmäßig verwendet, falls sonst kein dem System entsprechneder Treiber
+     verfügbar ist. Der Path für <tt/screen/, welcher mit BRLTTY mitkommt, 
+    (siehe Unterverzeichnis <tt/Patches/)
+    muss hierfür angwendet werden.
+    Da <tt/screen/ bereits laufen muss, wenn dieser Trieber verwendet werden soll, ist BRLTTY nur dann von Nutzen, wenn sich ein Benutzer 
+    am System angemeldet hat.
   <tag/wn/
-    This driver provides direct access to the Windows console screen.
-    It's only selectable, and is the default, on Windows/Cygwin systems.
+     Dieser Treiber ermöglich dne Zugriff auf die Windows-Konsole.
+Dieser Treiber ist nur auf Windows-Systemen verfügbar und wird hier als Standardtreiber verwendet.
 </descrip>
 
 <sect>Operand Syntax<p>
 
-<sect1>Driver Specificationn<label id="operand-driver"><p>
-A braille display or speech synthesizer driver must be specified
-via its two-letter <ref id="drivers" name="driver identification code">.
+<sect1>Treiber-Spezifikation<label id="operand-driver"><p>
+Ein Brailler-Treiber oder Sprachsynthese-Trieber muss durch eine 2Zeichen lange
+<ref id="drivers" name="Treiberkennung"> spezifiziert werden.
 
-A comma-delimited list of drivers may be specified.
-If this is done then autodetection is performed using each listed driver in sequence.
-You may need to experiment in order to determine the most reliable order
-since some drivers autodetect better than others.
+Eine Liste von Treibern, durch Komma getrennt, kann angegeben werden. Daraufhin wir eine automatische Erkennung jedes Treibers in der Liste durchgeführt.
+Sie müssen hier möglicherweise mit der Reihenfolge der Trieber experimentieren, um die stabilste Reihenfolge zu finden, da bei einigen Treibern die automaitsche Erkennung besser funktioniert als bei anderen.
 
-If the single word <tt/auto/ is specified then autodetection is performed
-using only those drivers which are known to be reliable for this purpose.
+Wenn nur das Wort <tt/auto/ angegeben wird, wird nur die automaitsche Erkennung von Treibern durchgeführt, bei denen die automatisch Erkennung bekanntermaßen stabil funktioniert.
 
-<sect1>Braille Device Specificationn<label id="operand-braille-device"><p>
-The general form of a braille device specification
-(see the <ref id="options-braille-device" name="-d"> command line option,
-the <ref id="configure-braille-device" name="braille-device"> configuration file directive,
-and the <ref id="build-braille-device" name="--with-braille-device"> build option)
-is <tt/qualifier:/<em/data/.
-For backward compatibility with earlier releases,
-if the qualifier is omitted then <tt/serial:/ is assumed.
 
-The following device types are supported:
+<sect1>Braille Geräte-Spezifikation<label id="operand-braille-device"><p>
+Die generelle Form einer Braille Geräte-Spezifikation (siehe den Kommandozeilenparameter <ref id="options-braille-device" name="-d">,
+die Konfigurations-Direktive <ref id="configure-braille-device" name="braille-device">,
+und die Build-Option <ref id="build-braille-device" name="--with-braille-device">)
+ist <tt/Kennzeichen:/<em/Daten/.
+Aus Gründen der Kompatibiltät zu früheren Versionen wird das Kennzeichen <tt/serial:/ automatisch angenommen, wenn keines angegeben wird.
+
+Die folgenden Arten von Geräten werden unterstützt:
 <descrip>
   <tag/Bluetooth/
-    For a bluetooth device, specify <tt/bluetooth:/<em/address/
-    (<tt/bt:/ and <tt/bluez:/ may also be used).
-    The address must be six two-digit hexadecimal numbers separated by colons,
-    e.g. <tt/01:23:45:67:89:AB/.
-  <tag/Serial/
+     Für Bluetotoh-Geräte geben sie bitte <tt/bluetooth:/<em/Adresse/
+    (<tt/bt:/ und <tt/bluez:/ können ebenso verwendet werden) an.
+    Die Adresse muss aus 6 2-Zeichen langen hexadezimalen Zeichen, durch Doppelpunkt getrennt, bestehen, z.B. <tt/01:23:45:67:89:AB/.
+  <tag/Seriell/
     For a serial device, specify <tt/serial:/<em>/path/to/device</>.
     The <tt/serial:/ qualifier is optional (for backward compatibility).
     If a relative path is given then it's anchored at <tt>/dev</>
