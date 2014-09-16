@@ -416,8 +416,8 @@ Das ist alles was Sie zu tun haben. Für all jene, die wirklich wissen wollen, wa
 Der erste Schritt zur Übersetzung von BRLTTY ist, das Programm für Ihr System und/oder nach Ihren persönlichen Preferenzen
 zu konfigurieren.
 Das geschieht durch das Aufrufen des Kommandos <tt/configure/ im Hauptverzeichnis von BRLTTY.
-Wir haben versucht, die Standardeisntellung so zu wählen, daß sie für die meisten Fälle pasend sein sollten.
-Sollten Sie also nicht besonders aussergewöhnliches versuchen wollen, müssen Sie nichts weiter tun, als dieses Kommando ohne weitere Optionen aufzurufen.
+Wir haben versucht, die Standardeinstellung so zu wählen, daß sie für die meisten Fälle passend sein sollten.
+Sollten Sie also nicht besonders aussergewöhnliches versuchen wollen, müssen Sie nichts weiter tun, als dieses Kommando ohne weitere Optionen aufzurufen:
 <tscreen>./configure</tscreen>
 Haben Sie jedoch besondere Anforderungen, oder sind einfach nur experimentierfreudig, können Sie so die verfügbaren Optionen anzeigen:
 <tscreen>./configure --help</tscreen>
@@ -725,7 +725,7 @@ Beachten Sie auch die  <ref id="configure-screen-driver" name="screen-driver">-D
     </descrip>
 </descrip>
 
-<sect3>Directory Specification<label id="build-directoreis"><p>
+<sect3>Verzeichnis-Spezifikation<label id="build-directoreis"><p>
 <descrip>
   <tag><tt/--with-execute-root=/<em/Verzeichnis/<label id="build-execute-root"></tag>
     Gibt den Verzeichnispfad an, der zur Laufzeit als Arbeitsverzeichnis für die <ref id="hierarchy" name="Hierarchie der installierten Dateien">
@@ -748,6 +748,7 @@ Beachten Sie auch die  <ref id="configure-screen-driver" name="screen-driver">-D
       <item>Das <ref id="build-manpage-directory" name="manpage directory">
       <item>Das <ref id="build-include-directory" name="include directory">
     </itemize>
+
     Dieser Pfad sollte als absoluter Pfad angegeben werden. Wird er nicht angegeben, wird das Wurzelverzeichnis des Systems verwendet. Dieses wird als Basisverzeichnis, wie durch die Option <ref id="build-execute-root" name="--with-execute-root"> angegeben, gesetzt.
     <tag><tt/--exec-prefix=/<em/Verzeichnis/<label id="build-architecture-root"></tag>
     Gibt innerhalb der <ref id="hierarchy" name="Hierarchie der installierten Dateien">, das Arbeitsverzeichnis für die architektur-abhängigen Dateien an.
@@ -757,6 +758,7 @@ Beachten Sie auch die  <ref id="configure-screen-driver" name="screen-driver">-D
       <item>Das <ref id="build-library-directory" name="library directory">
       <item>Das <ref id="build-api-directory" name="API directory">
     </itemize>
+
     Dieser Pfad sollte als absoluter Pfad angegeben werden. Wird er nicht angegeben, wird der wert der Option 
        <ref id="build-portable-root" name="--prefix"> verwendet.
     build option is assumed. Dieses Verzeichnis wird relativ zum Verzeichnis, das in der Option  <ref id="build-execute-root" name="--with-execute-root"> angegeben wurde, angenommen.
@@ -1036,14 +1038,14 @@ Die Option <ref id="options-help" name="-h"> zeigt eine Zusammenfassung aller Op
 Die Option <ref id="options-version" name="-V"> zeigt die aktuelle Programmversion, die Version der Programmierschnittstelle (API) und der aktivierten Treiber an.
 Die Option <ref id="options-verify" name="-v"> zeigt die Optionen an, nachdem alle verfügbaren Möglichkeiten zum Setzen der Optionen abgearbeitet wurden.
 
-Es ist wahrscheinlich am Besten, wenn BRLTTY automatisch während des Systemstarts gestartet wird, damit die Braillezeile schon bereit ist, wenn der Login-Prompt erscheint.
+Es ist wahrscheinlich am Besten, wenn BRLTTY automatisch während des Systemstarts gestartet wird, damit die Braillezeile schon verfügbar ist, wenn der Login-Prompt erscheint.
 Die meisten (möglicherweise alle) Distributionen stellen eine Skriptdateien zur Verfügung, mit welcher vom Benutzer bereitsgestellte Programme gegen Ende des Systemstarts gestartet werden können. Der Name dieser Datei ist abhängig von der Distribution, hier eine Liste derer, die wir bereits kennen:
 <descrip>
   <tag/Red Hat/
     <tt>/etc/rc.d/rc.local</>
 </descrip>
 
-BRLTTY von diesem Skript aus zu starten, ist eine guter Ansatz(speziell für neue Benutzer).
+BRLTTY von diesem Skript aus zu starten, ist eine guter Ansatz (speziell für neue Benutzer).
 Fügen Sie einfach folgende Zeilen ein:
 <tscreen><verb>
 if [ -x /bin/brltty -a -f /etc/brltty.conf ]
@@ -1073,82 +1075,57 @@ Welche Skripten hier angepasst werden ist wieder abhängig von der Distribution, 
   <tag>RedHat</tag>
     <tt>/etc/rc.d/rc.sysinit</>
     <newline>
-    Beware that later releases,
-    in order to support a more user-oriented system initialization procedure,
-    have this script reinvoke itself such that
-    it's under the control of <tt/initlog/.
-    Look, probably right up near the top, for a set of lines like these:
+    Beachten Sie bitte das bei neueren Releases, im Zuge eines stärker benutzerorientieren Systemstarts, das Skript sich selbst aufruft, damit es dann unter der Kontrolle von  <tt/initlog/ ist.
+    Suchen Sie, wahrscheinlich gleich am Beginn der Datei, nach folgenden Zeilen:									
     <tscreen><verb>
     # Rerun ourselves through initlog
     if [ -z "$IN_INITLOG" ]; then
       [ -f /sbin/initlog ] && exec /sbin/initlog $INITLOG_ARGS -r /etc/rc.sysinit
     fi
     </verb></tscreen>
-    Starting BRLTTY before this reinvocation
-    results in two BRLTTY processes running at the same time,
-    and that'll give you no end of problems.
-    If your version of this script has this feature,
-    then make sure you start BRLTTY after the lines which implement it.
+    Falls sie BRLTTY vor diesem Code-Block starten, wird BRLTTY zweimal gestartet, was nur Probleme macht. Wenn das Skript auf Ihrem System also diese Zeilen beinhaltet, tragen Sie BRLTTY nach diesen ein.
+
   <tag>Slackware</tag>
     <tt>/etc/rc.d/rc.S</>
   <tag>SuSE</tag>
     <tt>/sbin/init.d/boot</>
 </descrip>
 
-An alternative is to start BRLTTY from <tt>/etc/inittab</>.
-You have two choices if you choose this route.
+Alternativ kann BRLTTY auch via <tt>/etc/inittab</> gestartet werden.
+Hier haben Sie dann zwei Möglichkeiten:
 <itemize>
   <item>
-    If you want it to be started really early
-    but don't need it to be automatially restarted if it dies,
-    then add a line like this before the first <tt/:sysinit:/ line which is already in there.
+    Wenn BRLTTY sehr früh während des Systemstarts gestartet werden soll, aber nicht automatisch neu gestartet werden soll, falls es Abbricht, tragen Sie
+    folgende Zeile vor der ersten  <tt/:sysinit:/-Zeile ein:
     <tscreen>brl::sysinit:/bin/brltty</tscreen>
   <item>
-    If you don't mind it being started later
-    but do want it to be automatically restarted if it dies,
-    then add a line like this anywhere within the file.
+    Wenn BRLTTY später gestartet werden kann, allerdings automatisch neu gestartet werden soll, falls es Abbricht, dann tragen Sie bitte folgende Zeile irgendwo in dieser Datei ein:
     <tscreen>brl:12345:respawn:/bin/brltty -n</tscreen>
-    The <ref id="options-no-daemon" name="-n"> (<tt/--nodaemon/) option is very
-    important when running BRLTTY with <bf/init/'s <tt/respawn/ facility.
-    You'll end up with hundreds of BRLTTY processes all running at the same time
-    if you forget to specify it.
+    Die Option <ref id="options-no-daemon" name="-n"> (<tt/--nodaemon/) ist hier sehr wichtig, wenn BRLTTY durch die <tt/respawn/-Funktion von <bf/init/ gestartet wird. Falls Sie diese Option vergessen, werden hunderte BRLTTY-Prozesse gleichzeitig gestartet.
 </itemize>
-Check that the identifier (<tt/brl/ in these examples)
-isn't already being used by another entry,
-and, if it is, choose a different one which isn't.
+Überprüfen Sie bitte, dass der Kennzeichner (<tt/brl/ in diesem Beispiel) nicht schon von einem anderem Eintrag verwendet wird, und falls schon, verwenden Sie bitte einen anderen.
 
+#TODO
 Note that a command like <tt/kill -TERM/
 is sufficient to stop BRLTTY in its tracks.
 If it dies during entry into single user mode, for example,
 it may well be due to a problem of this nature.
 
-Some systems, as part of the boot sequence, probe the serial ports
-(usually in order to automatically find the mouse and deduce its type).
-If your braille display is using a serial port,
-this kind of probing may be enough to get it confused.
-If this happens to you, then try restarting the braille driver
-(see the <ref id="command-RESTARTBRL" name="RESTARTBRL"> command).
-Better yet, turn off the serial port probing.
-Here's what we know so far about how to do this:
+Einige Systeme überprüfen die seriellen Schnittstellen während des Systemstarts (üblicherweise um eine angeschlossene Maus zu erkennen). Falls Ihre Brailleizeile einen seriellen Anschluss hat, kann es passieren, dass diese Überprüfung die Zeile etwa "verwirrt". Falls das passiert, versuchen Sie bitte den Braillezeilen-Treiber neu zu starten (siehe Kommando <ref id="command-RESTARTBRL" name="RESTARTBRL">). 
+Besser wäre es allerdings, diese arte der Überprüfung überhapt zu deaktivieren. Hier einige Informationen, wie das gemacht werden kann:
 <descrip>
   <tag/Red Hat/
-    The probing is done by a service named <tt/kudzu/.
-    Use the command <tscreen>chkconfig --list kudzu</tscreen> to see if it's been enabled.
-    Use the command <tscreen>chkconfig kudzu off</tscreen> to disable it.
-    Later releases allow you to let <tt/kudzu/ run
-    without probing the serial ports.
-    To do this, edit the file <tt>/etc/sysconfig/kudzu</>,
-    and set <tt/SAFE/ to <tt/yes/.
+    Das Service <tt/kudzu/ führt diese Checks durch. Mit dem Kommando
+  <tscreen>chkconfig --list kudzu</tscreen> können Sie überprüfen, ob diese Funktion aktiv ist.
+ Verwenden Sie das Kommando <tscreen>chkconfig kudzu off</tscreen> um die Funktion zu deaktivieren.
+  Neuere Releases erlauben es, <tt/kudzu/ auch ohne die Überprüfung der seriellen Schnittstellen laufen zu lassen. Editieren Sie dazu die Datei <tt>/etc/sysconfig/kudzu</> und setzen Sie <tt/SAFE/ auf <tt/yes/.
 </descrip>
 
-If you want to start BRLTTY before any file systems are mounted, then
-ensure that all of its components are installed within the root file system.
-See the <ref id="build-execute-root" name="--with-execute-root">,
+Wenn BRLTTY schon gestartet werden soll, bevor überhaupt Dateisysteme eingehängt werden, stellen Sie sicher, dass alle notwendigen Komponenten auf dem Root-Dateisystems verfügbar sind. Beachten Sie dazu die Build-Optionen <ref id="build-execute-root" name="--with-execute-root">,
 <ref id="build-program-directory" name="--bindir">,
 <ref id="build-library-directory" name="--libdir">,
 <ref id="build-writable-directory" name="--with-writable-directory">,
-and <ref id="build-data-directory" name="--with-data-directory">
-build options.
+and  <ref id="build-data-directory" name="--with-data-directory">.
 
 <sect1>Sicherheitsbetrachtungen<p>
 BRLTTY muss mit Administrator(root)-Rechten laufen, da es Vollzugriff auf
@@ -1156,21 +1133,11 @@ die Schnittstelle benötigt, an der die Braillezeile angeschlossen ist,
 lesenden Zugriff auf <tt>/dev/vcsa</> oder eine entsprechende Schittstelle
 (um die Bildschirm-Dimensionen und die Cursorposition abfragen zu können, den aktuellen
 Bildschirminhalt und die Textattribute bzw. Hervorhebungen lesen zu können),
-und Vollzugriff auf die System-Konsole
+und Vollzugriff auf die System-Konsole (für Cursor-Bewegungen während des Cursor-Routings, einfügen von Zeichen im Einfügemodus, 
+zur Simulation von Spezialtasten durch Tastendrücke auf der Braillezeile, zum Zugriff auf die Font-Tabellen  und auf den internen Signalgeber).
 
-#TODO
-#and read and write access to the system console
-(for arrow key entry during cursor routing,
-for input character insertion during paste,
-for special key simulation using keys on the braille display,
-for retrieving output character translation and screen font mapping tables,
-and for activation of the internal beeper).
-Access to the needed devices can, of course, be granted to a non-root user
-by changing the file permissions associated with the devices.
-Merely having access to the console, however, isn't enough because
-activating the internal beeper and simulating key strokes still require root privilege.
-So, if you're willing to give up cursor routing, cut&amp;paste, beeps,
-and all that, you can run BRLTTY without root priviledge.
+Zugriff auf diese Schnittstellen kann natürlich auch für Nicht-Administratoren vergeben werden, durch Ändern der Dateizugriffsrechte die mit diesen Schnittstellen assoziiert sind. Zugriff auf die Konsole alleine ist jedoch nicht genug, da für den  Zugriff auf den internen Signalgeber und das Simulieren von Tastendrücken trotzdem Administrator-Rechte benötigt werden. Wenn Sie jedoch Cursor-Routing, Kopieren-&amp;-Einfügen, Piep-Signale, etc. nicht benötigen, kann BRLTTY ohne Administrator-Rechte laufen.
+
 
 <sect1>Einschränkungen zur Build- und Laufzeit<p>
 <descrip>
@@ -5066,16 +5033,15 @@ Aus Gründen der Kompatibiltät zu früheren Versionen wird das Kennzeichen <tt/ser
 Die folgenden Arten von Geräten werden unterstützt:
 <descrip>
   <tag/Bluetooth/
-     Für Bluetotoh-Geräte geben sie bitte <tt/bluetooth:/<em/Adresse/
+     Für Bluetotoh-Geräte geben sie <tt /bluetooth:/<em/Adresse/
     (<tt/bt:/ und <tt/bluez:/ können ebenso verwendet werden) an.
     Die Adresse muss aus 6 2-Zeichen langen hexadezimalen Zeichen, durch Doppelpunkt getrennt, bestehen, z.B. <tt/01:23:45:67:89:AB/.
   <tag/Seriell/
-    For a serial device, specify <tt/serial:/<em>/path/to/device</>.
-    The <tt/serial:/ qualifier is optional (for backward compatibility).
-    If a relative path is given then it's anchored at <tt>/dev</>
-    (the usual location where devices are defined on a Unix-like system).
-    The following device specifications all refer
-    to the first serial device on Linux:
+     Für ein serielles Gerät geben Sie <tt/serial:/<em>/Pfad/zum/Gerät</> an.
+    Das Kennzeichen <tt/serial:/ ist optional (aus Kompatibilitätsgründen).
+    Wird ein relativer Pfad angegeben, wird dieser relativ zu <tt>/dev</> angenommen
+    (der übliche Pfad, an dem in Unix-artigen Systemen Geräte definiert werden).
+    Die folgenden Spezifikationen verweisen alle auf das erste serielle Gerät in Linux:
     <itemize>
       <item><tt>serial:/dev/ttyS0</>
       <item><tt>serial:ttyS0</>
@@ -5083,71 +5049,51 @@ Die folgenden Arten von Geräten werden unterstützt:
       <item><tt>ttyS0</>
     </itemize>
   <tag/USB/
-    For a USB device, specify <tt/usb:/.
-    BRLTTY will search for the first USB device which
-    matches the braille display driver being used.
-    If this is inadequate,
-    e.g. if you have more than one USB braille display which requires the same driver,
-    then you can refine the device specification
-    by appending the serial number of the display to it,
-    e.g. <tt/usb:12345/.
-    N.B.: The "identification by serial number" feature
-    doesn't work for some models because some manufacturers
-    either don't set the USB serial number descriptor at all
-    or do set it but not to a unique value.
+    Für ein USB-Gerät geben Sie <tt/usb:/ an.
+    BRLTTY sucht das erste USB-Gerät, das zu dem verwendeten Braillezeilentrieber passt. 					  
+    Falls das nicht in Ihrem Sinne ist (z.B. wenn mehrere Braillezeilen in Verwendung sind, die den gleichen Treiber benötigen), dann können 
+    Sie die Geräte-Spezifikation um die Seriennummer erweitern, z.B. <tt/usb:12345/.
+
+    N.B.: Das "Identifizieren via Seriennummer" funktioniert nicht bei allen Modellen, da manche Hersteller entweder die USB-Seriennummer ihrer Geräte gar nicht setzen, oder falls doch gesetzt ist, keinen eindeutigen Wert darstellt.
 </descrip>
 
-A comma-delimited list of braille devices may be specified.
-If this is done then autodetection is performed on each listed device in sequence.
-This feature is particularly useful if you have
-a braille display with more than one interface,
-e.g. both a serial and a USB port.
-In this case it's usually better to list the USB port first,
-e.g. <tt>usb:,serial:/dev/ttyS0</tt>,
-since the former tends to autodetect more reliably than the latter.
+Eine Liste von Braillezeilen, durch Komma getrennt, kann hier angegeben werden. Es wird dann eine automatische Erkennung jedes angegebenen Geräts durchgeführt. Dies ist im Besonderen nützlich, wenn Sie eine Braillezeile mit mehr als einem Anschluss verwenden, z.B. seriell und USB. In so einem Fall ist es normalerwiese besser, den USB-Anschluss als ersten in die Liste einzutragen, z.B. <tt>usb:,serial:/dev/ttyS0</tt>, da die automatische Erkennung beim ersteren stabiler funktioniert.
 
-<sect1>PCM Device Specificationn<label id="operand-pcm-device"><p>
-In most cases the PCM device is
-the full path to an appropriate system device.
-Exceptions are:
+<sect1>PCM Geräte-Spezifikation<label id="operand-pcm-device"><p>
+In den meisten Fällen entspricht die PCM Geräte-Spezifikation dem vollständigen Pfad des entsprechenden Systemgerätes. Ausnahmen sind:
+
 <descrip>
   <tag/ALSA/
-    The name of and arguments for the physical or logical device,
-    i.e. <em/name/[<tt/:/<em/argument/<tt/,/...].
+    Der Name und die Paramter für das physikalische oder logische Gerät, z.B.  <em/Name/[<tt/:/<em/Parameter/<tt/,/...].
 </descrip>
 
-The default PCM device is:
+Das Standard-PCM-Gerät ist:
 <table loc="h">
   <tabular ca="ll">
-    Platform|Device@<hline>
+    Plattform|Gerät@<hline>
     FreeBSD|/dev/dsp@
     Linux/ALSA|hw:0,0@
     Linux/OSS|/dev/dsp@
     NetBSD|/dev/audio@
     OpenBSD|/dev/audio@
-    Qnx|preferred PCM output device@
+    Qnx|bevorzugtes PCM Ausgabe-Gerät@
     Solaris|/dev/audio@
   </tabular>
 </table>
 
-<sect1>MIDI Device Specificationn<label id="operand-midi-device"><p>
-In most cases the MIDI device is
-the full path to an appropriate system device.
-Exceptions are:
+<sect1>MIDI Geräte-Spezifikation<label id="operand-midi-device"><p>
+In den meisten Fällen entspricht die MIDI Geräte-Spezifikation dem vollständigen Pfad des entsprechenden Systemgerätes. Ausnahmen sind:
 <descrip>
   <tag/ALSA/
-    The client and port separated by a colon,
-    i.e. <em/client/<tt/:/<em/port/.
-    Each may be specified
-    either as a number
-    or as a case-sensitive substring of its name.
+    Der Client und die Port-Nummer, getrennt durch Doppelpunkt, z.B. <em/Client/<tt/:/<em/Port/. Jeder Wert kann entweder als Nummer oder als (Teil)-Zeichenkette (Groß-Kleinschreibung beachten!) ihres Namens angegeben werden.
+
 </descrip>
 
-The default MIDI device is:
+Das Standard-MIDI-Gerät ist:
 <table loc="h">
   <tabular ca="ll">
-    Platform|Device@<hline>
-    Linux/ALSA|the first available MIDI output port@
+    Plattform|Gerät@<hline>
+    Linux/ALSA|Das erste verfügbare MIDI-Ausgabe-Gerät@
     Linux/OSS|/dev/sequencer@
   </tabular>
 </table>
