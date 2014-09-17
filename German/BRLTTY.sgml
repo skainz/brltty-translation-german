@@ -294,9 +294,9 @@ Nach dem Compilieren sollten folgende Dateien installiert sein:
 	 somit zur Laufzeit ausgewählt und verwendet werden können.
 	 Jede Zeile besteht aus einer 2 Zeichen langen Treiberkennung,
 	 ein Tabulator-Zeichen und eine Beschreibung des Sprachsynthesizers, den der Treiber unterstützt.
-      <tag>libbrlttys<em/driver/.so.1</tag>
+      <tag>libbrlttys<em/Treiber/.so.1</tag>
 	Der dynamisch ladbare Treiber für einen Sprachsynthesizer, wobei
-        <em/driver/ die 2 Zeichen lange <ref id="drivers" name="Treiberkennung"> ist.
+        <em/Treiber/ die 2 Zeichen lange <ref id="drivers" name="Treiberkennung"> ist.
     </descrip>
   <tag>/lib/brltty/rw/</>
     Dateien die zur Laufzeit erzeugt werden, beispielsweise benötigte aber nicht vorhandene System-Dateien.
@@ -1252,99 +1252,76 @@ Zusätzlich werden die folgenden Standard-<bf/autoconf/ Umgebungsvariablen gesetz
   <tag/bindir/
      Standardpfad für das  <ref id="build-program-directory" name="Programm-Verzeichnis">, wie durch die Option <tt/--bindir/ konfiguriert.
   <tag/libdir/
-    Directory for BrlAPI's static archive and dynamically loadable object.
-    Default anchor for <ref id="build-library-directory" name="library directory">.
-    Configured via the <ref id="build-api-directory" name="--libdir"> build option.
+     Verzeichnis für die statischen und dynamisch ladbaren Objekte der BrlAPI.
+    Standard-Verzeichnis für die Treiber-Bibliotheken, siehe <ref id="build-library-directory" name="library directory">.
+    Dieser wert wird durch die Build-Option <ref id="build-api-directory" name="--libdir"> gesetzt.
   <tag/sysconfdir/
-    Directory for configuration files.
-    Default anchor for <ref id="build-data-directory" name="data directory">.
-    Configured via the <ref id="build-configuration-directory" name="--sysconfdir"> build option.
+     Verzeichnis für die Konfigurationsdateien. Standard-Verzeichnis für das <ref id="build-data-directory" name="Daten-Verzeichnis">. Dieser Wert wird durch die Build-Option  <ref id="build-configuration-directory" name="--sysconfdir"> gesetzt.
   <tag/mandir/
-    Default location for <ref id="build-manpage-directory" name="manual pages directory">.
-    Configured via the <tt/--mandir/ build option.
+     Standardverzeichnis für die <ref id="build-manpage-directory" name="Hilfe-Seiten">.
+    Dieser Wert wird durch die Build-Option <tt/--mandir/ gesetzt.
   <tag/includedir/
-    Default anchor for <ref id="build-include-directory" name="header files directory">.
-    Configured via the <tt/--includedir/ build option.
+     Standardverzeichnis für die <ref id="build-include-directory" name="C-Header-Files">.
+    Dieser Wert wird durhc die Build-Option <tt/--includedir/ gesetzt.
 </descrip>
 
 <sect2>brltty-install<label id="utility-brltty-install"><p>
-This utility copies BRLTTY's
-<ref id="hierarchy" name="installed file hierarchy">
-from one location to another.
-<tscreen>brltty-install <em/to/ &lsqb;<em/from/&rsqb;</tscreen>
+Dieses Programm kopiert die gesamte <ref id="hierarchy" name="Hierarchie der installierten Dateien"> von einem Ort zu einem anderen.
+<tscreen>brltty-install <em/nach/ &lsqb;<em/von/&rsqb;</tscreen>
 <descrip>
-  <tag><em/to/</tag>
-    The location to which the
-    <ref id="hierarchy" name="installed file hierarchy">
-    is to be copied.
-    It must be an existing directory.
-  <tag><em/from/</tag>
-    The location from which the
-    <ref id="hierarchy" name="installed file hierarchy">
-    is to be taken.
-    If it's specified, then it must be an existing directory.
-    If it's not specified, then the location used for the build is assumed.
+  <tag><em/nach/</tag>
+	  Der Pfad, an den die <ref id="hierarchy" name="Hierarchie der installierten Dateien"> kopiert werden soll.
+Dieses Verzeichnis muss bereits existieren.
+  <tag><em/von/</tag>
+  Der Pfad, von dem die <ref id="hierarchy" name="Hierarchie der installierten Dateien"> kopiert werden soll.
+   Wenn angeführt wird, muss er auf ein bestehendes Verzeichnis zeigen.
+	  Wenn er nicht angegeben wird, dann wird der Ort, wo das Programm übersetzt wurde, angenommen.
 </descrip>
 
-This utility can be used, for example, to copy BRLTTY to a root disk.
-If a root floppy is mounted as <tt>/mnt</>,
-and BRLTTY is installed on the main system,
-then typing <tscreen>brltty-install /mnt</tscreen>
-copies BRLTTY, along with all of its data and library files,
-to the root floppy.
+Dieses Programm kann verwendet werden, um BRLTTY auf eine Root-Diskette zu kopieren.
+Ist eine Diskette unter <tt>/mnt</> eingehängt und BRLTTY auf dem System installiert,
+dann wird durch das Kommando
+<tscreen>brltty-install /mnt</tscreen>
+BRLTTY, mit allen Daten-Dateien und Bibliotheken, auf die Diskette kopiert.
 
-Some problems have been experienced when copying BRLTTY
-between systems with different versions of the shared C library.
-This is worth investigating if you have difficulties.
+Es wurden einige Probleme entdeckt, wenn BRLTTY zwischen Systemen kopiert wurde,
+die verschiedene Versionen der C-Bibliotheken beinhalten. Beachten Sie dies, wenn Sie Probleme haben.
 
 <sect2>brltest<label id="utility-brltest"><p>
-This utility tests a braille display driver,
-and also provides an interactive way to learn
-what the keys on the braille display do.
-It should be run as root.
-<tscreen>brltest -<em/option/ ... [<em/driver/ [<em/name/=<em/value/ ...]]</tscreen>
+Mit diesem Programm kann eine Braillezeile getestet werden. Es bietet auch die Möglichkeit, heruaszufinden, welchen Funktionen die Tasten auf der Braillezeile zugeordnet sind. Das Programm muss als Administrator laufen.
+<tscreen>brltest -<em/Option/ ... [<em/Treiber/ [<em/Name/=<em/Wert/ ...]]</tscreen>
 <descrip>
-  <tag><em/driver/</tag>
-    The driver for the braille display.
-    It must be a two-letter <ref id="drivers" name="driver identification code">.
-    If it's not specified, then the first driver configured via the
-    <ref id="build-braille-driver" name="--with-braille-driver"> build option
-    is assumed.
-  <tag><em/name/<tt/=/<em/value/</tag>
-    Set a braille display driver parameter.
-    For a description of the parameters accepted by a specific driver,
-    please see the documentation for that driver.
-  <tag><tt/-d/<em/device/ <tt/--device=/<em/device/</tag>
-    The absolute path for the device to which the braille display is connected.
-    If it's not specified, then the device configured via the
-    <ref id="build-braille-device" name="--with-braille-device"> build option
-    is assumed.
-  <tag><tt/-D/<em/directory/ <tt/--data-directory=/<em/directory/</tag>
-    The absolute path for the directory wherein the driver data files reside.
-    If it's not specified, then the directory configured via the
-    <ref id="build-data-directory" name="--with-data-directory"> build option
-    is assumed.
-  <tag><tt/-L/<em/directory/ <tt/--library-directory=/<em/directory/</tag>
-    The absolute path for the directory wherein the drivers reside.
-    If it's not specified, then the directory configured via the
-    <ref id="build-library-directory" name="--libdir"> build option
-    is assumed.
-  <tag><tt/-W/<em/directory/ <tt/--writable-directory=/<em/directory/</tag>
-    The absolute path for a directory which can be written to.
-    If it's not specified, then the directory configured via the
-    <ref id="build-writable-directory" name="--with-writable-directory"> build option
-    is assumed.
-  <tag><tt/-h/ <tt/--help/</tag>
-    Display a summary of the command line options, and then exit.
-</descrip>
+  <tag><em/Treiber/</tag>
+	  Der Treiber für die Braillezeile. Dies ist die 2 Zeichen lange <ref id="drivers" name="Treiberkennung">. Wird dieser Parameter nicht angegeben,
+ wird der erste Teiber, der durch die Build-Option <ref id="build-braille-driver" name="--with-braille-driver"> angegeben wurde, verwendet.
 
-This utility uses BRLTTY's <ref id="learn" name="Command Learn Mode">.
-The key press timeout
-(after which this utility exits)
-is <tt/10/ seconds.
-The message hold time
-(used for non-final segments of long messages)
-is <tt/4/ seconds.
+  <tag><em/Name/<tt/=/<em/Wert/</tag>
+			 Setzt einen Parameter der Braillezeile. Für eine Liste der möglichen Parameter und ihrer Werte konsultieren Sie bitte die 
+Dokumentation für den jeweiligen Treiber.
+
+  <tag><tt/-d/<em/Gerät/ <tt/--device=/<em/Gerät/</tag>
+    Der absolute Pfad des Geräts/der Schnittstelle, an der die Braillezeile angeschlossen ist.					
+    Wird dieser Parameter nicht angegeben, wird jene Schnittstelle verwendet, die durch die Build-Option
+   <ref id="build-braille-device" name="--with-braille-device"> spezifiziert wurde.
+
+  <tag><tt/-D/<em/Verzeichnis/ <tt/--data-directory=/<em/Verzeichnis/</tag>
+   Der absolute Pfad des Verzeichnisses, in welchem die Daten-Dateien abgelegt sind.
+   Wird dieser Parameter nicht angegeben, wird jenes Verzeichnis angenommen, das durch die Build-Option							
+    <ref id="build-data-directory" name="--with-data-directory"> spezifiziert wurde.
+  <tag><tt/-L/<em/Verzeichnis/ <tt/--library-directory=/<em/Verzeichnis/</tag>
+ Der absolute Pfad des Verzeichnisses, in welchem die Treiber abgelegt sind.
+  Wird dieser Parameter nicht angegeben, wird jenes Verzeichnis angenommen, das durch die Build-Option	
+    <ref id="build-library-directory" name="--libdir"> spezifiziert wurde.
+
+  <tag><tt/-W/<em/Verzeichnis/ <tt/--writable-directory=/<em/Verzeichnis/</tag>
+Der absolute Pfad des Verzeichnisses, welches von BRLTTY beschrieben werden kann.
+  Wird dieser Parameter nicht angegeben, wird jenes Verzeichnis angenommen, das durch die Build-Option	
+    <ref id="build-writable-directory" name="--with-writable-directory"> spezifiziert wurde.
+  <tag><tt/-h/ <tt/--help/</tag>
+		  Zeigt die Liste aller Kommandozeilenparameter an und beendet das programm.
+</descrip>
+Dieses Programm verwendet den <ref id="learn" name="Kommando-Lern-Modus"> von BRLTTY.
+Die Anzeigezeit für Benachrichtigungen ist hier <tt/4/ Sekunden, nach <tt/10/ Sekunden ohne Tastendruck beendet sich das Programm.
 
 <sect2>spktest<label id="utility-spktest"><p>
 This utility tests a speech synthesizer driver.
