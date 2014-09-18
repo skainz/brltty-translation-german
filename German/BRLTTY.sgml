@@ -1288,7 +1288,7 @@ Es wurden einige Probleme entdeckt, wenn BRLTTY zwischen Systemen kopiert wurde,
 die verschiedene Versionen der C-Bibliotheken beinhalten. Beachten Sie dies, wenn Sie Probleme haben.
 
 <sect2>brltest<label id="utility-brltest"><p>
-Mit diesem Programm kann eine Braillezeile getestet werden. Es bietet auch die Möglichkeit, heruaszufinden, welchen Funktionen die Tasten auf der Braillezeile zugeordnet sind. Das Programm muss als Administrator laufen.
+Mit diesem Programm kann eine Braillezeile getestet werden. Es bietet auch die Möglichkeit, herauszufinden, welchen Funktionen die Tasten auf der Braillezeile zugeordnet sind. Das Programm muss als Administrator laufen.
 <tscreen>brltest -<em/Option/ ... [<em/Treiber/ [<em/Name/=<em/Wert/ ...]]</tscreen>
 <descrip>
   <tag><em/Treiber/</tag>
@@ -1318,101 +1318,90 @@ Der absolute Pfad des Verzeichnisses, welches von BRLTTY beschrieben werden kann
   Wird dieser Parameter nicht angegeben, wird jenes Verzeichnis angenommen, das durch die Build-Option	
     <ref id="build-writable-directory" name="--with-writable-directory"> spezifiziert wurde.
   <tag><tt/-h/ <tt/--help/</tag>
-		  Zeigt die Liste aller Kommandozeilenparameter an und beendet das programm.
+		  Zeigt die Liste aller Kommandozeilenparameter an und beendet das Programm.
 </descrip>
 Dieses Programm verwendet den <ref id="learn" name="Kommando-Lern-Modus"> von BRLTTY.
 Die Anzeigezeit für Benachrichtigungen ist hier <tt/4/ Sekunden, nach <tt/10/ Sekunden ohne Tastendruck beendet sich das Programm.
 
 <sect2>spktest<label id="utility-spktest"><p>
-This utility tests a speech synthesizer driver.
-It may need to be run as root.
-<tscreen>spktest -<em/option/ ... [<em/driver/ [<em/name/=<em/value/ ...]]</tscreen>
+Diese Programm testet Sprachsynthese-Treiber. Es muss mit Administrator-Rechten gestartet werden.
+<tscreen>spktest -<em/Option/ ... [<em/Treiber/ [<em/Name/=<em/Wert/ ...]]</tscreen>
 <descrip>
-  <tag><em/driver/</tag>
-    The driver for the speech synthesizer.
-    It must be a two-letter <ref id="drivers" name="driver identification code">.
-    If it's not specified, then the first driver configured via the
-    <ref id="build-speech-driver" name="--with-speech-driver"> build option
-    is assumed.
-  <tag><em/name/<tt/=/<em/value/</tag>
-    Set a speech synthesizer driver parameter.
-    For a description of the parameters accepted by a specific driver,
-    please see the documentation for that driver.
-  <tag><tt/-t/<em/string/ <tt/--text-string=/<em/string/</tag>
-    The text to be spoken.
-    If it's not specified, then standard input is read.
-  <tag><tt/-D/<em/directory/ <tt/--data-directory=/<em/directory/</tag>
-    The absolute path for the directory wherein the driver data files reside.
-    If it's not specified, then the directory configured via the
-    <ref id="build-data-directory" name="--with-data-directory"> build option
-    is assumed.
-  <tag><tt/-L/<em/directory/ <tt/--library-directory=/<em/directory/</tag>
-    The absolute path for the directory wherein the drivers reside.
-    If it's not specified, then the directory configured via the
-    <ref id="build-library-directory" name="--libdir"> build option
-    is assumed.
+  <tag><em/Treiber/</tag>
+	  Der Treiber für den Sprach-Synthesizer. Hier muss eine 2 Zeichen lange 
+ <ref id="drivers" name="Treiberkennung"> angegeben werden.
+ Wird diese Option nicht angegeben, wird der erste Treiber, dier durch die Build-Option
+    <ref id="build-speech-driver" name="--with-speech-driver"> spezifiziert wurde, verwendet.
+  <tag><em/Name/<tt/=/<em/Wert/</tag>
+    Setzt einen Parameter des Sprachsynthese-Treibers.
+    Für eine Liste der möglichen Parameter und ihrer Werte konsultieren Sie bitte die Dokumentation für den jeweiligen Treiber.
+      <tag><tt/-t/<em/Zeichenkette/ <tt/--text-string=/<em/Zeichenkette/</tag>
+    Der Text, welchen über die Sprachausgabe ausgegebne werden soll. Wenn dieser Paramter nicht angegebn wird, wird der text von der Standardeingabe gelesen.							  
+  <tag><tt/-D/<em/Verzeichnis/ <tt/--data-directory=/<em/Verzeichnis/</tag>
+  Der absolute Pfad des Verzeichnisses, in welchem die Daten-Dateien abgelegt sind.
+   Wird dieser Parameter nicht angegeben, wird jenes Verzeichnis angenommen, das durch die Build-Option							
+    <ref id="build-data-directory" name="--with-data-directory"> spezifiziert wurde.
+
+  <tag><tt/-L/<em/Verzeichnis/ <tt/--library-directory=/<em/Verzeichnis/</tag>
+ Der absolute Pfad des Verzeichnisses, in welchem die Treiber abgelegt sind.
+  Wird dieser Parameter nicht angegeben, wird jenes Verzeichnis angenommen, das durch die Build-Option	
+    <ref id="build-library-directory" name="--libdir"> spezifiziert wurde.
+
   <tag><tt/-h/ <tt/--help/</tag>
-    Display a summary of the command line options, and then exit.
+	  Zeigt die Liste aller Kommandozeilenparameter an und beendet das Programm.
 </descrip>
 
 <sect2>scrtest<label id="utility-scrtest"><p>
-This utility tests the screen driver.
-It must be run as root.
-<tscreen>scrtest -<em/option/ ... [<em/name/=<em/value/ ...]</tscreen>
+Diese Programm testet Bildschirm-Treiber. Es muss mit Administrator-Rechten gestartet werden.
+<tscreen>scrtest -<em/Option/ ... [<em/Name/=<em/Wert/ ...]</tscreen>
 <descrip>
-  <tag><em/name/<tt/=/<em/value/</tag>
-    Set a screen driver parameter.
-    For a description of the parameters accepted by a specific driver,
-    please see the documentation for that driver.
-  <tag><tt/-l/<em/column/ <tt/--left=/<em/column/</tag>
-    Specify the starting (left) column (zero-origin) of the region.
-    If this value isn't supplied,
-    then a default value, based on the specified width,
-    is selected such that the region is horizontally centred.
-  <tag><tt/-c/<em/count/ <tt/--columns=/<em/count/</tag>
-    Specify the width of the region (in columns).
-    If this value isn't supplied,
-    then a default value, based on the specified starting column,
-    is selected such that the region is horizontally centred.
-  <tag><tt/-t/<em/row/ <tt/--top=/<em/row/</tag>
-    Specify the starting (top) row (zero-origin) of the region.
-    If this value isn't supplied,
-    then a default value, based on the specified height,
-    is selected such that the region is vertically centred.
-  <tag><tt/-r/<em/count/ <tt/--rows=/<em/count/</tag>
-    Specify the height of the region (in rows).
-    If this value isn't supplied,
-    then a default value, based on the specified starting row,
-    is selected such that the region is vertically centred.
+  <tag><em/Name/<tt/=/<em/Wert/</tag>
+  Setzt einen Parameter des Bildschirm-Treibers.
+    Für eine Liste der möglichen Parameter und ihrer Werte konsultieren Sie bitte die Dokumentation für den jeweiligen Treiber.			 
+
+  <tag><tt/-l/<em/Spalte/ <tt/--left=/<em/Spalte/</tag>
+    Gibt die Anfangsspalte bzw. linke Spalte (von 0 weg zählend) des zu betrachtenden Bildschirmbereichs an. Wird diese Option nicht angegeben, dann wird dieser Wert so gewählt, dass abhängig von der gewählten Breite der Region der Bildschirmausschnitt horizontal zentriert wird.
+				
+  <tag><tt/-c/<em/Anzahl/ <tt/--columns=/<em/Anzahl/</tag>
+Gibt die Breite des Bildschirmausschnitts (in Spalten) an.
+Wird diese Option nicht angegeben, dann wird dieser Wert so gewählt, dass abhängig von der gewählten Startspalte der Region der Bildschirmausschnitt horizontal zentriert wird.
+
+  <tag><tt/-t/<em/Zeile/ <tt/--top=/<em/Zeile/</tag>
+
+    Gibt die Anfangszeile bzw. oberste Zeile (von 0 weg zählend) des zu betrachtenden Bildschirmbereichs an. Wird diese Option nicht angegeben, dann wird dieser Wert so gewählt, dass abhängig von der gewählten Höhe der Region der Bildschirmausschnitt vertikal zentriert wird.
+
+  <tag><tt/-r/<em/Anzahl/ <tt/--rows=/<em/Anzahl/</tag>
+
+Gibt die Höhe des Bildschirmausschnitts (in Zeilen) an.
+Wird diese Option nicht angegeben, dann wird dieser Wert so gewählt, dass abhängig von der gewählten Startzeile der Region der Bildschirmausschnitt horizonvertikal zentriert wird.
   <tag><tt/-h/ <tt/--help/</tag>
-    Display a summary of the command line options, and then exit.
+Zeigt die Liste aller Kommandozeilenparameter an und beendet das Programm.
 </descrip>
 
-Notes:
+Hinweis:
 <itemize>
   <item>
-    If neither a starting column nor a region width is specified,
-    then the region is horizontally-centred and starts at column 5.
+    Werden weder eine Startspalte noch die Breite des Ausschnitts angegeben,
+    dann wird die Region horizontal zentriert, beginnend mit Spalte 5 angenommen.
   <item>
-    If neither a starting row nor a region height is specified,
-    then the region is vertically-centred and starts at row 5.
-</itemize>
+   Werden weder eine Startzeile noch die Höhe des Ausschnitts angegeben,
+    dann wird die Region vertikal zentriert, beginnend mit Spalte 5 angenommen.
 
-The following is written to standard output:
+</itemize>
+Die folgenden Informationen werde ausgegeben:
 <enum>
   <item>
-    A line detailing the dimensions of the screen.
-    <tscreen>Screen: <em/width/x<em/height/</tscreen>
+    Eine Zeile die die Bildschirmgröße angibt:
+    <tscreen>Screen: <em/Breite/x<em/Höhe/</tscreen>
   <item>
-    A line detailing the position (zero-origin) of the cursor.
-    <tscreen>Cursor: &lsqb;<em/column/,<em/row/&rsqb;</tscreen>
+    Eine Zeile, die die Cursorposition (von 0 weg gezählt) angibt:
+    <tscreen>Cursor: &lsqb;<em/Spalte/,<em/Zeile/&rsqb;</tscreen>
   <item>
-    A line detailing the size of the selected screen region,
-    and the position (zero-origin) of its top-left corner.
+    Eine Zeiel, die die Größe des Bildschirmausschnitts und die Position (von 0 weg gezählt) der Ecke links-oben:
     <tscreen>Region: <em/width/x<em/height/@&lsqb;<em/column/,<em/row/&rsqb;</tscreen>
   <item>
-    The contents of the selected screen region.
-    Unprintable characters are written as blanks.
+    Der Inhalt des gewählten Bildschirmausschnitts.
+    Nicht-anzeigbare Zeichen werden durch Leerzeichen ersetzt.
 </enum>
 
 <sect2>ttbtest<label id="utility-ttbtest"><p>
