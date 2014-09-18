@@ -1405,42 +1405,31 @@ Die folgenden Informationen werde ausgegeben:
 </enum>
 
 <sect2>ttbtest<label id="utility-ttbtest"><p>
-This utility tests a text table
-(see section <ref id="table-text" name="Text-Tabellen">).
-<tscreen>ttbtest -<em/option/ ... <em/input-table/ <em/output-table/</tscreen>
+Dieses Programm überprüft <ref id="table-text" name="Text-Tabellen">.
+<tscreen>ttbtest -<em/Option/ ... <em/Eingabe-Tabelle/ <em/Ausgabe-Tabelle/</tscreen>
 <descrip>
-  <tag><em/input-table/</tag>
-    The file system path to the input text table.
-    If it's relative then it's anchored at the directory configured via the
-    <ref id="build-data-directory" name="--with-data-directory"> build option.
-  <tag><em/output-table/</tag>
-    The file system path to the output text table.
-    If it's relative then it's anchored at the current working directory.
-    If this parameter isn't supplied then no output table is written.
-  <tag><tt/-i/<em/format/ <tt/--input-format=/<em/format/</tag>
-    Specify the format of the input table.
-    If this option isn't supplied then the format of the input table
-    is deduced from the extension of the input table's file name.
-  <tag><tt/-o/<em/format/ <tt/--output-format=/<em/format/</tag>
-    Specify the format of the output table.
-    If this option isn't supplied then the format of the output table
-    is deduced from the extension of the output table's file name.
-  <tag><tt/-c/<em/charset/ <tt/--charset=/<em/charset/</tag>
-    Specify the name of the 8-bit character set to use when interpreting the tables.
-    If this option isn't supplied then the host's character set is used.
+  <tag><em/Eingabe-Tabelle/</tag>
+    Der Pfad zur Eingabe-Tabelle. Falls hier ein relativer Pfad angegeben wird, wir er relativ zum Verzeichnis angenommen, welches durch die Build-Option
+    <ref id="build-data-directory" name="--with-data-directory"> spezifiziert wurde.
+  <tag><em/Ausgabe-Tabelle/</tag>
+    Der Pfad wo die Ausgabe-Tabelle erstellt werden soll. Falls hier ein relativer Pfad angegeben wird, wird er relativ zum aktuellen Verzeichnis angenommen. Wird dieser Parameter nicht angegeben, wird keine Ausgabe-Tabelle angelegt.
+
+  <tag><tt/-i/<em/Format/ <tt/--input-format=/<em/Format/</tag>
+ Gibt das Format der Eingabe-Tabelle an. Wird diese Option nicht angegeben, wird das Format der Eingabe-Tabelle aufgrund der Dateiendung des Dateinamens gewählt.
+  <tag><tt/-o/<em/Format/ <tt/--output-format=/<em/Format/</tag>
+ Gibt das Format der Ausgabe-Tabelle an. Wird diese Option nicht angegeben, wird das Format der Ausgabe-Tabelle aufgrund der Dateiendung des Dateinamens gewählt.
+  <tag><tt/-c/<em/Zeichensatz/ <tt/--charset=/<em/Zeichensatz/</tag>
+    Gibt den Namen des zu verwendenden 8-Bit Zeichensatzes beim Verarbeiten der Tabellen an. Wird dieser Parameter nicht angegeben, wird der Zeichensatz des Systems verwendet.
   <tag><tt/-e/ <tt/--edit/</tag>
-    Invoke the text table editor.
-    If the output table is specified then changes are written to it.
-    If not then the input table is rewritten.
+    Startet den Text-Tabellen-Editor. Falls eine Ausgabe-Tabelle angegeben wurde, werden eventuelle Änderungen in diese geschrieben. Ansonsten wird die Eingabe-Tabelle neu geschrieben.
+
   <tag><tt/-h/ <tt/--help/</tag>
-    Display a summary of the command line options, and then exit.
+Zeigt die Liste aller Kommandozeilenparameter an und beendet das Programm.
 </descrip>
 
-If no special action is requested then the output table is optional.
-If it is not specified then the input table is checked.
-If it is specified then the input table is converted.
+Falls keine zusätzliche Aktion (z.B. <tt/--edit/) angegeben wurde, ist die Ausgabe-Tabelle optional. Wenn diese nicht angegeben wurde, wird die Eingabe-Tabelle überprüft. Wenn sie angegeben wurde, wird die Eingabe-Tabelle konvertiert.
 
-The following table formats are supported:
+Die folgenden Tabellenformate werden ünterstützt:
 <descrip>
   <tag/ttb/BRLTTY
   <tag/sbl/SuSE Blinux
@@ -1449,124 +1438,94 @@ The following table formats are supported:
 </descrip>
 
 <sect2>ctbtest<label id="utility-ctbtest"><p>
-This utility tests a contraction table
-(see section <ref id="table-contraction" name="Contraction Tables">).
-The text read from the input files (or standard input)
-is rewritten to standard output as contracted braille.
-<tscreen>ctbtest -<em/option/ ... <em/input-file/ ...</tscreen>
+Dieses Programm überprüft Kurzschrift-Tabellen (siehe Abschnitt <ref id="table-contraction" name="Kurzschrift-Tabellen">).
+Text aus einer Datei oder der Standardeingabe wird eingelesen und in Braille-Kurzschrift angezeigt.
+
+<tscreen>ctbtest -<em/Option/ ... <em/Eingabe-Datei/ ...</tscreen>
 <descrip>
-  <tag><em/input-file/</tag>
-    The list of files to be processed.
-    Any number of files may be specified.
-    They're processed from left to right.
-    The special file name <tt/-/ is interpreted to mean standard input.
-    If no files are specified then standard input is processed.
-  <tag><tt/-c/<em/file/ <tt/--contraction-table=/<em/file/</tag>
-    The file system path to the contraction table.
-    If it's relative then it's anchored at the directory configured via the
-    <ref id="build-data-directory" name="--with-data-directory"> build option.
-    The <tt/.ctb/ extension is optional.
-    If this option isn't supplied then <tt/en-us-g2/ is assumed.
-  <tag><tt/-t/<em/file/|<tt/auto/ <tt/--text-table=/<em/file/|<tt/auto/</tag>
-    Specify the text table
-    (see section <ref id="table-text" name="Text-Tabellen"> for details).
-    If a relative path is supplied, then it's anchored at <tt>/etc/brltty</>
-    (see the <ref id="build-data-directory" name="--with-data-directory">
-    and the <ref id="build-execute-root" name="--with-execute-root">
-    build options for more details).
-    The <tt/.ttb/ extension is optional.
-    See the <ref id="configure-text-table" name="text-table">
-    configuration file directive for the default run-time setting.
-    This setting can be changed with the
-    <ref id="preference-text-table" name="Text Table"> preference.
-  <tag><tt/-w/<em/columns/ <tt/--output-width=/<em/columns/</tag>
-    The maximum length of an output line.
-    Each contracted input line is wrapped into as many output lines as necessary.
-    If this option isn't specified then there's no limit,
-    and there's a one-to-one correspondance between input and output lines.
+  <tag><em/Eingabe-Datei/</tag>
+    Eine Liste von Dateien, die eingelesen werden sollen. Sie werden von links nach rechts eingelesen. Wird als Dateiname <tt/-/ angegeben, wird die Standardeingabe gelesen. Wird kein Dateiname angegeben, wird auch die Standardeingabe gelesen.
+
+  <tag><tt/-c/<em/Datei/ <tt/--contraction-table=/<em/Date/</tag>
+     Der Pfad zur Kurzschrifttabelle, die verwendet werden soll. Falls hier ein relativer Pfad angegeben wird, wird dieser relativ zum 
+    Verzeichnis angenommen, das durch die Build-Option <ref id="build-data-directory" name="--with-data-directory"> spezifiziert wurde.
+    Die Dateieendung <tt/.ctb/ ist optional. Wird diese Option nicht angegeben, wird <tt/en-us-g2/ angenommen.
+  <tag><tt/-t/<em/Datei/|<tt/auto/ <tt/--text-table=/<em/Datei/|<tt/auto/</tag>
+    Gibt die <ref id="table-text" name="Text-Tabelle"> an, welche verwendet werden soll.
+    Falls hier ein relativer Pfad angegeben wird, wird er relativ zu <tt>/etc/brltty</> angenommen.
+    (siehe Build-Optionen <ref id="build-data-directory" name="--with-data-directory">
+    und <ref id="build-execute-root" name="--with-execute-root"> für weiterführende Informationen).
+  Die Dateieendung <tt/.ttb/ ist optional. Beachten Sie die Konfigurationsdirektive <ref id="configure-text-table" name="text-table"> für 
+die Standardeinstellungen zur Laufzeit. Dieses Setting kann mit der Einstellung <ref id="preference-text-table" name="Text-Tabelle"> geändert werden.
+  <tag><tt/-w/<em/Spalten/ <tt/--output-width=/<em/Spalten/</tag>
+    Die maximale Länge einer Zeile.
+    Jede Zeile Kurzschrift-Braille wird eventuell in so viele Zeilen wie notwending umgebrochen.
+    Wird diese Option nicht angegeben, gibt es kein Limit und die Anzahl der Zeilen des Kurzschrift-Textes entspricht der Anzahl der Zeilen des Eingabetextes.
   <tag><tt/-h/ <tt/--help/</tag>
-    Display a summary of the command line options, and then exit.
+Zeigt die Liste aller Kommandozeilenparameter an und beendet das Programm.
 </descrip>
 
-The text table is used:
+Die Text-Tabelle wird hier verwendet um:
 <itemize>
   <item>
-    To define the output character set so that
-    the contracted braille will be displayed correctly.
-    The same table as will be used by BRLTTY when the output is read should be specified.
+    den Zeichensatz für die Ausgabe festzulegen, damit der Kurzschrift-Text korrekt dargestellt wird. 
   <item>
-    To define the braille representations of those characters
-    defined within the contraction table as <tt/=/
-    (see section <ref id="contraction-opcodes-translation" name="Character Translation">).
+    die Braille-Repräsentation jener Zeichen festzulegen, die in der Kurzschrifttabelle mit  <tt/=/ definiert sind
+    (siehe Abschnitt <ref id="contraction-opcodes-translation" name="Zeichenübersetzung">).
 </itemize>
 
-The <tt/brf.ttb/ text table is provided for use with this utility.
-It defines the format used within <tt/.brf/ files. 
-This is also the preferred format used
-by most braille printers
-and within electronically distributed braille documents.
-This table effectively allows this utility to be used as a text to braille translator.
+Die Text-Tabelle <tt/brf.ttb/ wird für dieses Programm zur Verfügung gestellt. Sie definiert das Format inherhalb der <tt/.brf/-Dateien. Dies ist auch das bevorzugte Format, welches für die meisten Braille-Drucker und elektronische Braille-Dokumente verwendet wird. Diese Tabelle ermöglicht es also dieses Programm zum Umwandeln von Text zu Braille zu verwenden.
 
 <sect2>tunetest<label id="utility-tunetest"><p>
-This utility tests the alert tunes facility,
-and also provides an easy way to compose new tunes.
-It may need to be run as root.
-<tscreen>tunetest -<em/option/ ... {<em/note/ <em/duration/} ...</tscreen>
+Dieses Programm ermöglicht es, Warntöne zu testen und neue zu erstellen. Es muss mögicherweise mit Administrator-Rechten laufen.
+<tscreen>tunetest -<em/Option/ ... {<em/Note/ <em/Dauer/} ...</tscreen>
 <descrip>
-  <tag><em/note/</tag>
-    A standard <tt/MIDI/ note number.
-    It must be an integer from <tt/1/ through <tt/127/,
-    with <tt/60/ representing <tt/Middle C/.
-    Each value represents a standard chromatic semi-tone,
-    with the next lower and higher values
-    representing, respectively, the next lower and higher notes.
-    The lowest value (<tt/1/) represents
+  <tag><em/Note/</tag>
+    Die Nummer einer Standard-<tt/MIDI/-Note.
+    Es muss sich um eine Ganzzahl vom <tt/1/ bis <tt/127/,
+    wobei <tt/60/ das <tt/Mittlere C/, repräsentiert, handeln.
+    Jeder Wert entspricht einem Halbton. #TODO
     the fifth <tt/C-Sharp/ below <tt/Middle C/,
     and the highest value (<tt/127/) represents
     the sixth <tt/G/ above <tt/Middle C/.
-  <tag><em/duration/</tag>
-    The duration of the note in milliseconds.
-    It must be an integer from <tt/1/ through <tt/255/.
+  <tag><em/Dauer/</tag>
+	  Die Spieldauer der Note, in Millisekunden. Hier muss eine Ganzzahl von 1  <tt/1/ bis <tt/255/ angegeben werden.
   <tag><tt/-d/<em/device/ <tt/--device=/<em/device/</tag>
-    The device on which to play the tune.
+    Das Gerät, das zum Abspielen der Warntöne verwendet weden soll.
     <descrip>
       <tag/beeper/
-        The internal beeper (console tone generator).
+	 Der eingebaute Signalgeber.
       <tag/pcm/
-        The digital audio interface on the sound card.
+	 Die digitale Schnittstelle der Soundkarte.
       <tag/midi/
-        The Musical Instrument Digital Interface on the sound card.
+	 Die MIDI-Schnittstele der Soundkarte.
       <tag/fm/
-        The FM synthesizer on an
-        AdLib, OPL3, Sound Blaster, or equivalent sound card.
+	 Der FM-Synthesizer einer 
+        AdLib, OPL3, Sound Blaster  oder entsprechenden Soundkarte.
     </descrip>
-    The device name may be abbreviated.
-    See the <ref id="preference-tune-device" name="Tune Device"> preference
-    for details regarding the default device and platform restrictions.
-  <tag><tt/-v/<em/loudness/ <tt/--volume=/<em/loudness/</tag>
-    Specify the output volume (loudness) as a percentage of the maximum.
-    The default output volume is <tt/50/.
-  <tag><tt/-p/<em/device/ <tt/--pcm-device=/<em/device/</tag>
-    Specify the device to use for digital audio
-    (see section <ref id="operand-pcm-device" name="PCM Device Specification">).
-    This option isn't available if the
-    <ref id="build-pcm-support" name="--disable-pcm-support"> build option was specified.
-  <tag><tt/-m/<em/device/ <tt/--midi-device=/<em/device/</tag>
-    Specify the device to use for the Musical Instrument Digital Interface
-    (see section <ref id="operand-midi-device" name="MIDI Device Specification">).
-    This option isn't available if the
-    <ref id="build-midi-support" name="--disable-midi-support"> build option was specified.
-  <tag><tt/-i/<em/instrument/ <tt/--instrument=/<em/instrument/</tag>
-    The instrument to use if the selected device is <tt/midi/.
-    For the complete list of instruments,
-    see the <ref id="midi" name="MIDI Instrument Table">.
-    The default instrument is an <tt/acoustic grand piano/.
-    The words comprising the instrument name must be separated from one another
-    by a single minus sign rather than by spaces,
-    and any of the words may be abbreviated.
-    An <tt/acoustic grand piano/, for example, may be specified as <tt/a-gra-pi/.
+    der Gerätename kannn abgekürzt angegeben werden.
+    Beachten Sie hierzu die Einstellung <ref id="preference-tune-device" name="Tongeber"> bezüglich der Standardeinstellungen und möglicher Einschränkungen.
+  <tag><tt/-v/<em/Lautstärke/ <tt/--volume=/<em/Lautstärke/</tag>
+     Gibt die Lautstärke in Prozent der maximalen Lautstärke an.
+     Der Standardwert ist hier <tt/50/.
+  <tag><tt/-p/<em/Schnittstelle/ <tt/--pcm-device=/<em/Schnittstelle/</tag>
+    Gibt die Schnittstelle für die Ausgabe von digitalen Sounddaten an
+    (siehe Abschnitt <ref id="operand-pcm-device" name="PCM Geräte-Spezifikation">).
+    Diese Option ist nicht verfügbar, wenn die Build-Option						      
+    <ref id="build-pcm-support" name="--disable-pcm-support"> verwendet wurde.
+  <tag><tt/-m/<em/Schnittstelle/ <tt/--midi-device=/<em/Schnittstelle/</tag>
+    Gibt die Schnittstelle an, die für die Ausgabe via MIDI verwendet werden soll
+    (siehe Abschnitt <ref id="operand-midi-device" name="MIDI Geräte-Spezifikation">).
+  Diese Option ist nicht verfügbar, wenn die Build-Option
+    <ref id="build-midi-support" name="--disable-midi-support"> verwendet wurde.
+  <tag><tt/-i/<em/Instrument/ <tt/--instrument=/<em/Instrument/</tag>
+    Das zu verwendende Instrumwent, falls für die Schnittstelle  <tt/midi/ gewählt wurde.
+    Für eine komplette Liste von Instrumenten beachten Sie bitte die  <ref id="midi" name="MIDI Instrumententabelle">.
+    Das     Standardinstrument ist ein <tt/Akustischer Konzertflügel/.
+    Die Namen der Instrumente müssen mit einem Minuszeichen getrennt werden, und jedes Wort kann abgekürzt werden.
+    Ein <tt/Akustischer Konzertflügel/ kann z.B. als <tt/ak-ko/ angegeben werden.
   <tag><tt/-h/ <tt/--help/</tag>
-    Display a summary of the command line options, and then exit.
+Zeigt die Liste aller Kommandozeilenparameter an und beendet das Programm.
 </descrip>
 
 <sect>Using BRLTTY<p>
@@ -3300,7 +3259,7 @@ Notes:
     If the Musical Instrument Digital Interface (MIDI) of the sound card
     is being used to play the alert tunes,
     this setting specifies which instrument is to be used
-    (see the <ref id="midi" name="MIDI Instrument Table">).
+    (see the <ref id="midi" name="MIDI Instrumententabelle">).
     The initial setting is <tt/Acoustic Grand Piano/.
   <tag>FM Volume<label id="preference-fm-volume"></tag>
     If the FM synthesizer of the sound card
@@ -5353,7 +5312,7 @@ Hier ein Bild, um die Numerierung zu illustrieren:
 +-----------------------------------------------------------------+
 </verb></tscreen>
 
-<sect>MIDI Instrument Table<label id="midi"><p>
+<sect>MIDI Instrumententabelle<label id="midi"><p>
 <table loc="h">
   <tabular ca="lrl">
     <hline>Piano
