@@ -377,7 +377,7 @@ installierten Dateien darstellen, sind:
     Die Programmeinstellungen werden hier gespeichert.
     (<em/Treiber/ ist die 2 Zeichen lange <ref id="drivers" name="Treiberkennung">).
     Diese Datei wird mit dem Kommando <ref id="command-PREFSAVE" name="PREFSAVE"> erstellt.
-    Siehe <ref id="preferences" name="#TODOPreferences Settings"> für weitere Informationen.
+    Siehe <ref id="preferences" name="Einstellungen"> für weitere Informationen.
 </descrip>
 
 <sect1>Installation aus einem TAR Ball<label id="tar"><p>
@@ -423,7 +423,7 @@ Haben Sie jedoch besondere Anforderungen, oder sind einfach nur experimentierfre
 <tscreen>./configure --help</tscreen>
 Sie sollten auch die <tt/README/-Datei im Verzeichnis des Treibers für Ihre Braillezeile beachten, um Informationen über eventuelle zusätzliche Build-Optionen zu erhalten.
 
-<sect3>#TODOSystem Defaults<label id="build-defaults"><p>
+<sect3>#todoSystem Defaults<label id="build-defaults"><p>
 <descrip>
   <tag><tt/--with-braille-driver=/<em/Treiber/<label id="build-braille-driver"></tag>
     Gibt an, welche Treiber statisch in die BRLTTY-Datei eingebettet werden sollen.
@@ -458,13 +458,13 @@ Sie sollten auch die <tt/README/-Datei im Verzeichnis des Treibers für Ihre Brai
     Die Liste der möglichen Parameter für jeden Treiber finden Sie in der Dokumentation des jeweiligen Treibers.						Beachten Sie auch die Option <ref id="configure-braille-parameters" name="braille-parameters"> in der Konfigurationsdatei sowie
     die Option <ref id="options-braille-parameters" name="-B"> für die Angabe der Optionen zur Laufzeit.
   <tag><tt/--with-braille-device=/<em/Schnittstelle/<tt/,/...<label id="build-braille-device"></tag>
-    Bestimmt die Standard-Schnittstelle, an welcher die Braillezeile angeschlossen ist (siehe Abschnitt <ref id="operand-braille-device" name="#TODOBraille Device Specification">).
+    Bestimmt die Standard-Schnittstelle, an welcher die Braillezeile angeschlossen ist (siehe Abschnitt <ref id="operand-braille-device" name="Braille Geräte-Spezifikation">).
 Ist dieser Option nicht angegeben, wird standardmäßig <tt/usb:/ angenommen sofern USB-Unterstützung verfügbar ist. Ohne USB-Unterstützung wird der Pfad zum primären (ersten) seriellen Anschluss angenommen.
 Beachten die <ref id="configure-braille-device" name="braille-device">-Direktive in der Konfigurationsdatei und den Kommandozeilenparameter <ref id="options-braille-device" name="-d">  zum spezifizieren der Schnittstelle zur Laufzeit.
   <tag><tt/--with-libbraille=/<em/Verzeichnis/<label id="build-libbraille"></tag>
     Gibt den Verzeichnispfad des Libbraille-Pakets an und übersetzt den Libbraille Braillezeilentreiber. 
 
-    (siehe <ref id="restrictions-libbraille" name="#TODOBuild Restrictions">).
+    (siehe <ref id="restrictions-libbraille" name="Einschränkungen zur Build- und Laufzeit">).
     Folgende Schlüssenwörter können ebenso verwendet werden:
     <descrip>
       <tag/no/
@@ -649,7 +649,7 @@ Setzten Sie die Option auf <tt/invleft_right/, falls Sie den früheren Modus bevo
   Gibt an, welche Bildschirmtreiber statisch in die BRLTTY-Datei eingebettet werden sollen.
     Alle Treiber, die nicht durch diese Option angegeben werden, werden als dynamisch 
     nachladbare Objekte übersetzt und können zur Laufzeit ausgewählt werden.
-    Jeder Treiber muss entweder durch eine 2 Zeichen lange Treiberkennung (siehe Abschnitt <ref id="screen" name="#TODOSupported Screen Drivers">)   oder durch seinen Namen (vollständig oder abgekürzt) angegeben werden.
+    Jeder Treiber muss entweder durch eine 2 Zeichen lange Treiberkennung (siehe Abschnitt <ref id="screen" name="Unterstützte Bildschirm-Treiber">)   oder durch seinen Namen (vollständig oder abgekürzt) angegeben werden.
     Die einzelnen Treibernamen oder IDs müssen durch Komma getrennt werden.
     Wird dem Treibernamen oder ID ein Minus-zeichen (<tt/-/) vorangstellt,
     wird der entsprechende Treiber von der Übersetzung ausgenommen.
@@ -678,7 +678,7 @@ Beachten Sie auch die  <ref id="configure-screen-driver" name="screen-driver">-D
   <tag><tt/--with-screen-parameters=/[<em/Treiber/<tt/:/]<em/Name/<tt/=/<em/Wert/<tt/,/...<label id="build-screen-parameters"></tag>
 
  Setzt die Standardparameter für die Bildschirmreiber. Wird ein Parameter mehrmals angegeben, dann wird der letzte (=rechteste) Wert verwendet.
- Wird ein Parameter zusätzlich mit einer Treiberkennung angegeben (siehe Abschnitt <ref id="screen" name="#TODOSupported Screen Drivers">), dann gilt 
+ Wird ein Parameter zusätzlich mit einer Treiberkennung angegeben (siehe Abschnitt <ref id="screen" name="Unterstützte Bildschirm-Treiber">), dann gilt 
      dieser Parameter nur für den jeweiligen Treiber.
   Die Liste der möglichen Parameter für jeden Treiber finden Sie in der Dokumentation des jeweiligen Treibers.
     Beachten Sie auch die <ref id="configure-screen-parameters" name="screen-parameters">-Direktive in der Konfigurationsdatei und den Kommandozeilenparameter <ref id="options-screen-parameters" name="-X"> zur Angabe der Parameter zur Laufzeit.
@@ -1484,10 +1484,7 @@ Dieses Programm ermöglicht es, Warntöne zu testen und neue zu erstellen. Es muss
     Die Nummer einer Standard-<tt/MIDI/-Note.
     Es muss sich um eine Ganzzahl vom <tt/1/ bis <tt/127/,
     wobei <tt/60/ das <tt/Mittlere C/, repräsentiert, handeln.
-    Jeder Wert entspricht einem Halbton. #TODO
-    the fifth <tt/C-Sharp/ below <tt/Middle C/,
-    and the highest value (<tt/127/) represents
-    the sixth <tt/G/ above <tt/Middle C/.
+    Jeder Wert entspricht einem Halbton.
   <tag><em/Dauer/</tag>
 	  Die Spieldauer der Note, in Millisekunden. Hier muss eine Ganzzahl von 1  <tt/1/ bis <tt/255/ angegeben werden.
   <tag><tt/-d/<em/device/ <tt/--device=/<em/device/</tag>
@@ -1528,66 +1525,43 @@ Dieses Programm ermöglicht es, Warntöne zu testen und neue zu erstellen. Es muss
 Zeigt die Liste aller Kommandozeilenparameter an und beendet das Programm.
 </descrip>
 
-<sect>Using BRLTTY<p>
-Before starting BRLTTY, you need to set up your braille display.
-In most cases this is done simply
-by connecting it to an available serial port,
-and then turning it on.
-After your display has been set up,
-run BRLTTY simply by typing the command <tt/brltty/ at a shell prompt
-(this must be done as root).
-Check the
-<ref id="options-braille-device" name="-d"> command line option,
-the <ref id="configure-braille-device" name="braille-device"> configuration file directive,
-and the <ref id="build-braille-device" name="--with-braille-device"> build option
-for alternatives regarding how to tell BRLTTY which device your display is connected to.
-Check the
-<ref id="options-braille-driver" name="-b"> command line option,
-the <ref id="configure-braille-driver" name="braille-driver"> configuration file directive,
-and the <ref id="build-braille-driver" name="--with-braille-driver"> build option
-for alternatives regarding how to tell BRLTTY which kind of braille display you have.
-Check the
-<ref id="options-braille-parameters" name="-B"> command line option,
-and the <ref id="configure-braille-parameters" name="braille-parameters"> configuration file directive
-for alternatives regarding how to pass parameters to the driver for your braille display.
+<sect>BRLTTY verwenden<p>
+Bevor Sie BRLTTY starten, müssen Sie die Braillezeille betriebsbereit machen. Dies geschieht meistens durch 
+Anschließen an eine serielle Schnittstelle und nachfolgendes Einschalten der Zeile.
+Dananach können Sie mit dem Befehl 
+<tt/brltty/ (dies muss mit Administratrorechten erfolgen) BRLTTY starten.
+Beachten Sie die Kommandozeilenoption <ref id="options-braille-device" name="-d">, die
+Direktive <ref id="configure-braille-device" name="braille-device"> der Konfigurationsdatei,
+sowie die Build-Option <ref id="build-braille-device" name="--with-braille-device"> für andere 
+Möglichkeiten um BRLTTY bekanntzugeben, welche Braillezeile Sie verwenden und an welcher Schnittstelle diese angeschlossen ist.
+Beachten Sie den Kommandozeilenparameter <ref id="options-braille-parameters" name="-B">
+und die Direktive <ref id="configure-braille-parameters" name="braille-parameters"> der Konfigurationsdatei
+für weiter Möglichkeiten, wie Sie Parameter für den verwendeten Brailletreiber setzen können.
 
-A message giving the program name (BRLTTY) and its version number
-will appear briefly
-(see the <ref id="options-message-timeout" name="-M"> command line option)
-on the braille display.
-The display will then show a small area of the screen including the cursor.
-By default, the cursor is represented as
-dots 7 and 8 superimposed on the character it is on.
+Der Programmname (BRLTTY) und die Version wird kurz 
+(siehe  Kommandozeilenoption <ref id="options-message-timeout" name="-M">)
+auf der Braillezeile angezeigt.
 
-Any screen activity will be reflected on the braille display.
-The display will also follow the progress of the cursor on the screen.  
-This feature is known as <bf/cursor tracking/.
+Danach wird auf der Braillezeile ein teil des Bildschirms, inklusive Cursor, angezeigt. Standardmäßig wird der Cursor durch die 
+Punkte 7 und 8 dargestellt, die dem Zeichen, an dem der Cursor sich gerade befindet, überlagert werden.
 
-Just typing on the keyboard and reading the display, however, isn't enough.
-Try entering a command which will cause an error, and pressing <bf/enter/.  
-The error appears on the screen, but, unless you have a multi-line display,
-the chances are that it isn't visible on the braille display.
-All you see thereon is another shell prompt.
-What's needed, then, is some way to move
-the braille <em/window/ around the screen.
-The keys on the braille display itself can be used to send commands to BRLTTY
-which, in addition to a lot of other things, can also do exactly that.
+Jede Änderung des Bildschirminhalts wird auf die Braillezeile übertragen. Die Braillezeile folgt auch der Bewegung des Cursors auf dem Bildschirm. 
+Diese Funktion wird <bf/Cursorverfolgung/ genannt.
 
-<sect1>Commands<label id="commands"><p>
-Unfortunately, the various braille displays don't offer a standard set of controls.
-Some have the six standard dot keys, some have eight, and others have none.
-Some have thumb keys, but there's no standard number of them.
-Some have a button above each braille cell.
-Some have rocker switches.
-Some have an easy-to-reach bar which works much like a joystick.
-Most have varying combinations of the above.
-Because the nature and layout of each display is so different,
-please refer to the documentation for your particular display
-in order to find out exactly what its keys do.
+Nur auf dem Keyborad zu tippen und die Braillezeile zu lesen ist jedoch noch nicht alles. Versuchen Sie, ein Kommando, das einen Fehler ausgibt, einzugeben, und drücken Sie dann <bf/Enter/. Der Fehler wird am Bildschirm zwar ausgegeben, es ist aber sehr wahrscheinlich, dass Sie ihn nicht auf der Braillezeile sehen (ausser Sie besitzen eine mehrzeilige Braillezeile). Alles was Sie sehen, ist eine neuer Shell-Prompt. Sie brauchen also eine Möglichkeit, den <em/Bildschirmausschnitt/, der auf der Braillezeile angezeigt wird, zu verschieben. Dazu können Sie die Tasten auf der Braillezeile verwenden.
 
-BRLTTY commands are referred to by name within this manual.
-If you forget which key(s) on your braille display to use
-for a paticular command, then refer to its driver's help page.
+<sect1>Kommandos<label id="commands"><p>
+Unglücklicherweise haben die verschiedenen Braillezeilen keine Standardbelegung der Tasten bzw. überhaupt eine Standardanzahl von Tasten.
+Einige haben 6 Tasten, entsprechend den Braille-Punkten, einige 8, einige gar keine.
+Einige haben Daumen-Tasten, aber es gibt heir keine standardisierte Anzahl.
+Einige haben Tasten über jeder Braille-Zelle.
+Einige haben Kippschalter.
+Einige haben einen Bereich Tasten, der wie ein Joystick funktioniert.
+Die meisten haben eine Kombination der oben genannten Möglichkeiten.
+Kosultieren Sie also bitte die Dokumentation Ihrer Braillezeile um sich mit den Funktionen der einzelnen Tasten vertraut zu machen.
+
+Kommandos für BRLTTY werden in diesem Handbuch über ihren Namen referenziert. Falls sie vergessen, welches Kommando auf welche Tasten auf Ihrer Brailelzeile gelegt sind, beachten Sie die Hilfeseite des jeweiligen Treibers.
+
 The main key you should immediately commit to memory, therefore, is the one
 for the <ref id="command-HELP" name="HELP"> command.
 Use the regular motion keys (as described below) to navigate the help page,
@@ -1878,10 +1852,10 @@ via the <ref id="preferences-menu" name="preferences menu">.
     Invoke this command again to return to normal operation.
   <tag>PREFSAVE<label id="command-PREFSAVE"></tag>
     Save the current preferences settings
-    (see <ref id="preferences" name="Preferences"> for full details).
+    (see <ref id="preferences" name="Einstellungen"> for full details).
   <tag>PREFLOAD<label id="command-PREFLOAD"></tag>
     Restore the most recently saved preferences settings
-    (see <ref id="preferences" name="Preferences"> for full details).
+    (see <ref id="preferences" name="Einstellungen"> for full details).
 </descrip>
 
 <sect2>Menu Navigation<label id="menu-navigation"><p>
@@ -2818,7 +2792,7 @@ These events include:
     When cursor routing starts, finishes, or fails.
 </itemize>
 
-<sect1>Preferences Settings<label id="preferences"><p>
+<sect1>Einstellungen<label id="preferences"><p>
 When BRLTTY starts, it loads a file which contains your preferences settings.
 The file doesn't need to exist,
 and is created the first time the settings are saved
@@ -3624,7 +3598,7 @@ in order to show the precise column layout.
         Blinking cursor
         (see the <ref id="command-CSRBLINK" name="CSRBLINK"> command).
       <tag/Dot 7/
-        Cursor tracking
+        Cursorverfolgung
         (see the <ref id="command-CSRTRK" name="CSRTRK"> command).
       <tag/Dot 8/
         Sliding window
