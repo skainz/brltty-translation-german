@@ -1560,12 +1560,10 @@ Einige haben einen Bereich Tasten, der wie ein Joystick funktioniert.
 Die meisten haben eine Kombination der oben genannten Möglichkeiten.
 Kosultieren Sie also bitte die Dokumentation Ihrer Braillezeile um sich mit den Funktionen der einzelnen Tasten vertraut zu machen.
 
-Kommandos für BRLTTY werden in diesem Handbuch über ihren Namen referenziert. Falls sie vergessen, welches Kommando auf welche Tasten auf Ihrer Brailelzeile gelegt sind, beachten Sie die Hilfeseite des jeweiligen Treibers.
+Kommandos für BRLTTY werden in diesem Handbuch über ihren Namen referenziert. Falls sie vergessen, welche Kommandos auf welche Tasten Ihrer Brailelzeile gelegt sind, beachten Sie die Hilfeseite des jeweiligen Treibers.
 
-The main key you should immediately commit to memory, therefore, is the one
-for the <ref id="command-HELP" name="HELP"> command.
-Use the regular motion keys (as described below) to navigate the help page,
-and press the <tt/help/ key again to quit.
+Sie sollten sich auf jeden Fall die Taste für das 
+ <ref id="command-HELP" name="HELP"> Kommando einprägen. Verwenden Sie dann die üblichen Navigationstasten (wie im Folgenden beschrieben) und drücken Sie die <tt/help/ Taste nochmals zum Beenden.
 
 <sect2>Vertical Motion<label id="vertical-motion"><p>
 See also
