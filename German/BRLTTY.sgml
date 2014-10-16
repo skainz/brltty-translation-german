@@ -1542,13 +1542,13 @@ Der Programmname (BRLTTY) und die Version wird kurz
 (siehe  Kommandozeilenoption <ref id="options-message-timeout" name="-M">)
 auf der Braillezeile angezeigt.
 
-Danach wird auf der Braillezeile ein teil des Bildschirms, inklusive Cursor, angezeigt. Standardmäßig wird der Cursor durch die 
+Danach wird auf der Braillezeile ein Teil des Bildschirms, inklusive Cursor, angezeigt. Standardmäßig wird der Cursor durch die 
 Punkte 7 und 8 dargestellt, die dem Zeichen, an dem der Cursor sich gerade befindet, überlagert werden.
 
 Jede Änderung des Bildschirminhalts wird auf die Braillezeile übertragen. Die Braillezeile folgt auch der Bewegung des Cursors auf dem Bildschirm. 
 Diese Funktion wird <bf/Cursorverfolgung/ genannt.
 
-Nur auf dem Keyborad zu tippen und die Braillezeile zu lesen ist jedoch noch nicht alles. Versuchen Sie, ein Kommando, das einen Fehler ausgibt, einzugeben, und drücken Sie dann <bf/Enter/. Der Fehler wird am Bildschirm zwar ausgegeben, es ist aber sehr wahrscheinlich, dass Sie ihn nicht auf der Braillezeile sehen (ausser Sie besitzen eine mehrzeilige Braillezeile). Alles was Sie sehen, ist eine neuer Shell-Prompt. Sie brauchen also eine Möglichkeit, den <em/Bildschirmausschnitt/, der auf der Braillezeile angezeigt wird, zu verschieben. Dazu können Sie die Tasten auf der Braillezeile verwenden.
+Nur auf dem Keyboard zu tippen und die Braillezeile zu lesen ist jedoch noch nicht alles. Versuchen Sie, ein Kommando, das einen Fehler ausgibt, einzugeben, und drücken Sie dann <bf/Enter/. Der Fehler wird am Bildschirm zwar ausgegeben, es ist aber sehr wahrscheinlich, dass Sie ihn nicht auf der Braillezeile sehen (ausser Sie besitzen eine mehrzeilige Braillezeile). Alles was Sie sehen, ist eine neuer Shell-Prompt. Sie brauchen also eine Möglichkeit, den <em/Bildschirmausschnitt/, der auf der Braillezeile angezeigt wird, zu verschieben. Dazu können Sie die Tasten auf der Braillezeile verwenden.
 
 <sect1>Kommandos<label id="commands"><p>
 Unglücklicherweise haben die verschiedenen Braillezeilen keine Standardbelegung der Tasten bzw. überhaupt eine Standardanzahl von Tasten.
