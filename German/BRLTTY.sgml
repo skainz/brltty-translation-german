@@ -2008,47 +2008,38 @@ See also the <ref id="command-SWITCHVT" name="SWITCHVT"> routing key command.
 </descrip>
 
 <sect1>Konfigurationsdatei<label id="configure"><p>
-System defaults for many settings may be established within a configuration file.
-The default name for this file is <tt>/etc/brltty.conf</tt>,
-although it may be overridden with the
-<ref id="options-configuration-file" name="-f"> command line option.
-It doesn't need to exist.
-A template for it can be found within the <tt/DOCS/ subdirectory.
+In einer Konfigurationsdatei können zahlreiche Parameter und Standardeinstellungen gespeichert werden.
+Der Standardname für diese Datei ist  <tt>/etc/brltty.conf</tt>, kann jedoch durch den Kommandozeilenparameter
+<ref id="options-configuration-file" name="-f"> geändert werden.
+Die Datei muss nicht exisitieren, um BRLTTY nutzen zu können. Ein Bespiel für eine Konfigurationsdatei befindet sich im Unterverzeichnis <tt/DOCS/.
 
-Blank lines are ignored.
-A comment begin with a number sign (<tt/&num;/),
-and continues to the end of the line.
-The following directives are recognized:
+Leerzeilen werden ignoriert.
+Kommentare werden mit einem Rautezeichen (<tt/&num;/) eingeleitet und erstrecken sich dann bis zum Ende der Zeile.
+
+Die folgenden Anweisungen werden unterstützt:
 <descrip>
-  <tag><tt/api-parameters/ <em/name/<tt/=/<em/value/<tt/,/...<label id="configure-api-parameters"></tag>
-    Specify parameters for the Application Programming Interrface.
-    If the same parameter is specified more than once,
-    then its rightmost assignment is used.
-    For a description of the parameters accepted by the interface,
-    please see the <bf/BrlAPI/ reference manual.
-    See the <ref id="build-api-parameters" name="--with-api-parameters">
-    build option for the defaults established during the build procedure.
-    This directive can be overridden with the
-    <ref id="options-api-parameters" name="-A"> command line option.
-  <tag><tt/attributes-table/ <em/file/<label id="configure-attributes-table"></tag>
-    Specify the attributes table
-    (see section <ref id="table-attributes" name="Attributes Tables"> for details).
-    If a relative path is supplied, then it's anchored at <tt>/etc/brltty</>
-    (see the <ref id="build-data-directory" name="--with-data-directory">
-    and the <ref id="build-execute-root" name="--with-execute-root">
-    build options for more details).
-    The <tt/.atb/ extension is optional.
-    The default is to use the built-in table
-    (see the <ref id="build-attributes-table" name="--with-attributes-table"> build option).
-    This directive can be overridden with the
-    <ref id="options-attributes-table" name="-a"> command line option.
-  <tag><tt/braille-device/ <em/device/<tt/,/...<label id="configure-braille-device"></tag>
-    Specify the device to which the braille display is connected
-    (see section <ref id="operand-braille-device" name="Braille Device Specification">).
-    See the <ref id="build-braille-device" name="--with-braille-device">
-    build option for the default established during the build procedure.
-    This directive can be overridden with the
-    <ref id="options-braille-device" name="-d"> command line option.
+  <tag><tt/api-parameters/ <em/Name/<tt/=/<em/Wert/<tt/,/...<label id="configure-api-parameters"></tag>
+    Definiert Parameter für die Programmierschnittstelle (API). Wird ein Parameter mermals angegeben, wird der zuletzt definierte verwendet. Für eine Beschreibung der möglichen Parameter konsultieren Sie bitte das <bf/BrlAPI/-Handbuch.
+    Beachten Sie bitte die Build-Option <ref id="build-api-parameters" name="--with-api-parameters"> für die bei der Kompilierung verwendeten Standardparameter.
+    Diese Anweisung kann durch den Kommandozeilenparameter 
+    <ref id="options-api-parameters" name="-A"> auch nachträglich gesetzt werden.
+
+  <tag><tt/attributes-table/ <em/Datei/<label id="configure-attributes-table"></tag>
+    Gibt an, welche Attribut-Tabelle (siehe Abschnitt <ref id="table-attributes" name="Attribut-Tabellen"> für Details) verwendet werden soll.
+    Wird heir ein relativer Pfad angegeben, wird dieser relativ zum Verzeichnis <tt>/etc/brltty</> angenommen
+    (siehe dazu die Build-Optionen <ref id="build-data-directory" name="--with-data-directory">
+    und  <ref id="build-execute-root" name="--with-execute-root"> für weitere Details).
+    Die Dateiendung <tt/.atb/ ist optional.
+    Standardmäßig wird die eingebaute Tabelle 
+     (siehe  Build-Option <ref id="build-attributes-table" name="--with-attributes-table">) verwendet.
+    Diese Anweisung kann durch den Kommandozeilenparameter 
+    <ref id="options-attributes-table" name="-a"> auch nachträglich gesetzt werden.
+  <tag><tt/braille-device/ <em/Gerät/<tt/,/...<label id="configure-braille-device"></tag>
+    Gibt die Schnittstelle an, an welcher die Braillezeile angeschlossen ist
+    (siehe Abschnitt <ref id="operand-braille-device" name="Braille Geräte-Spezifikation">).
+    Beachten Sie bitte die Build-Option <ref id="build-braille-device" name="--with-braille-device"> zum Einstellen einer Standardschnitte.
+    Diese Anweisung kann durch den Kommandozeilenparameter 
+    <ref id="options-braille-device" name="-d"> auch nachträglich gesetzt werden.
   <tag><tt/braille-driver/ <em/driver/<tt/,/...|<tt/auto/<label id="configure-braille-driver"></tag>
     Specify the braille display driver
     (see section <ref id="operand-driver" name="Driver Specification">).
