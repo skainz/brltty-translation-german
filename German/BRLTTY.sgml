@@ -2037,7 +2037,7 @@ Die folgenden Anweisungen werden unterstützt:
   <tag><tt/braille-device/ <em/Gerät/<tt/,/...<label id="configure-braille-device"></tag>
     Gibt die Schnittstelle an, an welcher die Braillezeile angeschlossen ist
     (siehe Abschnitt <ref id="operand-braille-device" name="Braille Geräte-Spezifikation">).
-    Beachten Sie bitte die Build-Option <ref id="build-braille-device" name="--with-braille-device"> zum Einstellen einer Standardschnitte.
+    Beachten Sie bitte die Build-Option <ref id="build-braille-device" name="--with-braille-device"> zum Einstellen einer Standardschnittstelle.
     Diese Anweisung kann durch den Kommandozeilenparameter 
     <ref id="options-braille-device" name="-d"> auch nachträglich gesetzt werden.
   <tag><tt/braille-driver/ <em/driver/<tt/,/...|<tt/auto/<label id="configure-braille-driver"></tag>
