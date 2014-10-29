@@ -2065,18 +2065,17 @@ Die folgenden Anweisungen werden unterstützt:
      Diese Anweisung kann durch den Kommandozeilenparameter  <ref id="options-contraction-table" name="-c">  auch nachträglich gesetzt werden.
     Falls die Build-Option <ref id="build-contracted-braille" name="--disable-contracted-braille"> verwendet wurde, ist diese Anweisung nicht verfügbar.
 
-  <tag><tt/key-table/ <em/file/|<tt/auto/<label id="configure-key-table"></tag>
-    Specify the key table
-    (see section <ref id="table-key" name="Key Tables"> for details).
-    If a relative path is supplied, then it's anchored at <tt>/etc/brltty</>
-    (see the <ref id="build-data-directory" name="--with-data-directory">
-    and the <ref id="build-execute-root" name="--with-execute-root">
-    build options for more details).
-    The <tt/.ktb/ extension is optional.
-    The default is not to use a key table.
-    This directive can be overridden with the
-    <ref id="options-key-table" name="-k"> command line option.
-  <tag><tt/keyboard-properties/ <em/name/<tt/=/<em/value/<tt/,/...<label id="configure-keyboard-properties"></tag>
+  <tag><tt/key-table/ <em/Datei/|<tt/auto/<label id="configure-key-table"></tag>
+    Definiert die Tasten-Tabelle, die verwendet werden soll
+    (siehe Abschnitt <ref id="table-key" name="Tasten-Tabellen"> für weitere Details).
+    Wird hier ein relativer Pfad angegeben, wird dieser relativ zum Verzeichnis
+    <tt>/etc/brltty</> angenommen (siehe dazu die Build-Optionen <ref id="build-data-directory" name="--with-data-directory">
+    und <ref id="build-execute-root" name="--with-execute-root">).
+    Die Dateiendung <tt/.ktb/ ist optional. Standardmäßig wird keine Tasten-Tabelle verwendet.
+    Diese Anweisung kann durch den Kommandozeilenparameter
+    <ref id="options-key-table" name="-k"> auch nachträglich gesetzt werden.
+  <tag><tt/keyboard-properties/ <em/Name/<tt/=/<em/Wert/<tt/,/...<label id="configure-keyboard-properties"></tag>
+    TODO
     Specify the properties of the keyboard(s) to be monitored.
     If the same property is specified more than once,
     then its rightmost assignment is used.
@@ -2085,20 +2084,17 @@ Die folgenden Anweisungen werden unterstützt:
     The default is to monitor all keyboards.
     This directive can be overridden with the
     <ref id="options-keyboard-properties" name="-K"> command line option.
-  <tag><tt/midi-device/ <em/device/<label id="configure-midi-device"></tag>
-    Specify the device to use for the Musical Instrument Digital Interface
-    (see section <ref id="operand-midi-device" name="MIDI Device Specification">).
-    This directive can be overridden with the
-    <ref id="options-midi-device" name="-m"> command line option.
-    It isn't available if the
-    <ref id="build-midi-support" name="--disable-midi-support"> build option was specified.
-  <tag><tt/pcm-device/ <em/device/<label id="configure-pcm-device"></tag>
-    Specify the device to use for digital audio
-    (see section <ref id="operand-pcm-device" name="PCM Device Specification">).
-    This directive can be overridden with the
-    <ref id="options-pcm-device" name="-p"> command line option.
-    It isn't available if the
-    <ref id="build-pcm-support" name="--disable-pcm-support"> build option was specified.
+  <tag><tt/midi-device/ <em/Gerät/<label id="configure-midi-device"></tag>
+    Gibt an, welches Gerät für die MIDI-Ausgabe verwendet werden soll (siehe Abschnitt <ref id="operand-midi-device" name="MIDI Geräte-Spezifikation">).
+     Diese Anweisung kann durch den Kommandozeilenparameter
+    <ref id="options-midi-device" name="-m"> auch nachträglich gesetzt werden.
+    Falls die Build-Option <ref id="build-midi-support" name="--disable-midi-support"> verwendet wurde, ist diese Anweisung nicht verfügbar.
+  <tag><tt/pcm-device/ <em/Gerät/<label id="configure-pcm-device"></tag>
+    Gibt an welches Gerät für die Ausgabe von digitalem Audiodaten
+    (siehe Abschnitt <ref id="operand-pcm-device" name="PCM Geräte-Spezifikation">).
+  <ref id="operand-pcm-device" name="PCM Geräte-Spezifikation">).
+      <ref id="options-pcm-device" name="-p">  auch nachträglich gesetzt werden.
+    Falls die Build-Option  <ref id="build-pcm-support" name="--disable-pcm-support"> verwendet wurde, ist diese Anweisung nicht verfügbar.
   <tag><tt/preferences-file/ <em/file/<label id="configure-preferences-file"></tag>
     Specify the location of the file which is to be used
     for the saving and loading of user preferences.
@@ -4206,7 +4202,7 @@ The opcodes which define and use character classes are:
     then the union of the characters in all the classes is used.
 </descrip>
 
-<sect1>Key Tables<label id="table-key"><p>
+<sect1>Tasten-Tabellen<label id="table-key"><p>
 Files with names of the form <tt/*.ktb/ are key tables,
 and with names of the form <tt/*.kti/ are key subtables.
 They are used by BRLTTY to bind
