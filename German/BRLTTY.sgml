@@ -2095,13 +2095,13 @@ Die folgenden Anweisungen werden unterstützt:
   <ref id="operand-pcm-device" name="PCM Geräte-Spezifikation">).
       <ref id="options-pcm-device" name="-p">  auch nachträglich gesetzt werden.
     Falls die Build-Option  <ref id="build-pcm-support" name="--disable-pcm-support"> verwendet wurde, ist diese Anweisung nicht verfügbar.
-  <tag><tt/preferences-file/ <em/file/<label id="configure-preferences-file"></tag>
-    Specify the location of the file which is to be used
-    for the saving and loading of user preferences.
-    If a relative path is supplied, then it's anchored at <tt>/var/lib/brltty</>.
-    The default is to use <tt/brltty.prefs/.
-    This directive can be overridden with the
-    <ref id="options-preferences-file" name="-F"> command line option.
+  <tag><tt/preferences-file/ <em/Datei/<label id="configure-preferences-file"></tag>
+    Definiert die Datei die verwendet werden soll, um Benutzereinstellungen zu Lesen und zu Speichern.
+     Wird hier ein relativer Pfad angegeben, wird dieser relativ zum Verzeichnis
+    <tt>/var/lib/brltty</> angenommen.
+    Der Standardwert ist <tt/brltty.prefs/.
+    Diese Anweisung kann durch den Kommandozeilenparameter 
+    <ref id="options-preferences-file" name="-F"> auch nachträglich gesetzt werden.
   <tag><tt/release-device/ <em/boolean/<label id="configure-release-device"></tag>
     Whether or not to release the device to which the braille display is connected
     when the current screen or window can't be read.
@@ -2113,13 +2113,12 @@ Die folgenden Anweisungen werden unterstützt:
     and <tt/off/ on all other platforms.
     This directive can be overridden with the
     <ref id="options-release-device" name="-r"> command line option.
-  <tag><tt/screen-driver/ <em/driver/<label id="configure-screen-driver"></tag>
-    Specify the screen driver
-    (see section <ref id="screen" name="Supported Screen Drivers">).
-    See the <ref id="build-screen-driver" name="--with-screen-driver">
-    build option for the default established during the build procedure.
-    This directive can be overridden with the
-    <ref id="options-screen-driver" name="-x"> command line option.
+  <tag><tt/screen-driver/ <em/Treiber/<label id="configure-screen-driver"></tag>
+    Gibt den Bildschirm-Treiber an der verwendet werden soll (siehe Abschnitt <ref id="screen" name="Unterstützte Bildschirm-Treiber"> für weitere Details).
+    Beachten Sie auch die Build-Option <ref id="build-screen-driver" name="--with-screen-driver">
+    zum Einstellen der Standardwerte während des Kompilierens.
+    Diese Anweisung kann durch den Kommandozeilenparameter 
+    <ref id="options-screen-driver" name="-x"> auch nachträglich gesetzt werden.
   <tag><tt/screen-parameters/ [<em/driver/<tt/:/]<em/name/<tt/=/<em/value/<tt/,/...<label id="configure-screen-parameters"></tag>
     Specify parameters for the screen drivers.
     If the same parameter is specified more than once,
