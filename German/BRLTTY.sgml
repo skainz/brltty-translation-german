@@ -450,7 +450,7 @@ Sie sollten auch die <tt/README/-Datei im Verzeichnis des Treibers für Ihre Brai
 	 Das entspricht der Option <tt/--with-braille-driver/.
     </descrip>
     Beachten Sie auch die <ref id="configure-braille-driver" name="braille-driver">-Option in der Konfigurationsdatei
-      sowei die Option <ref id="options-braille-driver" name="-b"> für die Treiberauswahl zur Laufzeit.
+      sowie die Option <ref id="options-braille-driver" name="-b"> für die Treiberauswahl zur Laufzeit.
   <tag><tt/--with-braille-parameters=/[<em/Treiber/<tt/:/]<em/Name/<tt/=/<em/Wert/<tt/,/...<label id="build-braille-parameters"></tag>
     Setzt die Standardparameter für die Braillezeilen-Treiber. Wird ein Parameter mehrmals angegeben, dann wird der letzte (=rechteste) Wert verwendet.
      Wird ein Parameter zusätzlich mit einer Treiberkennung angegeben (siehe Abschnitt <ref id="drivers" name="Treiberkennungen">), dann gilt 
@@ -2102,7 +2102,8 @@ Die folgenden Anweisungen werden unterstützt:
     Der Standardwert ist <tt/brltty.prefs/.
     Diese Anweisung kann durch den Kommandozeilenparameter 
     <ref id="options-preferences-file" name="-F"> auch nachträglich gesetzt werden.
-  <tag><tt/release-device/ <em/boolean/<label id="configure-release-device"></tag>
+  <tag><tt/release-device/ <em/Boolscher-Wert/<label id="configure-release-device"></tag>
+    TODO
     Whether or not to release the device to which the braille display is connected
     when the current screen or window can't be read.
     <descrip>
@@ -2119,64 +2120,42 @@ Die folgenden Anweisungen werden unterstützt:
     zum Einstellen der Standardwerte während des Kompilierens.
     Diese Anweisung kann durch den Kommandozeilenparameter 
     <ref id="options-screen-driver" name="-x"> auch nachträglich gesetzt werden.
-  <tag><tt/screen-parameters/ [<em/driver/<tt/:/]<em/name/<tt/=/<em/value/<tt/,/...<label id="configure-screen-parameters"></tag>
-    Specify parameters for the screen drivers.
-    If the same parameter is specified more than once,
-    then its rightmost assignment is used.
-    If a parameter name is qualified by a driver
-    (see section <ref id="screen" name="Supported Screen Drivers">)
-    then that setting only applies to that driver;
-    if it isn't then it applies to all drivers.
-    For a description of the parameters accepted by a specific driver,
-    please see the documentation for that driver.
-    See the <ref id="build-screen-parameters" name="--with-screen-parameters">
-    build option for the defaults established during the build procedure.
-    This directive can be overridden with the
-    <ref id="options-screen-parameters" name="-X"> command line option.
-  <tag><tt/speech-driver/ <em/driver/<tt/,/...|<tt/auto/<label id="configure-speech-driver"></tag>
-    Specify the speech synthesizer driver
-    (see section <ref id="operand-driver" name="Driver Specification">).
-    The default is to perform autodetection.
-    This directive can be overridden with the
-    <ref id="options-speech-driver" name="-s"> command line option.
-    It isn't available if the
-    <ref id="build-speech-support" name="--disable-speech-support"> build option was specified.
-  <tag><tt/speech-input/ <em/name/<label id="configure-speech-input"></tag>
-    Specify the name of the file system object
-    (FIFO, named pipe, named socket, etc)
-    which can be used by other applications
-    for text-to-speech conversion via BRLTTY's speech driver.
-    This directive can be overridden with the
-    <ref id="options-speech-input" name="-i"> command line option.
-    It isn't available if the
-    <ref id="build-speech-support" name="--disable-speech-support"> build option was specified.
-  <tag><tt/speech-parameters/ [<em/driver/<tt/:/]<em/name/<tt/=/<em/value/<tt/,/...<label id="configure-speech-parameters"></tag>
-    Specify parameters for the speech synthesizer drivers.
-    If the same parameter is specified more than once,
-    then its rightmost assignment is used.
-    If a parameter name is qualified by a driver
-    (see section <ref id="drivers" name="Driver Identification Codes">)
-    then that setting only applies to that driver;
-    if it isn't then it applies to all drivers.
-    For a description of the parameters accepted by a specific driver,
-    please see the documentation for that driver.
-    See the <ref id="build-speech-parameters" name="--with-speech-parameters">
-    build option for the defaults established during the build procedure.
-    This directive can be overridden with the
-    <ref id="options-speech-parameters" name="-S"> command line option.
-  <tag><tt/text-table/ <em/file/|<tt/auto/<label id="configure-text-table"></tag>
-    Specify the text table
-    (see section <ref id="table-text" name="Text-Tabellen"> for details).
-    If a relative path is supplied, then it's anchored at <tt>/etc/brltty</>
-    (see the <ref id="build-data-directory" name="--with-data-directory">
-    and the <ref id="build-execute-root" name="--with-execute-root">
-    build options for more details).
-    The <tt/.ttb/ extension is optional.
-    The default is to perform locale-based autoselection,
-    with fallback to the built-in table
-    (see the <ref id="build-text-table" name="--with-text-table"> build option).
-    This directive can be overridden with the
-    <ref id="options-text-table" name="-t"> command line option.
+  <tag><tt/screen-parameters/ [<em/Treiber/<tt/:/]<em/Name/<tt/=/<em/Wert/<tt/,/...<label id="configure-screen-parameters"></tag>
+    Spezifiziert Parameter für Bildschirm-Treiber.
+    Wird ein Parameter mehrmals angegeben, wird der zuletzt definierte verwendet.
+    Wird ein Parameter zusammen mit einer Treiberkennung (siehe Abschnitt <ref id="screen" name="Unterstützte Bildschirm-Treiber">) angegeben, bezieht sich der Parameter  nur auf diesem Treiber, ansonsten gilt er für alle Treiber.
+    Für eine Liste der möglichen Paramter eines Treibers konsultieren Sie die Dokumentations des jeweiligen Treibers.
+    Beachten Sie auch die Build-Option <ref id="build-screen-parameters" name="--with-screen-parameters"> zum Einstellen der Standardwerte während des Kompilierens.
+    Diese Anweisung kann durch den Kommandozeilenparameter 
+    <ref id="options-screen-parameters" name="-X"> auch nachträglich verändert werden.
+  <tag><tt/speech-driver/ <em/Treiber/<tt/,/...|<tt/auto/<label id="configure-speech-driver"></tag>
+    Gibt an, welcher Sprachsynthese-Treiber verwendet werden soll (siehe Abschnitt <ref id="operand-driver" name="Treiber-Spezifikation">).
+    Standardmäßig wird eine automatische Erkennung durchgeführt.
+    Diese Anweisung kann durch den Kommandozeilenparameter
+    <ref id="options-speech-driver" name="-s"> auch nachträglich verändert werden.
+    Falls die Build-Option <ref id="build-speech-support" name="--disable-speech-support"> verwendet wurde, ist diese Anweisung nicht verfügbar.
+  <tag><tt/speech-input/ <em/Name/<label id="configure-speech-input"></tag>
+    Gibt den Namens des Dateiobjekts (FIFO, Pipe, Socket, etc) an, welchens von anderen Programmen verwendet werden kann, um Text-zu-Sprache Funktionen von BRLTTY zu nutzen.
+    Diese Anweisung kann durch den Kommandozeilenparameter
+    <ref id="options-speech-input" name="-i"> auch nachträglich gesetzt werden.
+    Falls die Build-Option <ref id="build-speech-support" name="--disable-speech-support"> verwendet wurde, ist diese Anweisung nicht verfügbar.
+  <tag><tt/speech-parameters/ [<em/Treiber/<tt/:/]<em/Name/<tt/=/<em/Wert/<tt/,/...<label id="configure-speech-parameters"></tag>
+    Spezifiziert Parameter für Sprachsynthese-Treiber.
+    Wird ein Parameter mehrmals angegeben, wird der zuletzt definierte verwendet.
+    Bezieht sich ein Paramter auf einen speziellen Treiber (siehe Abschnitt <ref id="drivers" name="Treiberkennungen">)
+    wirkt dieser nur auf den spezifizierten Trieber, ansonsten gilt er für alle.
+    Für eine Liste der möglichen Paramter eines Treibers konsultieren Sie die Dokumentations des jeweiligen Treibers.
+    Beachten Sie auch die Build-Option  <ref id="build-speech-parameters" name="--with-speech-parameters">
+    zum Einstellen der Standardwerte während des Kompilierens.
+    Diese Anweisung kann durch den Kommandozeilenparameter 
+    <ref id="options-speech-parameters" name="-S"> auch nachträglich verädert werden.
+  <tag><tt/text-table/ <em/Datei/|<tt/auto/<label id="configure-text-table"></tag>
+    Git die zu verwendende Text-Tabelle (siehe Abschnitt <ref id="table-text" name="Text-Tabellen"> für Details).
+    Wird hier ein relativer Pfad angegeben, wird dieser relativ zum Verzeichnis  <tt>/etc/brltty</> angenommen (siehe Build-Optionen <ref id="build-data-directory" name="--with-data-directory"> und <ref id="build-execute-root" name="--with-execute-root"> für mehr Details).
+    Die Dateiendung <tt/.ttb/ ist optional.
+    Standardmäßig wird automatisch eine Tabelle, basierend auf den aktuellen Spracheinstellungen ihres Systems, gewählt. Kann keine passende Tabelle gefunden werden, wird die Standardtabelle (siehe Build-Option <ref id="build-text-table" name="--with-text-table">) verwendet.
+    Diese Anweisung Kann durch den Kommandozeilenparameter
+    <ref id="options-text-table" name="-t"> auch nachträglich verändert werden.
 </descrip>
 
 <sect1>Command Line Options<label id="options"><p>
