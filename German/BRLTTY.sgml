@@ -1553,7 +1553,7 @@ Nur auf dem Keyboard zu tippen und die Braillezeile zu lesen ist jedoch noch nic
 <sect1>Kommandos<label id="commands"><p>
 Unglücklicherweise haben die verschiedenen Braillezeilen keine Standardbelegung der Tasten bzw. überhaupt eine Standardanzahl von Tasten.
 Einige haben 6 Tasten, entsprechend den Braille-Punkten, einige 8, einige gar keine.
-Einige haben Daumen-Tasten, aber es gibt heir keine standardisierte Anzahl.
+Einige haben Daumen-Tasten, aber es gibt hier keine standardisierte Anzahl.
 Einige haben Tasten über jeder Braille-Zelle.
 Einige haben Kippschalter.
 Einige haben einen Bereich Tasten, der wie ein Joystick funktioniert.
@@ -1565,7 +1565,7 @@ Kommandos für BRLTTY werden in diesem Handbuch über ihren Namen referenziert. Fa
 Sie sollten sich auf jeden Fall die Taste für das 
  <ref id="command-HELP" name="HELP"> Kommando einprägen. Verwenden Sie dann die üblichen Navigationstasten (wie im Folgenden beschrieben) und drücken Sie die <tt/help/ Taste nochmals zum Beenden.
 
-<sect2>Vertical Motion<label id="vertical-motion"><p>
+<sect2>Vertikale Bewegung<label id="vertical-motion"><p>
 See also
 the <ref id="command-PRINDENT-NXINDENT" name="PRINDENT/NXINDENT">,
 and the <ref id="command-PRDIFCHAR-NXDIFCHAR" name="PRDIFCHAR/NXDIFCHAR">
@@ -2075,15 +2075,11 @@ Die folgenden Anweisungen werden unterstützt:
     Diese Anweisung kann durch den Kommandozeilenparameter
     <ref id="options-key-table" name="-k"> auch nachträglich gesetzt werden.
   <tag><tt/keyboard-properties/ <em/Name/<tt/=/<em/Wert/<tt/,/...<label id="configure-keyboard-properties"></tag>
-    TODO
-    Specify the properties of the keyboard(s) to be monitored.
-    If the same property is specified more than once,
-    then its rightmost assignment is used.
-    See section <ref id="keyboard-properties" name="Keyboard Properties">
-    for a list of the properties which may be specified.
-    The default is to monitor all keyboards.
-    This directive can be overridden with the
-    <ref id="options-keyboard-properties" name="-K"> command line option.
+    Gibt die Parameter für das (oder die) von BRLTTY zu überwachende Keyboard (oder keyboards) an. Wird ein Parameter mehrmals angegeben, wird der zuletzt definierte verwendet.
+    Beachten Sie auch den Abschnitt <ref id="keyboard-properties" name="Tastatur-Eigenschaften"> für eine Liste der möglichen Einstellungen.
+    Standardmäßig werden alle am System angeschlossenen Keyboards überwacht.
+    Diese Anweisung kann durch den Kommandozeilenparameter
+    <ref id="options-keyboard-properties" name="-K"> auch nachträglich gesetzt werden.
   <tag><tt/midi-device/ <em/Gerät/<label id="configure-midi-device"></tag>
     Gibt an, welches Gerät für die MIDI-Ausgabe verwendet werden soll (siehe Abschnitt <ref id="operand-midi-device" name="MIDI Geräte-Spezifikation">).
      Diese Anweisung kann durch den Kommandozeilenparameter
@@ -2103,17 +2099,15 @@ Die folgenden Anweisungen werden unterstützt:
     Diese Anweisung kann durch den Kommandozeilenparameter 
     <ref id="options-preferences-file" name="-F"> auch nachträglich gesetzt werden.
   <tag><tt/release-device/ <em/Boolscher-Wert/<label id="configure-release-device"></tag>
-    TODO
-    Whether or not to release the device to which the braille display is connected
-    when the current screen or window can't be read.
+    Gibt an, ob die Schnittstelle, an der die Braillezeile angeschlossen ist, freigegebenr werden soll, falls das aktuelle Fenster oder der Bildschirm nicht gelesen werden kann.
     <descrip>
-      <tag/on/Release the device.
-      <tag/off/Don't release the device.
+      <tag/on/Gibt die Schnittstelle frei.
+      <tag/off/Gibt die Schittstelle nicht frei.
     </descrip>
-    The default setting is <tt/on/ on Windows platforms
-    and <tt/off/ on all other platforms.
-    This directive can be overridden with the
-    <ref id="options-release-device" name="-r"> command line option.
+    Die Standardeinstellung ist <tt/on/ unter Windows und
+    <tt/off/ auf allen anderen Plattformen.
+    Diese Anweisung kann durch den Kommandozeilenparameter 
+    <ref id="options-release-device" name="-r"> auch nachträglich gesetzt werden.
   <tag><tt/screen-driver/ <em/Treiber/<label id="configure-screen-driver"></tag>
     Gibt den Bildschirm-Treiber an der verwendet werden soll (siehe Abschnitt <ref id="screen" name="Unterstützte Bildschirm-Treiber"> für weitere Details).
     Beachten Sie auch die Build-Option <ref id="build-screen-driver" name="--with-screen-driver">
@@ -4656,7 +4650,7 @@ Examples:
   <item><tt/title Bindings for Keypad-based Navigation/
 </itemize>
 
-<sect2>Keyboard Properties<label id="keyboard-properties"><p>
+<sect2>Tastatur-Eigenschaften<label id="keyboard-properties"><p>
 The default is that all keyboards are monitored.
 A subset of the keyboards may be selected by specifying one or more of the following properties
 (see the <ref id="options-keyboard-properties" name="-K"> command line option,
