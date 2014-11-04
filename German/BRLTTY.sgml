@@ -1562,8 +1562,7 @@ Kosultieren Sie also bitte die Dokumentation Ihrer Braillezeile um sich mit den 
 
 Kommandos für BRLTTY werden in diesem Handbuch über ihren Namen referenziert. Falls sie vergessen, welche Kommandos auf welche Tasten Ihrer Brailelzeile gelegt sind, beachten Sie die Hilfeseite des jeweiligen Treibers.
 
-Sie sollten sich auf jeden Fall die Taste für das 
- <ref id="command-HELP" name="HELP"> Kommando einprägen. Verwenden Sie dann die üblichen Navigationstasten (wie im Folgenden beschrieben) und drücken Sie die <tt/help/ Taste nochmals zum Beenden.
+Sie sollten sich auf jeden Fall die Taste für das Kommando <ref id="command-HELP" name="HELP"> einprägen. Verwenden Sie dann die üblichen Navigationstasten (wie im Folgenden beschrieben) und drücken Sie die <tt/help/ Taste nochmals zum Beenden.
 
 <sect2>Vertikale Bewegung<label id="vertical-motion"><p>
 See also

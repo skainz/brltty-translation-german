@@ -1,88 +1,89 @@
-auto|locale-based autoselection@
-ar|Arabic (generic)@
-as|Assamese@
-awa|Awadhi@
-bg|Bulgarian@
-bh|Bihari@
-bn|Bengali@
-bo|Tibetan@
+auto|Automatisch anhand der Landeseinstellung@
+ar|Arabisch (allgemein)@
+as|Assamesisch@
+awa|Awadhisch@
+bg|Bulgarisch@
+bh|Biharisch@
+bn|Bengalisch@
+bo|Tibetisch@
 bra|Braj@
-brf|Braille Ready Format@
-|(for viewing .brf files within an editor or pager)@
-cs|Czech@
-cy|Welsh@
-da|Danish@
-da-1252|Danish (Svend Thougaard, 2002-11-18)@
-da-lt|Danish (LogText)@
-de|German@
-dra|Dravidian@
-el|Greek@
-en|English@
-en&lowbar;CA|English (Canada)@
-en&lowbar;GB|English (United Kingdom)@
-en&lowbar;US|English (United States)@
-en-nabcc|English (North American Braille Computer Code)@
+brf|Braille Ready Format (zum Lesen von .brf Dateien in einem Editor oder pager)@
+cs|Tschechisch@
+cy|Walisisch@
+da-1252|D&auml;nisch (Svend Thougaard, 2002-11-18)@
+da|D&auml;nisch@
+da-lt|D&auml;nisch (LogText)@
+de|Deutsch@
+dra|Dravidisch@
+el|Griechisch@
+en-CA|Englisch (Kanada)@
+en|Englisch@
+en-GB|Englisch (Grossbritanien)@
+en-nabcc|Englisch (Nordamerikanisches Computer Braille)@
+en-US|Englisch (US)@
 eo|Esperanto@
-es|Spanish@
-et|Estonian@
-fi|Finnish@
-fr|French@
-fr&lowbar;CA|French (Canada)@
-fr&lowbar;FR|French (France)@
-fr-2007|French (unified 2007)@
-fr-cbifs|French (Code Braille Informatique Français Standard)@
-fr-vs|French (VisioBraille)@
-ga|Irish@
-gd|Gaelic@
-gon|Gondi@
+es|Spanisch@
+et|Estnisch@
+fi|Finnisch@
+fr-2007|Franz&ouml;sisch (vereinheitlicht 2007)@
+fr-CA|Franz&ouml;sisch (Kanada)@
+fr-cbifs|Franz&ouml;sisch (Code Braille Informatique Français Standard)@
+fr|Franz&ouml;sisch@
+fr-FR|Franz&ouml;sisch (Frankreich)@
+fr-vs|Franz&ouml;sisch (VisioBraille)@
+ga|Irisch@
+gd|G&auml;lisch@
+gon|Gondisch@
 gu|Gujarati@
-he|Hebrew@
+he|Hebr&auml;isch@
 hi|Hindi@
-hr|Croatian@
-hu|Hungarian@
-hy|Armenian@
-is|Icelandic@
-it|Italian@
+hr|Kroatisch@
+hu|Ungarisch@
+hy|Armenisch@
+is|Isl&auml;ndisch@
+it|Italienisch@
 kha|Khasi@
-kn|Kannada@
+kn|Kanaresisch@
 kok|Konkani@
 kru|Kurukh@
-lt|Lituanian@
-lv|Latvian@
-mg|Malagasy@
+lt|Litauisch@
+lv|Lettisch@
+mg|Madagaskar@
 mi|Maori@
 ml|Malayalam@
 mni|Manipuri@
 mr|Marathi@
-mt|Maltese@
+mt|Maltesisch@
 mun|Munda@
 mwr|Marwari@
-ne|Nepali@
+ne|Nepalesisch@
 new|Newari@
-nl|Dutch@
-nl&lowbar;BE|Dutch (Belgium)@
-nl&lowbar;NL|Dutch (Netherlands)@
-no|Norwegian@
-no-generic|Norwegian (with support for other languages)@
-no-oub|Norwegian (Offentlig Utvalg for Blindeskrift)@
-nwc|Newari (old)@
+nl-BE|Niederl&auml;ndisch (Belgien)@
+nl|Niederl&auml;ndisch@
+nl-NL|Niederl&auml;ndisch (Niederlande)@
+no-generic|Norwegisch (mit Support f&uuml;r andere Sprachen)@
+no|Norwegisch@
+no-oup|Norwegisch (Offentlig utvalg for punktskrift)@
+nwc|Newari (alt)@
 or|Oriya@
 pa|Panjabi@
 pi|Pali@
-pl|Polish@
-pt|Portuguese@
-ro|Romanian@
-ru|Russian@
+pl|Polnisch@
+pt|Portugisisch@
+ro|Rum&auml;nisch@
+ru|Russisch@
 sa|Sanskrit@
 sat|Santali@
 sd|Sindhi@
-sk|Slovak@
-sl|Slovenian@
-sv|Swedish@
-sv-1989|Swedish (1989 standard)@
-sv-1996|Swedish (1996 standard)@
+sk|Slowenisch@
+sl|Slovenisch@
+sv-1989|Schwedisch (1989 Standard)@
+sv-1996|Schwedisch (1996 Standard)@
+sv|Schwedisch@
 sw|Swahili@
-ta|Tamil@
+ta|Tamilisch@
 te|Telugu@
-tr|Turkish@
-vi|Vietnamese@
+tr|T&uuml;rkisch@
+vi|Vietnamesisch@
+
+
