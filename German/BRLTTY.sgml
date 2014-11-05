@@ -3660,45 +3660,38 @@ Wenn das erste Zeichen einer Zeile, das kein Leerzeichen ist, ein "&num;"-Zeiche
 Die folgenden Schlüsselwörter werden unterstützt:
 <descrip>
   <tag><tt/char/ <em/Zeichen/ <em/Punkte/ &num; <em/Kommentar /</tag>
-    Use the <tt/char/ directive to specify
-    how a Unicode character is to be represented in braille.
-    Characters defined with this directive
-    can also be entered from a braille keyboard.
-    If several characters have the same braille representation
-    then only one of them should be defined with the <tt/char/ directive -
-    the others should be defined with the <tt/glyph/ directive
-    (which has the same syntax).
-    If more than one character with the same braille representation
-    is defined with the <tt/char/ directive
-    (which is currently allowed for backward compatibility)
-    then the first one is selected.
-
+    Mit der Direktive <tt/char/ definieren Sie, wie ein Unicode-Zeichen in Braille dargestellt werden soll.
+    Zeichen die mit dieser Direktive definiert wurden, können auch mit einem Braille-Keyboard eigegeben werden.
+    Falls mehrere Zeichen die gleiche Darstellung in Braille haben, soll nur eines mit der Direktive  <tt/char/ definiert werden, alle anderen 
+    sollten mit der Direktive <tt/glyph/ (welche die selbe Syntax hat) definiert werden.
+    Falls tatsächlich mehrere Zeichen durch die Direktive <tt/char/ definiert wurden, welche allerdings die selbe Braille-Darstellung haben, wird das erste Zeichen verwendet. Dies ist momentan aus Gründen der Abwärtskompatibilität erlaubt.
     <descrip>
       <tag><em/Zeichen/</tag>
-        The Unicode character being defined.
-        It may be:
+        Das zu definierende Unicode-Zeichen.
+        Möglich sind:
         <itemize>
           <item>
-            Any single character other than a backslash or a white-space character.
+            Ein beliebiges Zeichen ausser Backslash oder Leertaste.
           <item>
-            A backslash-prefixed special character.
-            These are:
+            Ein Spezialzeichen, angeführ von einem Backslash ("escaping")
+            Diese sind:
             <descrip>
-            - <tag/\b/The backspace character.
-            - <tag/\f/The formfeed character.
-            - <tag/\n/The newline character.
-            - <tag/\o&num;&num;&num;/The three-digit octal representation of a character.
-            - <tag/\r/The carriage return character.
-            - <tag/\s/The space character.
-            - <tag/\t/The horizontal tab character.
-            - <tag/\u&num;&num;&num;&num;/The four-digit hexadecimal representation of a character.
-            - <tag/\U&num;&num;&num;&num;&num;&num;&num;&num;/The eight-digit hexadecimal representation of a character.
-            - <tag/\v/The vertical tab character.
-            - <tag/\x&num;&num;/The two-digit hexadecimal representation of a character.
-            - <tag/\X&num;&num;/... (the case of the X and of the digits isn't significant)
-            - <tag/\&num;/A literal number sign.
-            - <tag/\&lt;name&gt;/The Unicode name of a character (use _ for space).
-            - <tag/\\/A literal backslash.
+            - <tag/\b/Das Löschzeichen (Backspace).
+            - <tag/\f/Das Seitenvorschub-Zeichen.
+            - <tag/\n/Das Neue-Zeile-Zeichen.
+            - <tag/\o&num;&num;&num;/Die 3 Ziffern lange oktale Nummer eines Zeichens.
+            - <tag/\r/Das Wagenrücklauf-Zeichen.
+            - <tag/\s/Das Leerzeichen.
+            - <tag/\t/Das horizontale Tabulator-Zeichen.
+            - <tag/\u&num;&num;&num;&num;/Die 4 Ziffern lange hexadezimale Nummer eines Zeichens.
+            - <tag/\U&num;&num;&num;&num;&num;&num;&num;&num;/Die 8 Ziffern lange hexadezimale Nummer eines Zeichens.
+            - <tag/\v/das vertikale Tabulator-Zeichen.
+
+            - <tag/\x&num;&num;/Die 2 Ziffern lange hexadezimale Nummer eines Zeichens.
+            - <tag/\X&num;&num;/... (die  Klein- bzw. Großschreibung des Buchstabens X und der Hex-Nummenr ist egal).
+            - <tag/\&num;/Das Raute-Zeichen
+            - <tag/\&lt;name&gt;/Der Unicode-Name eines Zeichens. (Verwenden Sie _ für das Leerzeichen).
+            - <tag/\\/Ein Backslash-zeichen.
             </descrip>
         </itemize>
       <tag><em/Punkte/</tag>
