@@ -2117,7 +2117,7 @@ Die folgenden Anweisungen werden unterstützt:
     Spezifiziert Parameter für Bildschirm-Treiber.
     Wird ein Parameter mehrmals angegeben, wird der zuletzt definierte verwendet.
     Wird ein Parameter zusammen mit einer Treiberkennung (siehe Abschnitt <ref id="screen" name="Unterstützte Bildschirm-Treiber">) angegeben, bezieht sich der Parameter  nur auf diesem Treiber, ansonsten gilt er für alle Treiber.
-    Für eine Liste der möglichen Paramter eines Treibers konsultieren Sie die Dokumentations des jeweiligen Treibers.
+    Für eine Liste der möglichen Paramter eines Treibers konsultieren Sie die Dokumentation des jeweiligen Treibers.
     Beachten Sie auch die Build-Option <ref id="build-screen-parameters" name="--with-screen-parameters"> zum Einstellen der Standardwerte während des Kompilierens.
     Diese Anweisung kann durch den Kommandozeilenparameter 
     <ref id="options-screen-parameters" name="-X"> auch nachträglich verändert werden.
@@ -2137,58 +2137,50 @@ Die folgenden Anweisungen werden unterstützt:
     Wird ein Parameter mehrmals angegeben, wird der zuletzt definierte verwendet.
     Bezieht sich ein Paramter auf einen speziellen Treiber (siehe Abschnitt <ref id="drivers" name="Treiberkennungen">)
     wirkt dieser nur auf den spezifizierten Trieber, ansonsten gilt er für alle.
-    Für eine Liste der möglichen Paramter eines Treibers konsultieren Sie die Dokumentations des jeweiligen Treibers.
+    Für eine Liste der möglichen Paramter eines Treibers konsultieren Sie die Dokumentation des jeweiligen Treibers.
     Beachten Sie auch die Build-Option  <ref id="build-speech-parameters" name="--with-speech-parameters">
     zum Einstellen der Standardwerte während des Kompilierens.
     Diese Anweisung kann durch den Kommandozeilenparameter 
     <ref id="options-speech-parameters" name="-S"> auch nachträglich verädert werden.
   <tag><tt/text-table/ <em/Datei/|<tt/auto/<label id="configure-text-table"></tag>
-    Git die zu verwendende Text-Tabelle (siehe Abschnitt <ref id="table-text" name="Text-Tabellen"> für Details).
+    Gibt die zu verwendende Text-Tabelle (siehe Abschnitt <ref id="table-text" name="Text-Tabellen"> für Details).
     Wird hier ein relativer Pfad angegeben, wird dieser relativ zum Verzeichnis  <tt>/etc/brltty</> angenommen (siehe Build-Optionen <ref id="build-data-directory" name="--with-data-directory"> und <ref id="build-execute-root" name="--with-execute-root"> für mehr Details).
     Die Dateiendung <tt/.ttb/ ist optional.
-    Standardmäßig wird automatisch eine Tabelle, basierend auf den aktuellen Spracheinstellungen ihres Systems, gewählt. Kann keine passende Tabelle gefunden werden, wird die Standardtabelle (siehe Build-Option <ref id="build-text-table" name="--with-text-table">) verwendet.
-    Diese Anweisung Kann durch den Kommandozeilenparameter
+    Standardmäßig wird automatisch eine Tabelle basierend auf den aktuellen Spracheinstellungen ihres Systems gewählt. Kann keine passende Tabelle gefunden werden, wird die Standardtabelle (siehe Build-Option <ref id="build-text-table" name="--with-text-table">) verwendet.
+    Diese Anweisung kann durch den Kommandozeilenparameter
     <ref id="options-text-table" name="-t"> auch nachträglich verändert werden.
 </descrip>
 
-<sect1>Command Line Options<label id="options"><p>
-Many settings can be explicitly specified when invoking BRLTTY.
-The <tt/brltty/ command accepts the following options:
+<sect1>Kommandozeilenparameter<label id="options"><p>
+Viele Einstellungen können auch direkt beim Starten von BRLTTY angegeben werden.
+Das Programm <tt/brltty/ akzeptiert hier folgende Optionen:
 <descrip>
-  <tag><tt/-a/<em/file/ <tt/--attributes-table=/<em/file/<label id="options-attributes-table"></tag>
-    Specify the attributes table
-    (see section <ref id="table-attributes" name="Attributes Tables"> for details).
-    If a relative path is supplied, then it's anchored at <tt>/etc/brltty</>
-    (see the <ref id="build-data-directory" name="--with-data-directory">
-    and the <ref id="build-execute-root" name="--with-execute-root">
-    build options for more details).
-    The <tt/.atb/ extension is optional.
-    See the <ref id="configure-attributes-table" name="attributes-table">
-    configuration file directive for the default run-time setting.
-    This setting can be changed with the
-    <ref id="preference-attributes-table" name="Attributes Table"> preference.
-  <tag><tt/-b/<em/driver/<tt/,/...|<tt/auto/ <tt/--braille-driver=/<em/driver/<tt/,/...|<tt/auto/<label id="options-braille-driver"></tag>
-    Specify the braille display driver
-    (see section <ref id="operand-driver" name="Driver Specification">).
-    See the <ref id="configure-braille-driver" name="braille-driver">
-    configuration file directive for the default run-time setting.
-  <tag><tt/-c/<em/file/ <tt/--contraction-table=/<em/file/<label id="options-contraction-table"></tag>
-    Specify the contraction table
-    (see section <ref id="table-contraction" name="Contraction Tables"> for details).
-    If a relative path is supplied, then it's anchored at <tt>/etc/brltty</>
-    (see the <ref id="build-data-directory" name="--with-data-directory">
-    and the <ref id="build-execute-root" name="--with-execute-root">
-    build options for more details).
-    The <tt/.ctb/ extension is optional.
-    The contraction table is used when the 6-dot braille feature is activated
-    (see the <ref id="command-SIXDOTS" name="SIXDOTS"> command
-    and the <ref id="preference-text-style" name="Text-Stil"> preference).
-    See the <ref id="configure-contraction-table" name="contraction-table">
-    configureation file directive for the default run-time setting.
-    This setting can be changed with the
-    <ref id="preference-contraction-table" name="Contraction Table"> preference.
-    This option isn't available if the
-    <ref id="build-contracted-braille" name="--disable-contracted-braille"> build option was specified.
+  <tag><tt/-a/<em/Datei/ <tt/--attributes-table=/<em/Datei/<label id="options-attributes-table"></tag>
+    Gibt die Attribut-Tabelle (siehe Abschnitt <ref id="table-attributes" name="Attribut-Tabellen"> für Details) an, die verwendet werden soll.
+    Wird hier ein relativer Pfad angegeben, wird dieser relativ zu  <tt>/etc/brltty</> angenommen
+    (siehe die Build-Optionen <ref id="build-data-directory" name="--with-data-directory">
+    und <ref id="build-execute-root" name="--with-execute-root"> für Details).
+    Die Dateieendung <tt/.atb/ ist optional.
+    Beachten Sie die Anweisung <ref id="configure-attributes-table" name="attributes-table">
+    in der Konfigurationsdatei für die Standardeinstellung zur Laufzeit. 
+    Die Attribut-Tabelle kann auch mit der Einstellung  <ref id="preference-attributes-table" name="Attributes Table"> festgelegt werden.
+  <tag><tt/-b/<em/Treiber/<tt/,/...|<tt/auto/ <tt/--braille-driver=/<em/Treiber/<tt/,/...|<tt/auto/<label id="options-braille-driver"></tag>
+    Gibt an, welcher Braillezeilen-Treiber (siehe Abschnitt <ref id="operand-driver" name="Treiber-Spezifikation">) verwendet werden soll.
+    Mit der Anweisung <ref id="configure-braille-driver" name="braille-driver"> in der Konfigurationsdatei kann der Standardtreiber zur Laufzeit festgelegt werden.
+  <tag><tt/-c/<em/Datei/ <tt/--contraction-table=/<em/Datei/<label id="options-contraction-table"></tag>
+    Gibt an, welche Kurzschrift-Tabelle (siehe Abschnitt <ref id="table-contraction" name="Kurzschrift-Tabellen"> für Details) verwendet werden soll.
+    Wird hier ein relativer Pfad angegeben, wir dieer relativ zu <tt>/etc/brltty</> angenommen
+    (siehe die Build-Optionen <ref id="build-data-directory" name="--with-data-directory">
+    und <ref id="build-execute-root" name="--with-execute-root"> für Details).
+    Die Dateieendung <tt/.ctb/ ist optional.
+    Die Kurzschrift-Tabelle wird verwendet wenn die 6-Punkt-Braille Funktion aktiv ist
+    (siehe dazu das Kommando <ref id="command-SIXDOTS" name="SIXDOTS">
+    und die Einstellung <ref id="preference-text-style" name="Text-Stil">).
+    Die Anweisung <ref id="configure-contraction-table" name="contraction-table">
+    in der Konfigurationsdatei definiert hierfür den Standardwert zur Laufzeit.
+    Die Kurzschrift-Tabelle kann auch mit der Einstellung 
+    <ref id="preference-contraction-table" name="Contraction Table"> festgelegt werden.
+    Falls die Build-Option  <ref id="build-contracted-braille" name="--disable-contracted-braille"> verwendet wurde, ist diese Option nicht verfügbar.
   <tag><tt/-d/<em/device/<tt/,/... <tt/--braille-device=/<em/device/<tt/,/...<label id="options-braille-device"></tag>
     Specify the device to which the braille display is connected
     (see section <ref id="operand-braille-device" name="Braille Device Specification">).
