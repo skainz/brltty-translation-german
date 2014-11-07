@@ -3889,7 +3889,7 @@ BRLTTY zeigt Kurzschrift-Braille an, falls:
     Beachten Sie auch den Kommandozeilenparameter <ref id="options-contraction-table" name="-c"> und die <ref id="configure-contraction-table" name="contraction-table">-Direktive in der Konfigurationsdatei. 
   <item>
     Der 6-Punkte Braille Modus aktiv ist.
-    Beachten Sie dazu das Kommando <ref id="command-SIXDOTS" name="SIXDOTS">  und die <ref id="preference-text-style" name="#TODOText Style"> Einstellung.
+    Beachten Sie dazu das Kommando <ref id="command-SIXDOTS" name="SIXDOTS">  und die <ref id="preference-text-style" name="Text-Stil"> Einstellung.
 </itemize>
 Diese Funktion ist nicht verfügbar, wenn die Build-Option <ref id="build-contracted-braille" name="--disable-contracted-braille"> angegeben wurde. 
 
