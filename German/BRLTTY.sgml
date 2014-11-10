@@ -3683,23 +3683,20 @@ Die folgenden Schlüsselwörter werden unterstützt:
             - <tag/\X&num;&num;/... (die  Klein- bzw. Großschreibung des Buchstabens X und der Hex-Nummenr ist egal).
             - <tag/\&num;/Das Raute-Zeichen
             - <tag/\&lt;name&gt;/Der Unicode-Name eines Zeichens. (Verwenden Sie _ für das Leerzeichen).
-            - <tag/\\/Ein Backslash-zeichen.
+            - <tag/\\/Ein Backslash-Zeichen.
             </descrip>
         </itemize>
       <tag><em/Punkte/</tag>
-        The braille representation of the Unicode character.
-        It is a sequence of one to eight dot numbers.
-        If the dot number sequence is enclosed within parentheses
-        then the dot numbers may be separated from one another by white-space.
-        A dot number is a digit within the range <tt/1/-<tt/8/ as defined by the
-        <ref id="dots" name="Standard Braille Dot Numbering Convention">.
-        The special dot number <tt/0/ is recognized
-        when not enclosed within parentheses,
-        and means no dots;
-        it may not be used in conjunction with any other dot number.
+        Die Braille-Darstellung eines Unicode-Zeichens.
+        Dies ist eine Zeichenkette aus 1 bis 8 Punkt-Nummern, die die Braille-Punkte repräsentieren.
+        Falls eine Zeichenkette mit Klammern eingefasst ist, können Die Punkt-Nummern auch mit Leezeichen getrennt werden.  
+        Die Punkte-Nummern sind Ziffern zwichen <tt/1/-<tt/8/ (inlusive), wie in der 
+        <ref id="dots" name="Standardisierte Braillepunkt-Nummerierung"> definiert.
+        Die spezielle Punktnummer <tt/0/ ist nur ohne Klammern gültig und bedeutet, daß keine Punkte gesetzt werden. Sie darf auch nicht mit
+        anderen Nummern kombiniert werden.
     </descrip>
 
-    Examples:
+    Beispiele:
     <itemize>
       <item><tt/char a 1/
       <item><tt/char b (12)/
@@ -3709,13 +3706,12 @@ Die folgenden Schlüsselwörter werden unterstützt:
       <item><tt/char \x20 ()/
       <item><tt/char \&lt;LATIN_SMALL_LETTER_D&gt; 145/
     </itemize>
-  <tag><tt/glyph/ <em/character/ <em/dots/ &num; <em/comment/</tag>
-    Use the <tt/glyph/ directive to specify
-    how a Unicode character is to be represented in braille.
-    Characters defined with this directive are output-only. 
-    They cannot be entered from a braille keyboard.
+  <tag><tt/glyph/ <em/Zeichen/ <em/Punkte/ &num; <em/Kommentar/</tag>
+    Verwenden Sie die Anweisung <tt/glyph/ um zu spezifizieren,
+    wie ein Unicode-Zeichen in Braille dargestellt werden soll.
+    Zeichen, die hier definiert werden, sind nur für die Ausgabe gedacht, sie können also nicht über ein Braille-Keyboard eingegeben werden.
 
-    See the <tt/char/ directive for syntax details and for examples.
+    Beachten Sie auch die Direktive  <tt/char/ für Details zur Syntax und für Beispiele.
   <tag><tt/byte/ <em/byte/ <em/dots/ &num; <em/comment/</tag>
     Use the <tt/byte/ directive to specify how
     a character in the local character set 
