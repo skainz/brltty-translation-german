@@ -2181,30 +2181,22 @@ Das Programm <tt/brltty/ akzeptiert hier folgende Optionen:
     Die Kurzschrift-Tabelle kann auch mit der Einstellung 
     <ref id="preference-contraction-table" name="Contraction Table"> festgelegt werden.
     Falls die Build-Option  <ref id="build-contracted-braille" name="--disable-contracted-braille"> verwendet wurde, ist diese Option nicht verfügbar.
-  <tag><tt/-d/<em/device/<tt/,/... <tt/--braille-device=/<em/device/<tt/,/...<label id="options-braille-device"></tag>
-    Specify the device to which the braille display is connected
-    (see section <ref id="operand-braille-device" name="Braille Device Specification">).
-    See the <ref id="configure-braille-device" name="braille-device">
-    configuration file directive for the default run-time setting.
+  <tag><tt/-d/<em/Gerät/<tt/,/... <tt/--braille-device=/<em/Gerät/<tt/,/...<label id="options-braille-device"></tag>
+    Gibt die Schnittstelle an, an welcher die Braille-Zeile angeschlossen ist
+    (siehe Abschnitt <ref id="operand-braille-device" name="Braille Geräte-Spezifikation">).
+    Beachten Sie die Konfigurationseinstellung <ref id="configure-braille-device" name="braille-device">
+    für die Standardeinstellung zur Laufzeit.
   <tag><tt/-e/ <tt/--standard-error/<label id="options-standard-error"></tag>
-    Write diagnostic messages to standard error.
-    The default is to record them via <tt/syslog/.
-  <tag><tt/-f/<em/file/ <tt/--configuration-file=/<em/file/<label id="options-configuration-file"></tag>
-    Specify the location of the <ref id="configure" name="Konfigurationsdatei">
-    which is to be used for the establishing of default run-time settings.
+    Gibt Diagnose-Nachrichten auf der Standard-Fehler-Ausgabe aus. Standardmäßig werden diese via <tt/syslog/ aufgezeichnet.
+  <tag><tt/-f/<em/Datei/ <tt/--configuration-file=/<em/Datei/<label id="options-configuration-file"></tag>
+    Gibt den Dateipfad der <ref id="configure" name="Konfigurationsdatei"> an, aus welcher die Standardeinstellungen für die Laufzeit eingelesen werden.
   <tag><tt/-h/ <tt/--help/<label id="options-help"></tag>
-    Display a summary of the command line options accepted by BRLTTY,
-    and then exit.
-  <tag><tt/-i/<em/name/ <tt/--speech-input=/<em/name/<label id="options-speech-input"></tag>
-    Specify the name of the file system object
-    (FIFO, named pipe, named socket, etc)
-    which can be used by other applications
-    for text-to-speech conversion via BRLTTY's speech driver.
-    If not specified, the file system object is not created.
-    See the <ref id="configure-speech-input" name="speech-input">
-    configuration file directive for the default run-time setting.
-    This option isn't available if the
-    <ref id="build-speech-support" name="--disable-speech-support"> build option was specified.
+   Zeigt eine Zusammenfassung aller Kommandozeilenparameter an, die BRLTTY akzeptiert, und beendet das Programm dann. 
+  <tag><tt/-i/<em/Name/ <tt/--speech-input=/<em/Name/<label id="options-speech-input"></tag>
+   Gibt den Namens des Dateiobjekts (FIFO, Pipe, Socket, etc) an, welches von anderen Programmen verwendet werden kann, um Text-zu-Sprache Funktionen von BRLTTY zu nutzen. Falls diese Option nicht angegeben wird, wird das Dateiobjekt nicht angelegt.
+    Beachten Sie auch die Anweisung <ref id="configure-speech-input" name="speech-input"> in der Konfigurationsdatei für die Standardeinstellung zur Laufzeit.
+    Diese Option ist nicht verfügbar, wenn die Build-Option <ref id="build-speech-support" name="--disable-speech-support"> 
+    verwendet wurde.
   <tag><tt/-k/<em/file/ <tt/--key-table=/<em/file/<label id="options-key-table"></tag>
     Specify the key table
     (see section <ref id="table-key" name="Key Tables"> for details).
