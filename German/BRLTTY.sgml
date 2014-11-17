@@ -3632,7 +3632,7 @@ BRLTTY ist standardmäßig so eingestellt, dass die
 Zusätzlich zu dieser Standardtabelle sind noch folgende Tabellen verfügbar:
 <table loc="h">
   <tabular ca="ll">
-    Name|Language@
+    Name|Sprache@
     &TextTables
   </tabular>
 </table>
@@ -3690,7 +3690,7 @@ Die folgenden Schlüsselwörter werden unterstützt:
         Die Braille-Darstellung eines Unicode-Zeichens.
         Dies ist eine Zeichenkette aus 1 bis 8 Punkt-Nummern, die die Braille-Punkte repräsentieren.
         Falls eine Zeichenkette mit Klammern eingefasst ist, können Die Punkt-Nummern auch mit Leezeichen getrennt werden.  
-        Die Punkte-Nummern sind Ziffern zwichen <tt/1/-<tt/8/ (inlusive), wie in der 
+        Die Punkte-Nummern sind Ziffern zwischen <tt/1/-<tt/8/ (inklusive), wie in der 
         <ref id="dots" name="Standardisierte Braillepunkt-Nummerierung"> definiert.
         Die spezielle Punktnummer <tt/0/ ist nur ohne Klammern gültig und bedeutet, daß keine Punkte gesetzt werden. Sie darf auch nicht mit
         anderen Nummern kombiniert werden.
@@ -3712,40 +3712,28 @@ Die folgenden Schlüsselwörter werden unterstützt:
     Zeichen, die hier definiert werden, sind nur für die Ausgabe gedacht, sie können also nicht über ein Braille-Keyboard eingegeben werden.
 
     Beachten Sie auch die Direktive  <tt/char/ für Details zur Syntax und für Beispiele.
-  <tag><tt/byte/ <em/byte/ <em/dots/ &num; <em/comment/</tag>
-    Use the <tt/byte/ directive to specify how
-    a character in the local character set 
-    is to be represented in braille.
-    It has been retained for backward compatibility but should not be used.
-    Unicode characters should be defined
-    (via the <tt/char/ directive)
-    so that the text table remains valid
-    regardless of what the local character set is.
-
+  <tag><tt/byte/ <em/Byte/ <em/Punkte/ &num; <em/Kommentar/</tag>
+    Verwenden Sie die Anweisung <tt/byte/ um zu definieren, wie Zeichen im aktuellen Zeichensatz in Braille dargestellt werdne sollen.
+    Diese Anweisung ist aus Gründen der Abwärtskompatibilität noch erhalten geblieben, sollte aber nicht mehr verwendet werden. Sie sollten stattdessen die Anweisung <tt/char/ verwenden, damit die Text-Tabelle unabhängig von gerade verwendeten Zeichensatz gültig bleibt.
     <descrip>
-      <tag><em/byte/</tag>
-        The local character being defined.
-        It may be specified in the same ways
-        as the <em/character/ operand of the <tt/char/ directive 
-        except that the Unicode-specific forms
+      <tag><em/Byte/</tag>
+        Das zu definierende Zeichen.
+	Dieses kann gleich wie das <em/Zeichen/ bei der Anweisung  <tt/char/ definiert werden,
+        nur die Unicode-spezifischen Formen
         (\u, \U, \&lt;)
-        may not be used.
-      <tag><em/dots/</tag>
-        The braille representation of the local character.
-        It may be specified in the same ways
-        as the <em/dots/ operand of the <tt/char/ directive.
+        können nicht verwendet werden.
+      <tag><em/Punkte/</tag>
+	Die Braille-Darstellung des Zeichens. Die Definitions ist hier gleich wie die 
+        <em/Punkte/ bei der Anweisung <tt/char/.
     </descrip>
-  <tag><tt/include/ <em/file/ &num; <em/comment/</tag>
-    Use the <tt/include/ directive to include the content of a text subtable.
-    It is recursive, which means that
-    any text subtable can itself include yet another text subtable.
-    Care must be taken to ensure that an "include loop" is not created.
+  <tag><tt/include/ <em/Datei/ &num; <em/Kommentar/</tag>
+    Verwenden Sie die Anweisung <tt/include/ um den Inhalt einer anderen Unter-Tabelle einzubetten.
+    Diese Anweisung ist rekursiv, dass bedeutet, Sie können diese auch in der Unter-Tabelle verwenden, um in dieser weitere Unter-Tabellen einzubetten.
+    Bitte beachten Sie, dass Sie keine Schleife beim Einbetten von Unter-Tabellen erzeugen.
 
     <descrip>
-      <tag><em/file/</tag>
-        The file to be included.
-        It may be either a relative or an absolute path.
-        If relative, it is anchored at the directory containing the including file.
+      <tag><em/Datei/</tag>
+        Die einzubettende Datei. Hier kann ein absoluter oder relativer Pfad angegeben werden. Wird ein relativer Pfad verwendet, wird dieser relativ zur Pfad der aktuellen Text-Tabelle (welche die Unter-Tabelle einbetten) angenommen.
     </descrip>
 </descrip>
 
