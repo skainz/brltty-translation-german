@@ -2197,18 +2197,15 @@ Das Programm <tt/brltty/ akzeptiert hier folgende Optionen:
     Beachten Sie auch die Anweisung <ref id="configure-speech-input" name="speech-input"> in der Konfigurationsdatei für die Standardeinstellung zur Laufzeit.
     Diese Option ist nicht verfügbar, wenn die Build-Option <ref id="build-speech-support" name="--disable-speech-support"> 
     verwendet wurde.
-  <tag><tt/-k/<em/file/ <tt/--key-table=/<em/file/<label id="options-key-table"></tag>
-    Specify the key table
-    (see section <ref id="table-key" name="Key Tables"> for details).
-    If a relative path is supplied, then it's anchored at <tt>/etc/brltty</>
-    (see the <ref id="build-data-directory" name="--with-data-directory">
-    and the <ref id="build-execute-root" name="--with-execute-root">
-    build options for more details).
-    The <tt/.ktb/ extension is optional.
-    See the <ref id="configure-key-table" name="key-table">
-    configureation file directive for the default run-time setting.
-    This setting can be changed with the
-    <ref id="preference-key-table" name="Key Table"> preference.
+  <tag><tt/-k/<em/Datei/ <tt/--key-table=/<em/Datei/<label id="options-key-table"></tag>
+    Gibt den Namen der Tasten-Tabellen-Datei (siehe Abschnitt <ref id="table-key" name="Tasten-Tabellen"> für Details) an.
+    Wird hier ein relativer Pfad angegeben, wird dieser relativ zu <tt>/etc/brltty</> angenommen
+    (Beachten Sie herzu die Build-Optionen <ref id="build-data-directory" name="--with-data-directory">
+    und <ref id="build-execute-root" name="--with-execute-root">
+    für weitere Details).
+    Die Dateiendung <tt/.ktb/ ist optional.
+    Beachten Sie auch die Direktive <ref id="configure-key-table" name="key-table"> in der Konfigurationsdatei für die Standardeinstellung zur Laufzeit.
+    Dieser Wert kann auch mit der Einstellung <ref id="preference-key-table" name="Tastentabelle"> geändert werden.
   <tag><tt/-l/<em/level/ <tt/--log-level=/<em/level/<label id="options-log-level"></tag>
     Specify the severity threshold for diagnostic message generation.
     The following levels are recognized.
@@ -3402,9 +3399,9 @@ Notes:
     See section <ref id="table-contraction" name="Contraction Tables"> for details.
     See the <ref id="options-contraction-table" name="-c"> command line option for the initial setting.
     This preference isn't saved.
-  <tag>Key Table<label id="preference-key-table"></tag>
+  <tag>Tastentabelle<label id="preference-key-table"></tag>
     Select the key table.
-    See section <ref id="table-key" name="Key Tables"> for details.
+    See section <ref id="table-key" name="Tasten-Tabellen"> for details.
     See the <ref id="options-key-table" name="-k"> command line option for the initial setting.
     This preference isn't saved.
 </descrip>
