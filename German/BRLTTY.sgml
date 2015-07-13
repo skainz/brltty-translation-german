@@ -4727,14 +4727,13 @@ If, however, you copy it from the build directory, it'll be way too big.
 Don't forget to strip it.
 <tscreen>strip brltty</tscreen>
 
-<sect1>Future Enhancements<p>
-Apart from fixing bugs and supporting more types of braille displays,
-we hope, time permitting, to work on the following:
+<sect1>Zukünftige Erweiterungen<p>
+Abgesehn vom korrigieren von Fehlern und dem Unterstützen von noch mehr Braillezeilen werden wir, sofern es die Zeit zulässt, and Folgendem arbeiten:
 <descrip>
-  <tag/Better Attribute Handling/
+  <tag/Verbessertes Attribute-Handling/
     <itemize>
-      <item>Attribute tracking.
-      <item>Mixed text and attribute mode.
+      <item>Nachverfolgen von Attributen.
+      <item>Gemeinsamer Text- und Attribut-Modus.
     </itemize>
   <tag/Scroll Tracking/
     Locking the braille window to one line as it scrolls on the screen.
@@ -4750,16 +4749,10 @@ we hope, time permitting, to work on the following:
 </descrip>
 See the file <tt/TODO/ for a more complete list.
 
-<sect1>Known Bugs<p>
-At the time of writing (December 2001), the following problems are known:
-
-Cursor routing is implemented as a looping sub-process
-which runs at reduced priority to avoid using too much cpu time.
-Different system loads require different settings of its parameters.
-The defaults work very well
-in a typical Unix editor on a fairly lightly loaded system,
-but very poorly in some other situations,
-e.g. over a slow serial link to a remote host.
+<sect1>Bekannte Fehler<p>
+Aktuell (December 2001) sind folgende Probleme bekannt:
+Das Cursor-Routing ist als ein sich wiederholender Unterprozess mit verringerter Priorität umgesetzt, um nicht zuviel Rechenzeit zu verbrauchen. 
+Verschiedene Lastsituationen des Computersystems benötigen möglicherweise andere oder angepasste Einstellungen. Die Standardeinstellungen funktionieren beispielsweise mit einem typischen Unix Dateieditor bei geringer Systemlast, jedoch nicht sehr gut bei z.B. einer langsamen Verbindung zu einem entfernten Rechner.
 
 <appendix>
 
@@ -4813,14 +4806,14 @@ nur auf Linux-Systemen verfügbar und wird hier als Standardtreiber verwendet.
 Dieser Treiber ist nur auf Windows-Systemen verfügbar und wird hier als Standardtreiber verwendet.
 </descrip>
 
-<sect>Operand Syntax<p>
+<sect>Syntax der Schlüsselworte<p>
 
 <sect1>Treiber-Spezifikation<label id="operand-driver"><p>
-Ein Brailler-Treiber oder Sprachsynthese-Trieber muss durch eine 2Zeichen lange
+Ein Brailler-Treiber oder Sprachsynthese-Treiber muss durch eine 2 Zeichen lange
 <ref id="drivers" name="Treiberkennung"> spezifiziert werden.
 
 Eine Liste von Treibern, durch Komma getrennt, kann angegeben werden. Daraufhin wir eine automatische Erkennung jedes Treibers in der Liste durchgeführt.
-Sie müssen hier möglicherweise mit der Reihenfolge der Trieber experimentieren, um die stabilste Reihenfolge zu finden, da bei einigen Treibern die automaitsche Erkennung besser funktioniert als bei anderen.
+Sie müssen hier möglicherweise mit der Reihenfolge der Treiber experimentieren, um die stabilste Reihenfolge zu finden, da bei einigen Treibern die automaitsche Erkennung besser funktioniert als bei anderen.
 
 Wenn nur das Wort <tt/auto/ angegeben wird, wird nur die automaitsche Erkennung von Treibern durchgeführt, bei denen die automatisch Erkennung bekanntermaßen stabil funktioniert.
 
