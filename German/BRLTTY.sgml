@@ -2136,7 +2136,7 @@ Die folgenden Anweisungen werden unterstützt:
     Spezifiziert Parameter für Sprachsynthese-Treiber.
     Wird ein Parameter mehrmals angegeben, wird der zuletzt definierte verwendet.
     Bezieht sich ein Paramter auf einen speziellen Treiber (siehe Abschnitt <ref id="drivers" name="Treiberkennungen">)
-    wirkt dieser nur auf den spezifizierten Trieber, ansonsten gilt er für alle.
+    wirkt dieser nur auf den spezifizierten Treiber, ansonsten gilt er für alle.
     Für eine Liste der möglichen Paramter eines Treibers konsultieren Sie die Dokumentation des jeweiligen Treibers.
     Beachten Sie auch die Build-Option  <ref id="build-speech-parameters" name="--with-speech-parameters">
     zum Einstellen der Standardwerte während des Kompilierens.
@@ -4634,50 +4634,47 @@ Specifying <tt/0/ means match any value
 
 <sect>Advanced Topics<p>
 
-<sect1>Installing Multiple Versions<label id="multiple"><p>
-It's easy to have more than one version of BRLTTY
-installed on the same system at the same time.
-This capability allows you to test a new version before removing the old one.
+<sect1>Mehrere Versionen installieren<label id="multiple"><p>
+Es ist einfach, mehr als eine Version von BRLTTY gleichzeitig am System installiert zu haben. Dies ermöglicht es,
+eine neue Version zu testen bevor die alte entfernt wird.
 
-The <ref id="build-execute-root" name="--with-execute-root"> build option allows you
-to install the complete <ref id="hierarchy" name="installed file hierarchy">
-anywhere you want such that it's entirely self-contained.
-Remembering that it's best to keep all of BRLTTY's components
-within the root file system, you can build it like this:
+Die Build-Option <ref id="build-execute-root" name="--with-execute-root"> erlaubt es, die 
+komplette <ref id="hierarchy" name="Hierarchie der installierten Dateien"> an einen beliebigen Ort zu 
+installieren, damit diese unabhängig von eventuellen anderen BRLTTY-Installationen ist.
+
+Wenn Sie berücksichtigen, dass alle Komponenten von BRLTTY auf den Root-Dateisystem sind, können 
+Sie BRLTTY wie folgt übersetzen:
 <tscreen><verb>
 ./configure --with-execute-root=/brltty-3.1
 make install
 </verb></tscreen>
-You can then run it like this:
+der Aufruf erfolgt dann so:
 <tscreen>/brltty-3.1/bin/brltty</tscreen>
-When version 3.2 is released, just install it in a different location
-and run the new executable from there.
+Ist dann z.B. Version 3.2 verfügbar, können Sie diese einfach an einem anderen Ort 
+installieren und BRLTTY von dort aus starten, wie folgt:
 <tscreen><verb>
 ./configure --with-execute-root=/brltty-3.2
 make install
 /brltty-3.2/bin/brltty
 </verb></tscreen>
+So praktisch dieser Ansatz auf den ersten Blick auch scheint, er hat doch zumindest 2 Kritikpunkte:
+Zum einen sind diese eventuell sehr langen Dateinamen und Pfade mühsam einzutippen, zum anderen müssten 
+Sie jedesmal die neue Version eintragen, damit beim Systemstart diese auch verwendet wird.
 
-So far, this paradigm is somewhat awkward for at least two reasons.
-One is that these long path names are too hard to type,
-and the other is that you don't want to fiddle with your system's boot sequence
-each time you want to switch to a different version of BRLTTY.
-These problems are easily solved by adding a symbolic link for the executable.
+Diese Probleme können mithilfe von symbolischen Verknüpfungen (symbolic links) behoben werden.
+
 <tscreen>ln -s /brltty-3.1/bin/brltty /bin/brltty</tscreen>
-When it's time to switch to the newer version, just repoint the symbolic link.
+Beim Wechseln auf eine neue Version muss nur die Verknüpfung auf die neue Version gesetzt werden.
 <tscreen>ln -s /brltty-3.2/bin/brltty /bin/brltty</tscreen>
 
-If you'd like to get really fancy, then introduce another level of indirection
-in order to make all of BRLTTY's files for any given version
-look like they're in all of the standard places.
-First, create a symbolic link through a common repointable location
-from each of BRLTTY's standard locations.
+Eine besonders elegante Lösung ist es auch, eine Zusätzliche Ebene an Verknüpfungen einzuführen, um BRLTTY in Ihrer gewünschten Version scheinbar auf den Standardorten für Installieren Software verfügbar zu machen. Legen Sie zuerst eine Verknüpfung von einem gemeinsamen Verzeichnis auf die Unterverzeichnisse von BRLTTY.
+
 <tscreen><verb>
 ln -s /brltty/bin/brltty /bin/brltty
 ln -s /brltty/etc/brltty /etc/brltty
 ln -s /brltty/lib/brltty /lib/brltty
 </verb></tscreen>
-Then all you need to do is to point <tt>/brltty</> to the desired version.
+Dann müssen Sie nur mehr die Vernknüpfung  <tt>/brltty</> auf die gewünscht version zeigen lassen.
 <tscreen>ln -s /brltty-3.1 /brltty</tscreen>
 
 <sect1>Installation/Rescue Root Disks for Linux<p>
@@ -4728,7 +4725,7 @@ Don't forget to strip it.
 <tscreen>strip brltty</tscreen>
 
 <sect1>Zukünftige Erweiterungen<p>
-Abgesehn vom korrigieren von Fehlern und dem Unterstützen von noch mehr Braillezeilen werden wir, sofern es die Zeit zulässt, and Folgendem arbeiten:
+Abgesehen vom korrigieren von Fehlern und dem Unterstützen von noch mehr Braillezeilen werden wir, sofern es die Zeit zulässt, and Folgendem arbeiten:
 <descrip>
   <tag/Verbessertes Attribute-Handling/
     <itemize>
@@ -4799,7 +4796,7 @@ nur auf Linux-Systemen verfügbar und wird hier als Standardtreiber verwendet.
      verfügbar ist. Der Path für <tt/screen/, welcher mit BRLTTY mitkommt, 
     (siehe Unterverzeichnis <tt/Patches/)
     muss hierfür angwendet werden.
-    Da <tt/screen/ bereits laufen muss, wenn dieser Trieber verwendet werden soll, ist BRLTTY nur dann von Nutzen, wenn sich ein Benutzer 
+    Da <tt/screen/ bereits laufen muss, wenn dieser Treiber verwendet werden soll, ist BRLTTY nur dann von Nutzen, wenn sich ein Benutzer 
     am System angemeldet hat.
   <tag/wn/
      Dieser Treiber ermöglich dne Zugriff auf die Windows-Konsole.
